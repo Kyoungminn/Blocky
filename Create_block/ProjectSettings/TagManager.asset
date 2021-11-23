@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Test
   - Old
+  - GameManager
   layers:
   - Default
   - TransparentFX
