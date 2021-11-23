@@ -9,7 +9,7 @@ using UnityEngine.XR.Interaction.Toolkit;
 public class BlockCreate : MonoBehaviour
 {
     public InputField inputField;
-    public TextMesh blockText;
+    private TextMesh blockText;
     //public GameObject textPrefab;
 
     [SerializeField]
@@ -18,9 +18,10 @@ public class BlockCreate : MonoBehaviour
     public void newBlock() 
     {
         
-        blockText.text = inputField.text; //inputfield에 작성한 내용 = cubeText
+        //blockText.text = inputField.text; //inputfield에 작성한 내용 = cubeText
         GameObject Useblock = GameObject.FindWithTag("Test");
-        Useblock.transform.GetComponentInChildren<TextMesh>().text = blockText.text;
+        Useblock.transform.GetComponentInChildren<TextMesh>().text = inputField.text;
+        inputField.text = ""; // input field 초기화
         //GameObject textPrefab = (GameObject)Instantiate(Resources.Load("Prefab/BlockText")); //textPrefab 생성 
     }
 
@@ -34,11 +35,14 @@ public class BlockCreate : MonoBehaviour
         rigid.isKinematic = false;
         rigid.useGravity = true;
         
+        /*
         if(blockInstance.GetComponent<Renderer>().material.color == Color.yellow)
         {
             blockInstance.GetComponent<ForJoin>().enabled = true;
             blockInstance.GetComponent<Collider>().isTrigger = true;
         }
+        */
+
         blockInstance.GetComponent<XRGrabInteractable>().enabled = true;
         blockInstance.GetComponentInChildren<XRSimpleInteractable>().enabled = true;
         blockInstance.GetComponent<FlyBlock>().SetIsDone();

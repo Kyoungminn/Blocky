@@ -20,17 +20,23 @@ public class ForJoin : MonoBehaviour
     [SerializeField]
     private InputActionReference leftGripReference;
 
+    [SerializeField]
+    private JoinManager joinManager;
+
+    void Start()
+    {
+        joinManager = GameObject.Find("JoinManager").GetComponent<JoinManager>();
+    }
 
     private void OnCollisionEnter(Collision collision)
     {
-      
+        if (collision.transform.tag == "Old")
+            joinManager.SetObject(gameObject);
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.GetComponent<Renderer>().material.color != Color.yellow && other.gameObject.CompareTag("Old"))
-        {
-
+        /*
             pos = other.gameObject.transform.position;
             scale = gameObject.transform.localScale;
             msgText = transform.GetChild(2).GetComponent<TextMesh>().text;
@@ -47,6 +53,7 @@ public class ForJoin : MonoBehaviour
             newBlock.GetComponent<Rigidbody>().isKinematic = true;
             newBlock.GetComponent<XRGrabInteractable>().enabled = true;
             newBlock.transform.GetChild(2).GetComponent<TextMesh>().text = msgText + "+" + otherMsg;
-        }
+        */
+        
     }
 }

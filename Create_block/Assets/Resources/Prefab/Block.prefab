@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1113878655880654988}
   - component: {fileID: 7190697176392095216}
-  - component: {fileID: 1646330258314967361}
   m_Layer: 0
   m_Name: SimpleInteractable
   m_TagString: Untagged
@@ -39,13 +38,14 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 790275133291739496}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8a35f6cfbfba9b548aaa00d52cfe8a50, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_InteractionManager: {fileID: 0}
-  m_Colliders: []
+  m_Colliders:
+  - {fileID: 1835342021248456583}
   m_InteractionLayerMask:
     serializedVersion: 2
     m_Bits: 4294967295
@@ -65,7 +65,8 @@ MonoBehaviour:
   m_SelectEntered:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 3737295413453754715, guid: a0383b50dc4d7ab4b9efb6c6203eed8a,
+          type: 3}
         m_TargetAssemblyTypeName: LineManager, Assembly-CSharp
         m_MethodName: SetObject
         m_Mode: 2
@@ -77,7 +78,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 3737295413453754715, guid: a0383b50dc4d7ab4b9efb6c6203eed8a,
+          type: 3}
         m_TargetAssemblyTypeName: LineManager, Assembly-CSharp
         m_MethodName: CreateLine
         m_Mode: 1
@@ -125,19 +127,6 @@ MonoBehaviour:
   m_OnDeactivate:
     m_PersistentCalls:
       m_Calls: []
---- !u!65 &1646330258314967361
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 790275133291739496}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1835342021248456581
 GameObject:
   m_ObjectHideFlags: 0
@@ -240,7 +229,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
+  m_Size: {x: 1.1, y: 1.1, z: 1.1}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!54 &1835342021248456571
 Rigidbody:
@@ -431,7 +420,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1835342021248456581}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f27f3743a442a1744830b9624a35474f, type: 3}
   m_Name: 
@@ -446,6 +435,8 @@ MonoBehaviour:
   rightGripReference: {fileID: 187161793506945269, guid: c348712bda248c246b8c49b3db54643f,
     type: 3}
   leftGripReference: {fileID: -6131295136447488360, guid: c348712bda248c246b8c49b3db54643f,
+    type: 3}
+  joinManager: {fileID: 386083258229662809, guid: 0735c5d010e13d84b8a5d47d4b70af8d,
     type: 3}
 --- !u!1 &2896979847952835903
 GameObject:
@@ -504,7 +495,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7495209517218914427}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1835342021248456580}
@@ -529,7 +520,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10100, guid: 0000000000000000e000000000000000, type: 0}
+  - {fileID: 2100000, guid: e3265ab4bf004d28a9537516768c1c75, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -560,16 +551,16 @@ TextMesh:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7495209517218914427}
   m_Text: 
-  m_OffsetZ: 30
+  m_OffsetZ: 0
   m_CharacterSize: 1
   m_LineSpacing: 1
-  m_Anchor: 1
-  m_Alignment: 0
-  m_TabSize: 4
-  m_FontSize: 30
+  m_Anchor: 7
+  m_Alignment: 1
+  m_TabSize: 0
+  m_FontSize: 5
   m_FontStyle: 0
-  m_RichText: 1
-  m_Font: {fileID: 0}
+  m_RichText: 0
+  m_Font: {fileID: 12800000, guid: e3265ab4bf004d28a9537516768c1c75, type: 3}
   m_Color:
     serializedVersion: 2
     rgba: 4278190080
@@ -580,7 +571,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7495209517218914427}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1281f1a99f9e850478c487492649accc, type: 3}
   m_Name: 
