@@ -38,6 +38,8 @@ public class JoinManager : MonoBehaviour
             GameObject newBlock = (GameObject)Instantiate(Resources.Load("Prefab/Block"));
             newBlock.transform.localScale = scale * 2;
             newBlock.transform.position = pos;
+            Vector3 attachPoint = newBlock.transform.GetChild(0).localPosition;
+            newBlock.transform.GetChild(0).localPosition = new Vector3(attachPoint.x, attachPoint.y, attachPoint.z / 2);
             newBlock.GetComponent<MeshRenderer>().material.color = Color.green;
             newBlock.GetComponent<Rigidbody>().useGravity = false;
             newBlock.GetComponent<Rigidbody>().isKinematic = true;

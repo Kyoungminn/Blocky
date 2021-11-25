@@ -16,8 +16,8 @@ public class ColorChange : MonoBehaviour
         GameObject.FindWithTag("Test").GetComponent<Renderer>().material.color = Color.blue;
     }
 
-    public void ChangeGreen()
+    public void ChangeRed()
     {
-        GameObject.FindWithTag("Test").GetComponent<Renderer>().material.color = Color.green;
+        GameObject.FindWithTag("Test").GetComponent<Renderer>().material.color = Color.red;
     }
 }
