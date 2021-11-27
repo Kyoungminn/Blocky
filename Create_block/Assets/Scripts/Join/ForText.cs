@@ -11,7 +11,7 @@ public class ForText : MonoBehaviour
     {
         Cam = GameObject.FindGameObjectWithTag("MainCamera");
         transform.rotation = Cam.transform.rotation;
-        transform.position = transform.parent.position;
-        pos = transform.position;
+        //transform.position = transform.parent.position;
+        //pos = transform.position;
     }
 }

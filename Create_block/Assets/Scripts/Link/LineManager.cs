@@ -53,6 +53,7 @@ public class LineManager : MonoBehaviour
         }
         else
         {
+            Debug.Log("End object: " + obj.name);
             endObject = obj;
             line.GetComponent<Line>().SetEndObject(endObject);
         }

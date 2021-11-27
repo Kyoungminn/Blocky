@@ -26,7 +26,7 @@
                 {
                     "name": "",
                     "id": "cff1f981-6e1f-4e2c-a90c-715a0ea2e80e",
-                    "path": "<XRHMD>/centerEyePosition",
+                    "path": "<OculusHMD>/centerEyePosition",
                     "interactions": "",
                     "processors": "",
                     "groups": "Generic XR Controller",
