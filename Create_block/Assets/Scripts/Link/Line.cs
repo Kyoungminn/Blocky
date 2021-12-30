@@ -37,6 +37,10 @@ public class Line : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (startObject == null || endObject == null)
+        {
+            Destroy(gameObject);
+        }
         // 만약 블록의 위치가 변했다면 변한 위치에 맞추어 선의 위치도 바꾸어준다.
         // 블록들의 originPosition도 업데이트 해준다.
         if (startOriginPosition != startObject.transform.position || endOriginPosition != endObject.transform.position)

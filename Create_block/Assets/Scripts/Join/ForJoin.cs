@@ -30,7 +30,8 @@ public class ForJoin : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.transform.tag == "Old")
+        // 양쪽 블록이 모두 생성 완료된 경우에만 등록
+        if (gameObject.tag == "Old" && collision.transform.tag == "Old")
             joinManager.SetObject(gameObject);
     }
 
