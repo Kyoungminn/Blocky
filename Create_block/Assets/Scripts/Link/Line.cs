@@ -21,6 +21,8 @@ public class Line : MonoBehaviour
     private Vector3 startOriginPosition;
     private Vector3 endOriginPosition;
 
+    private RaycastHit hit;
+
     // startObject와 endObject를 저장하기 위해 LineManager에서 호출해서 사용하는 함수
     public void SetStartObject(GameObject go)
     {
@@ -49,6 +51,17 @@ public class Line : MonoBehaviour
             gameObject.GetComponent<LineRenderer>().SetPosition(1, endObject.transform.position);
             startOriginPosition = startObject.transform.position;
             endOriginPosition = endObject.transform.position;
+
+            // collider 위치와 크기도 바꾸어준다.
+            BoxCollider collider = gameObject.GetComponent<BoxCollider>();
+            float centerX = (startObject.transform.position.x + endObject.transform.position.x) / 2;
+            float centerY = (startObject.transform.position.y + endObject.transform.position.y) / 2;
+            float centerZ = (startObject.transform.position.z + endObject.transform.position.z) / 2;
+            collider.center = new Vector3(centerX, centerY, centerZ);
+            float lenX = Mathf.Abs(startObject.transform.position.x - endObject.transform.position.x);
+            float lenY = Mathf.Abs(startObject.transform.position.y - endObject.transform.position.y);
+            float lenZ = Mathf.Abs(startObject.transform.position.z - endObject.transform.position.z);
+            collider.size = new Vector3(lenX, lenY, lenZ);
         }
 
         // 아직 endObject이 컨트롤러인 경우에 대한 조건이다.
@@ -68,5 +81,10 @@ public class Line : MonoBehaviour
             }
             lineManager.SetNumZero();
         }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        Debug.Log("Trigger: " + other.name);
     }
 }

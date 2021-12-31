@@ -75,6 +75,7 @@ public class LineManager : MonoBehaviour
             // line의 속성을 조정하기 위해 component인 LineRenderer를 lr에 저장한다.
             // 그리고 색과 material, 두께 등을 정해준다.
             LineRenderer lr = line.GetComponent<LineRenderer>();
+
             lr.startColor = Color.black;
             lr.endColor = Color.black;
             lr.material = blackMtl;
@@ -123,5 +124,4 @@ public class LineManager : MonoBehaviour
             num = 1;
         }
     }
-
 }
