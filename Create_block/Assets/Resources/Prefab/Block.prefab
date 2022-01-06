@@ -68,24 +68,11 @@ MonoBehaviour:
       - m_Target: {fileID: 3737295413453754715, guid: a0383b50dc4d7ab4b9efb6c6203eed8a,
           type: 3}
         m_TargetAssemblyTypeName: LineManager, Assembly-CSharp
-        m_MethodName: SetObject
+        m_MethodName: CreateLine
         m_Mode: 2
         m_Arguments:
           m_ObjectArgument: {fileID: 1835342021248456581}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 3737295413453754715, guid: a0383b50dc4d7ab4b9efb6c6203eed8a,
-          type: 3}
-        m_TargetAssemblyTypeName: LineManager, Assembly-CSharp
-        m_MethodName: CreateLine
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -142,8 +129,9 @@ GameObject:
   - component: {fileID: 1835342021248456571}
   - component: {fileID: -3280215891019751346}
   - component: {fileID: 1835342021248456568}
+  - component: {fileID: 1258260136633344454}
+  - component: {fileID: 1159974293775138580}
   - component: {fileID: 8784453152301873755}
-  - component: {fileID: -8327289701538109623}
   - component: {fileID: 5773142133053886968}
   m_Layer: 6
   m_Name: Block
@@ -292,7 +280,7 @@ MonoBehaviour:
   m_SelectEntered:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: -8327289701538109623}
+      - m_Target: {fileID: 1258260136633344454}
         m_TargetAssemblyTypeName: FlyBlock, Assembly-CSharp
         m_MethodName: SetIsFly
         m_Mode: 6
@@ -304,13 +292,37 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1159974293775138580}
+        m_TargetAssemblyTypeName: GrabBlock, Assembly-CSharp
+        m_MethodName: SetIsGrabbed
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
   m_SelectExited:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1159974293775138580}
+        m_TargetAssemblyTypeName: GrabBlock, Assembly-CSharp
+        m_MethodName: SetIsGrabbed
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_Activated:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: -8327289701538109623}
+      - m_Target: {fileID: 1258260136633344454}
         m_TargetAssemblyTypeName: FlyBlock, Assembly-CSharp
         m_MethodName: SetIsFly
         m_Mode: 6
@@ -389,6 +401,30 @@ MonoBehaviour:
   m_ForceGravityOnDetach: 0
   m_RetainTransformParent: 1
   m_AttachPointCompatibilityMode: 0
+--- !u!114 &1258260136633344454
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1835342021248456581}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 422886aefce8c8e49b9341b6754af764, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1159974293775138580
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1835342021248456581}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cfdec37d02b4a864fbe6ea28edc8ac23, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &8784453152301873755
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -399,18 +435,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 94600b95feb52ae468a2054da41d977a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &-8327289701538109623
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1835342021248456581}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 422886aefce8c8e49b9341b6754af764, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &5773142133053886968

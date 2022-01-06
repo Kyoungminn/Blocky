@@ -9,17 +9,17 @@ public class FlyBlock : MonoBehaviour
     // 블록 제작이 끝났는지 확인한다.
     private bool isDone = false;
 
+    // action이 들어왔을 때 이 함수로 isFly 변수를 조작한다.
+    private bool isFly = false;
+
     public void SetIsDone()
     {
         isDone = true;
     }
 
-    // action이 들어왔을 때 이 함수로 isFly 변수를 조작한다.
-    private bool isFly;
-
-    public void SetIsFly(bool b)
+    public void SetIsFly(bool fly)
     {
-        isFly = b;
+        isFly = fly;
     }
 
     // Start is called before the first frame update

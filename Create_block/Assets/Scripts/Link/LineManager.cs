@@ -28,45 +28,28 @@ public class LineManager : MonoBehaviour
     private InputActionReference leftGripReference;
 
     // start object와 end object를 저장하기 위한 변수
-    private GameObject startObject;
-    private GameObject endObject;
-
-    // 선택한 블록이 start인지 end인지 판단하기 위한 변수
-    private int num = 0;
+    private GameObject startObject = null;
+    private GameObject endObject = null;
 
     // 생성한 line을 저장하기 위한 변수
     private GameObject line;
 
-    // num값을 초기화 하는 데 사용하는 함수
-    public void SetNumZero()
+    // 선이 생성되거나 삭제되는 경우 object를 리셋하기 위해 사용하는 함수
+    public void ResetObject()
     {
-        num = 0;
-    }
-
-    // 현재 선택한 블록을 저장하기 위해 사용하는 함수
-    public void SetObject(GameObject obj)
-    {
-        // num이 0이면 start에, 1이면 end에 저장한다.
-        if (num == 0)
-        {
-            startObject = obj;
-        }
-        else
-        {
-            Debug.Log("End object: " + obj.name);
-            endObject = obj;
-            line.GetComponent<Line>().SetEndObject(endObject);
-        }
+        startObject = null;
+        endObject = null;
     }
 
     // 선을 만들기 위해 사용하는 함수
-    public void CreateLine()
+    public void CreateLine(GameObject blockObj)
     {
         // 그립은 누르지 않고 트리거만 눌렀을 때 작동하도록 조건을 붙인다.
         // 그리고 첫번째 블록을 선택한 경우에만 선을 만들도록 조건을 붙인다.
-        if (rightTriggerReference.action.ReadValue<float>() > 0.0f && rightGripReference.action.ReadValue<float>() == 0.0f && num == 0)
+        if (rightTriggerReference.action.ReadValue<float>() > 0.0f && rightGripReference.action.ReadValue<float>() == 0.0f && startObject == null)
         {
             // 첫번째 블록과 컨트롤러와 연결되어야 하므로 endObject에는 컨트롤러 object를 찾아 넣어준다.
+            startObject = blockObj;
             endObject = GameObject.Find("RightFront");
 
             // prefab을 사용하여 라인을 만들어준다.
@@ -94,13 +77,20 @@ public class LineManager : MonoBehaviour
             line.GetComponent<Line>().SetStartObject(startObject);
             line.GetComponent<Line>().SetEndObject(endObject);
             line.GetComponent<Line>().lineManager = gameObject.GetComponent<LineManager>();
-
-            // 선을 연결하는 작업이 끝났으므로 num을 1로 바꾸어준다.
-            num = 1;
         }
-        // 왼편도 마찬가지로 작성해준다.
-        if (leftTriggerReference.action.ReadValue<float>() > 0.0f && leftGripReference.action.ReadValue<float>() == 0.0f && num == 0)
+        // 두번째 블록을 선택한 경우
+        if (rightTriggerReference.action.ReadValue<float>() > 0.0f && rightGripReference.action.ReadValue<float>() == 0.0f && startObject != null && blockObj != startObject)
         {
+            endObject = blockObj;
+            line.GetComponent<Line>().SetEndObject(endObject);
+            line = null;
+            startObject = null;
+            endObject = null;
+        }
+            // 왼편도 마찬가지로 작성해준다.
+        if (leftTriggerReference.action.ReadValue<float>() > 0.0f && leftGripReference.action.ReadValue<float>() == 0.0f && startObject == null)
+        {
+            startObject = blockObj;
             endObject = GameObject.Find("LeftFront");
 
             line = Instantiate(linePref);
@@ -120,8 +110,19 @@ public class LineManager : MonoBehaviour
             line.GetComponent<Line>().SetStartObject(startObject);
             line.GetComponent<Line>().SetEndObject(endObject);
             line.GetComponent<Line>().lineManager = gameObject.GetComponent<LineManager>();
-
-            num = 1;
         }
+        if (leftTriggerReference.action.ReadValue<float>() > 0.0f && leftGripReference.action.ReadValue<float>() == 0.0f && startObject != null && blockObj != startObject)
+        {
+            endObject = blockObj;
+            line.GetComponent<Line>().SetEndObject(endObject);
+            line = null;
+            startObject = null;
+            endObject = null;
+        }
+    }
+
+    private void Update()
+    {
+        //Debug.Log(count);
     }
 }

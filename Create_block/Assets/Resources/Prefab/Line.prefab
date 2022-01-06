@@ -147,7 +147,8 @@ MonoBehaviour:
     type: 3}
   leftTriggerReference: {fileID: -5982496924579745919, guid: c348712bda248c246b8c49b3db54643f,
     type: 3}
-  lineManager: {fileID: 0}
+  lineManager: {fileID: 3737295413453754715, guid: a0383b50dc4d7ab4b9efb6c6203eed8a,
+    type: 3}
 --- !u!65 &6655998277527549442
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -157,7 +158,7 @@ BoxCollider:
   m_GameObject: {fileID: 1638946559536215642}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 1.1, y: 0.1, z: 0.1}
   m_Center: {x: 0.5, y: 0, z: 0}

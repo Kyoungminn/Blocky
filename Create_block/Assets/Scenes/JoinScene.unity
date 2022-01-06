@@ -446,7 +446,6 @@ Transform:
   m_Children:
   - {fileID: 1809425214}
   - {fileID: 2050628581}
-  - {fileID: 1227664367}
   m_Father: {fileID: 1006537975}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -774,7 +773,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 247
   m_RaycastTriggerInteraction: 1
-  m_HitClosestOnly: 0
+  m_HitClosestOnly: 1
   m_KeepSelectedTargetValid: 1
   m_HoverToSelect: 0
   m_HoverTimeToSelect: 0.5
@@ -1029,7 +1028,7 @@ GameObject:
   - component: {fileID: 418060723}
   - component: {fileID: 418060722}
   m_Layer: 0
-  m_Name: Line Ray Interactor
+  m_Name: Left Line Ray Interactor
   m_TagString: Controller
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1042,12 +1041,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 418060720}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 2105095650}
-  m_RootOrder: 2
+  m_Father: {fileID: 1006537975}
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &418060722
 MonoBehaviour:
@@ -1065,7 +1064,7 @@ MonoBehaviour:
   m_InteractionLayerMask:
     serializedVersion: 2
     m_Bits: 192
-  m_AttachTransform: {fileID: 0}
+  m_AttachTransform: {fileID: 1280967628}
   m_StartingSelectedInteractable: {fileID: 0}
   m_HoverEntered:
     m_PersistentCalls:
@@ -1142,7 +1141,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 247
   m_RaycastTriggerInteraction: 1
-  m_HitClosestOnly: 0
+  m_HitClosestOnly: 1
   m_KeepSelectedTargetValid: 0
   m_HoverToSelect: 0
   m_HoverTimeToSelect: 0.5
@@ -1178,10 +1177,10 @@ MonoBehaviour:
   m_ActivateUsage: 0
   m_UIPressUsage: 0
   m_AxisToPressThreshold: 0.1
-  m_RotateAnchorLeft: 16
-  m_RotateAnchorRight: 17
-  m_MoveObjectIn: 14
-  m_MoveObjectOut: 15
+  m_RotateAnchorLeft: 0
+  m_RotateAnchorRight: 0
+  m_MoveObjectIn: 0
+  m_MoveObjectOut: 0
   m_PoseProvider: {fileID: 0}
 --- !u!1 &599916901
 GameObject:
@@ -2556,6 +2555,8 @@ Transform:
   - {fileID: 873527492}
   - {fileID: 2105095650}
   - {fileID: 243195872}
+  - {fileID: 418060721}
+  - {fileID: 1227664367}
   - {fileID: 2000389783}
   m_Father: {fileID: 1449808607}
   m_RootOrder: 0
@@ -2964,7 +2965,7 @@ GameObject:
   - component: {fileID: 1227664369}
   - component: {fileID: 1227664368}
   m_Layer: 0
-  m_Name: Line Ray Interactor
+  m_Name: Right Line Ray Interactor
   m_TagString: Controller
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2981,8 +2982,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 243195872}
-  m_RootOrder: 2
+  m_Father: {fileID: 1006537975}
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1227664368
 MonoBehaviour:
@@ -3000,7 +3001,7 @@ MonoBehaviour:
   m_InteractionLayerMask:
     serializedVersion: 2
     m_Bits: 192
-  m_AttachTransform: {fileID: 0}
+  m_AttachTransform: {fileID: 1809425214}
   m_StartingSelectedInteractable: {fileID: 0}
   m_HoverEntered:
     m_PersistentCalls:
@@ -3077,13 +3078,13 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 192
   m_RaycastTriggerInteraction: 1
-  m_HitClosestOnly: 0
+  m_HitClosestOnly: 1
   m_KeepSelectedTargetValid: 0
   m_HoverToSelect: 0
   m_HoverTimeToSelect: 0.5
-  m_EnableUIInteraction: 1
+  m_EnableUIInteraction: 0
   m_AllowAnchorControl: 1
-  m_UseForceGrab: 1
+  m_UseForceGrab: 0
   m_RotateSpeed: 180
   m_TranslateSpeed: 1
   m_AnchorRotateReferenceFrame: {fileID: 0}
@@ -3113,10 +3114,10 @@ MonoBehaviour:
   m_ActivateUsage: 0
   m_UIPressUsage: 0
   m_AxisToPressThreshold: 0.1
-  m_RotateAnchorLeft: 16
-  m_RotateAnchorRight: 17
-  m_MoveObjectIn: 14
-  m_MoveObjectOut: 15
+  m_RotateAnchorLeft: 0
+  m_RotateAnchorRight: 0
+  m_MoveObjectIn: 0
+  m_MoveObjectOut: 0
   m_PoseProvider: {fileID: 0}
 --- !u!1 &1233636166
 GameObject:
@@ -4908,7 +4909,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1006537975}
-  m_RootOrder: 3
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2000389784
 MonoBehaviour:
@@ -5326,7 +5327,6 @@ Transform:
   m_Children:
   - {fileID: 1280967628}
   - {fileID: 414662596}
-  - {fileID: 418060721}
   m_Father: {fileID: 1006537975}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -5654,7 +5654,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 247
   m_RaycastTriggerInteraction: 1
-  m_HitClosestOnly: 0
+  m_HitClosestOnly: 1
   m_KeepSelectedTargetValid: 1
   m_HoverToSelect: 0
   m_HoverTimeToSelect: 0.5
