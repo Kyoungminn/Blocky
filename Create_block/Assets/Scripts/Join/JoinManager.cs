@@ -35,9 +35,6 @@ public class JoinManager : MonoBehaviour
         }
             
         count = (count + 1) % 2;
-
-        if (objects0 != null && objects1 != null)
-            Debug.Log(objects0.name + ", " + objects1.name);
     }
 
     void Update()
@@ -50,33 +47,38 @@ public class JoinManager : MonoBehaviour
         }
         else
         {
-            if (objects0 != null && objects1 != null)
+            if ((objects0 != null && objects1 != null) && 
+                (objects0.GetComponent<GrabBlock>().GetIsGrabbed() == true && objects1.GetComponent<GrabBlock>().GetIsGrabbed() == true))
             {
-                Debug.Log("Join!");
                 Vector3 pos = objects0.transform.position;
-                Vector3 scale = objects0.transform.localScale;
+                Vector3 scale0 = objects0.transform.localScale;
+                Vector3 scale1 = objects1.transform.localScale;
                 string msgText = objects0.transform.GetChild(2).GetComponent<TextMesh>().text;
                 string otherMsg = objects1.transform.GetChild(2).GetComponent<TextMesh>().text;
 
-                Destroy(objects0);
-                Destroy(objects1);
+                if (scale0.x + scale1.x <= 8)
+                {
+                    Destroy(objects0);
+                    Destroy(objects1);
 
-                GameObject newBlock = (GameObject)Instantiate(Resources.Load("Prefab/Block"));
-                newBlock.name = create.GetI().ToString();
-                create.IncreaseI();
-                newBlock.transform.localScale = scale * 2;
-                newBlock.transform.position = pos;
-                Vector3 attachPoint = newBlock.transform.GetChild(0).localPosition;
-                newBlock.transform.GetChild(0).localPosition = new Vector3(attachPoint.x, attachPoint.y, attachPoint.z / 2);
-                newBlock.GetComponent<MeshRenderer>().material.color = Color.green;
-                newBlock.GetComponent<Rigidbody>().useGravity = false;
-                newBlock.GetComponent<Rigidbody>().isKinematic = true;
-                newBlock.GetComponent<XRGrabInteractable>().enabled = true;
-                newBlock.GetComponentInChildren<XRSimpleInteractable>().enabled = true;
-                newBlock.GetComponent<FlyBlock>().SetIsDone();
-                newBlock.transform.GetChild(2).GetComponent<TextMesh>().text = msgText + "+" + otherMsg;
-                newBlock.transform.tag = "Old";
+                    GameObject newBlock = (GameObject)Instantiate(Resources.Load("Prefab/Block"));
+                    newBlock.name = create.GetI().ToString();
+                    create.IncreaseI();
+                    newBlock.transform.localScale = scale0 + scale1;
+                    newBlock.transform.position = pos;
+                    Vector3 attachPoint0 = newBlock.transform.GetChild(0).localPosition;
+                    Vector3 attachPoint1 = newBlock.transform.GetChild(0).localPosition;
+                    newBlock.transform.GetChild(0).localPosition = new Vector3(0f, 0f, -5f * (2 / (scale0.z + scale1.z)));
+                    newBlock.GetComponent<MeshRenderer>().material.color = Color.green;
+                    newBlock.GetComponent<Rigidbody>().useGravity = false;
+                    newBlock.GetComponent<Rigidbody>().isKinematic = true;
+                    newBlock.GetComponent<XRGrabInteractable>().enabled = true;
+                    newBlock.GetComponentInChildren<XRSimpleInteractable>().enabled = true;
+                    newBlock.GetComponent<FlyBlock>().SetIsDone();
+                    newBlock.transform.GetChild(2).GetComponent<TextMesh>().text = msgText + "+" + otherMsg;
+                    newBlock.transform.tag = "Old";
 
+                }
                 objects0 = null;
                 objects1 = null;
             }
