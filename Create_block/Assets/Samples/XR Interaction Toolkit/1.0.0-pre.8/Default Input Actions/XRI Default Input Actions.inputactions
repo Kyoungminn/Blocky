@@ -156,7 +156,7 @@
                     "interactions": ""
                 },
                 {
-                    "name": "PressA",
+                    "name": "PressX",
                     "type": "Button",
                     "id": "2d323489-79ad-4a05-9c57-9efec519b4f3",
                     "expectedControlType": "Button",
@@ -491,7 +491,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "PressA",
+                    "action": "PressX",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
@@ -609,6 +609,14 @@
                     "name": "PressA",
                     "type": "Button",
                     "id": "3ac765ac-6a32-4c3a-8b86-365272bd62a4",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "PressB",
+                    "type": "Button",
+                    "id": "480c66f3-c60a-4a71-b13f-54e2790b8fe5",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": ""
@@ -931,6 +939,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "PressA",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "322e2c75-3a1e-4ebc-8711-b0edb6e219fc",
+                    "path": "<XRController>{RightHand}/secondaryButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "PressB",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

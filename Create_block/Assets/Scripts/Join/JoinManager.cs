@@ -66,8 +66,6 @@ public class JoinManager : MonoBehaviour
                     create.IncreaseI();
                     newBlock.transform.localScale = scale0 + scale1;
                     newBlock.transform.position = pos;
-                    Vector3 attachPoint0 = newBlock.transform.GetChild(0).localPosition;
-                    Vector3 attachPoint1 = newBlock.transform.GetChild(0).localPosition;
                     newBlock.transform.GetChild(0).localPosition = new Vector3(0f, 0f, -5f * (2 / (scale0.z + scale1.z)));
                     newBlock.GetComponent<MeshRenderer>().material.color = Color.green;
                     newBlock.GetComponent<Rigidbody>().useGravity = false;

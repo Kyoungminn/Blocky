@@ -83,6 +83,21 @@ public class LineManager : MonoBehaviour
         {
             endObject = blockObj;
             line.GetComponent<Line>().SetEndObject(endObject);
+
+            // collider 위치와 크기도 바꾸어준다.
+            BoxCollider collider = line.GetComponent<BoxCollider>();
+            float centerX = ((startObject.transform.position.x * endObject.transform.localScale.x + endObject.transform.position.x * startObject.transform.localScale.x) / (endObject.transform.localScale.x + startObject.transform.localScale.x)) / 2;
+            float centerY = ((startObject.transform.position.y * endObject.transform.localScale.x + endObject.transform.position.y * startObject.transform.localScale.x) / (endObject.transform.localScale.x + startObject.transform.localScale.x)) / 2;
+            float centerZ = ((startObject.transform.position.z * endObject.transform.localScale.x + endObject.transform.position.z * startObject.transform.localScale.x) / (endObject.transform.localScale.x + startObject.transform.localScale.x)) / 2;
+            collider.center = new Vector3(centerX, centerY, centerZ);
+            float distance = Mathf.Sqrt(Mathf.Pow(startObject.transform.position.x - endObject.transform.position.x, 2) +
+                Mathf.Pow(startObject.transform.position.y - endObject.transform.position.y, 2) +
+                Mathf.Pow(startObject.transform.position.z - endObject.transform.position.z, 2));
+            float lenX = Mathf.Abs(startObject.transform.position.x - endObject.transform.position.x) / Mathf.Sqrt(Mathf.Pow(startObject.transform.position.x - endObject.transform.position.x, 2));
+            float lenY = Mathf.Abs(startObject.transform.position.y - endObject.transform.position.y) / Mathf.Sqrt(Mathf.Pow(startObject.transform.position.y - endObject.transform.position.y, 2));
+            float lenZ = Mathf.Abs(startObject.transform.position.z - endObject.transform.position.z) / Mathf.Sqrt(Mathf.Pow(startObject.transform.position.z - endObject.transform.position.z, 2));
+            collider.size = new Vector3(lenX, lenY, lenZ);
+
             line = null;
             startObject = null;
             endObject = null;
