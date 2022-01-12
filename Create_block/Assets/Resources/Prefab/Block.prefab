@@ -133,6 +133,7 @@ GameObject:
   - component: {fileID: 1159974293775138580}
   - component: {fileID: 8784453152301873755}
   - component: {fileID: 5773142133053886968}
+  - component: {fileID: 1401259230041341247}
   m_Layer: 6
   m_Name: Block
   m_TagString: Untagged
@@ -273,10 +274,34 @@ MonoBehaviour:
       m_Calls: []
   m_HoverEntered:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1401259230041341247}
+        m_TargetAssemblyTypeName: OpenCanvas, Assembly-CSharp
+        m_MethodName: HoverEntered
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 1835342021248456581}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_HoverExited:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1401259230041341247}
+        m_TargetAssemblyTypeName: OpenCanvas, Assembly-CSharp
+        m_MethodName: HoverExited
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_SelectEntered:
     m_PersistentCalls:
       m_Calls:
@@ -462,6 +487,19 @@ MonoBehaviour:
     type: 3}
   joinManager: {fileID: 386083258229662809, guid: 0735c5d010e13d84b8a5d47d4b70af8d,
     type: 3}
+--- !u!114 &1401259230041341247
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1835342021248456581}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d9d8cfc4b460ce48ad3d919f78d4070, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bButton: {fileID: 9154613164557424581, guid: c348712bda248c246b8c49b3db54643f, type: 3}
 --- !u!1 &2896979847952835903
 GameObject:
   m_ObjectHideFlags: 0

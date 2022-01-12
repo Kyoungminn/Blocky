@@ -34,14 +34,6 @@ public class BlockCreate : MonoBehaviour
         rigid = blockInstance.GetComponent<Rigidbody>();
         rigid.isKinematic = false;
         rigid.useGravity = true;
-        
-        /*
-        if(blockInstance.GetComponent<Renderer>().material.color == Color.yellow)
-        {
-            blockInstance.GetComponent<ForJoin>().enabled = true;
-            blockInstance.GetComponent<Collider>().isTrigger = true;
-        }
-        */
 
         blockInstance.GetComponent<XRGrabInteractable>().enabled = true;
         blockInstance.GetComponentInChildren<XRSimpleInteractable>().enabled = true;
