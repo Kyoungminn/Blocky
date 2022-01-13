@@ -6979,6 +6979,16 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3876904613470387912, guid: 8bab332eb93437b439381b7cbd5dca1f,
+        type: 3}
+      propertyPath: sceneViewId
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3977748326621554966, guid: 8bab332eb93437b439381b7cbd5dca1f,
+        type: 3}
+      propertyPath: sceneViewId
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7190697176392095216, guid: 8bab332eb93437b439381b7cbd5dca1f,
         type: 3}
       propertyPath: m_InteractionManager
