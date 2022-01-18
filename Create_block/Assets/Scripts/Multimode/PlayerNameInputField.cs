@@ -3,7 +3,7 @@ using UnityEngine.UI;
 using Photon.Pun;
 using Photon.Realtime;
 
-///inputfield°¡ ²À ÇÊ¿äÇÏ¹Ç·Î ¼³Á¤ÇØµÒ
+///inputfieldï¿½ï¿½ ï¿½ï¿½ ï¿½Ê¿ï¿½ï¿½Ï¹Ç·ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Øµï¿½
 [RequireComponent(typeof(InputField))]
 public class PlayerNameInputField : MonoBehaviour
 {
@@ -13,7 +13,7 @@ public class PlayerNameInputField : MonoBehaviour
 
 
     #region MonoBehaviour CallBacks
-    ///½ÃÀÛÇÒ ¶§ ÀÌ¹Ì ´Ð³×ÀÓÀÌ ÀÖÀ¸¸é ´Ð³×ÀÓ¿¡ ³Ö¾îÁÜ
+    ///ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½Ì¹ï¿½ ï¿½Ð³ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ð³ï¿½ï¿½Ó¿ï¿½ ï¿½Ö¾ï¿½ï¿½ï¿½
     void Start()
     {
         string defaultName = string.Empty;
@@ -24,6 +24,8 @@ public class PlayerNameInputField : MonoBehaviour
             {
                 defaultName = PlayerPrefs.GetString(playerNamePrefKey);
                 _inputField.text = defaultName;
+                //defaultName = "1234";
+                Debug.Log(defaultName);
             }
         }
         PhotonNetwork.NickName = defaultName;
@@ -32,7 +34,7 @@ public class PlayerNameInputField : MonoBehaviour
 
 
     #region Public Methods
-    ///¾øÀ¸¸é ÀÌ¸§ ¼³Á¤ÇÏ±â 
+    ///ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ì¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï±ï¿½ 
     public void SetPlayerName(string value)
     {
         if (string.IsNullOrEmpty(value))
