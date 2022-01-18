@@ -12,28 +12,50 @@ public class EditKeyboardManager : MonoBehaviour
     public Text placeholder_edit;
     public static string inputText_create = "";
     public static string inputText_edit = "";
-
+    private bool opened = false;
 
     void Update()
     {  
-        if(inputField_create.isFocused == true)    
+        if(inputField_create.isFocused == true && !opened)    
         {
-            placeholder_create.text = "";
-            inputField_create.text = "";
             overlayKeyboard = TouchScreenKeyboard.Open("", TouchScreenKeyboardType.Default);
-            overlayKeyboard.text = inputField_create.text; 
-            inputField_create.DeactivateInputField();
+            opened = true;
         }
 
-        if(inputField_edit.isFocused == true)    
+        if (inputField_create.isFocused == true && opened)
         {
-            placeholder_edit.text = "";
-            inputField_edit.text = "";
-            overlayKeyboard = TouchScreenKeyboard.Open("", TouchScreenKeyboardType.Default);
-            overlayKeyboard.text = inputField_edit.text; 
-            inputField_edit.DeactivateInputField();
+            if (overlayKeyboard != null)
+            {
+                inputText_create = overlayKeyboard.text;
+                inputField_create.text = inputText_create;
+            }
+            else
+            {
+                inputField_create.DeactivateInputField();
+            }
         }
 
+        if (inputField_edit.isFocused == true && !opened)
+        {
+            overlayKeyboard = TouchScreenKeyboard.Open("", TouchScreenKeyboardType.Default);
+            opened = true;
+        }
+
+        if (inputField_edit.isFocused == true && opened)
+        {
+            if (overlayKeyboard != null)
+            {
+                inputText_edit = overlayKeyboard.text;
+                inputField_edit.text = inputText_edit;
+            }
+            else
+            {
+                inputField_edit.DeactivateInputField();
+            }
+        }
+
+        if (!inputField_create.isFocused && !inputField_edit.isFocused)
+            opened = false;
     }
 
     public void keyboardWork() {
@@ -46,4 +68,11 @@ public class EditKeyboardManager : MonoBehaviour
         inputField_edit.DeactivateInputField();
     }
 
+    public void InitializeInputField()
+    {
+        inputField_create.text = "";
+        inputText_create = "";
+        inputField_edit.text = "";
+        inputText_edit = "";
+    }
 }
