@@ -2173,18 +2173,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1376353780}
-        m_TargetAssemblyTypeName: KeyboardManager, Assembly-CSharp
-        m_MethodName: InitializeInputField
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!114 &584606720
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4124,18 +4112,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1376353780}
-        m_TargetAssemblyTypeName: KeyboardManager, Assembly-CSharp
-        m_MethodName: InitializeInputField
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!114 &1226211778
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5026,19 +5002,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1321862481}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1321862479}
-        m_TargetAssemblyTypeName: KeyboardManager, Assembly-CSharp
-        m_MethodName: keyboardWork
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &1321862481
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6215,8 +6179,6 @@ MonoBehaviour:
   inputField_room: {fileID: 243704742}
   placeholder_name: {fileID: 440000003}
   placeholder_room: {fileID: 2108352597}
-  rightHand: {fileID: 363197706}
-  leftHand: {fileID: 1316048210}
 --- !u!4 &1376353781
 Transform:
   m_ObjectHideFlags: 0

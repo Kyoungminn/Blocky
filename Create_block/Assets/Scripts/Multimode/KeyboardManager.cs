@@ -16,7 +16,7 @@ public class KeyboardManager : MonoBehaviour
     private bool opened = false;
 
     void Update()
-    {  
+    {
         if (inputField_name.isFocused == true && !opened)    
         {
             overlayKeyboard = TouchScreenKeyboard.Open("", TouchScreenKeyboardType.Default);
@@ -55,26 +55,11 @@ public class KeyboardManager : MonoBehaviour
             }
         }
 
-        if (!inputField_name.isFocused && !inputField_room.isFocused)
+        if (overlayKeyboard.done)
+        {
+            inputField_room.DeactivateInputField();
+            inputField_name.DeactivateInputField();
             opened = false;
-    }
-
-    public void keyboardWork() {
-        inputField_name.text = inputText_name;
-        //inputText_name = overlayKeyboard.text;
-
-        //inputField_room.text = inputText_room;
-        //inputText_room = overlayKeyboard.text;
-
-        inputField_name.DeactivateInputField();
-        inputField_room.DeactivateInputField();
-    }
-
-    public void InitializeInputField()
-    {
-        inputField_name.text = "";
-        inputText_name = "";
-        inputField_room.text = "";
-        inputText_room = "";
+        }
     }
 }
