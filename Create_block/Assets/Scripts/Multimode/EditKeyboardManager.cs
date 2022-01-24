@@ -54,25 +54,11 @@ public class EditKeyboardManager : MonoBehaviour
             }
         }
 
-        if (!inputField_create.isFocused && !inputField_edit.isFocused)
+        if (overlayKeyboard.done)
+        {
+            inputField_create.DeactivateInputField();
+            inputField_edit.DeactivateInputField();
             opened = false;
-    }
-
-    public void keyboardWork() {
-        inputField_create.text = inputText_create;
-        inputText_create = overlayKeyboard.text;
-        inputField_create.DeactivateInputField();
-
-        inputField_edit.text = inputText_edit;
-        inputText_edit = overlayKeyboard.text;
-        inputField_edit.DeactivateInputField();
-    }
-
-    public void InitializeInputField()
-    {
-        inputField_create.text = "";
-        inputText_create = "";
-        inputField_edit.text = "";
-        inputText_edit = "";
+        }
     }
 }

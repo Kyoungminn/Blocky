@@ -1242,18 +1242,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 700193070}
-        m_TargetAssemblyTypeName: EditKeyboardManager, Assembly-CSharp
-        m_MethodName: InitializeInputField
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!114 &415197600
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2702,18 +2690,6 @@ MonoBehaviour:
       - m_Target: {fileID: 898476080}
         m_TargetAssemblyTypeName: OpenCanvas, Assembly-CSharp
         m_MethodName: EditWord
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 700193070}
-        m_TargetAssemblyTypeName: EditKeyboardManager, Assembly-CSharp
-        m_MethodName: InitializeInputField
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
