@@ -7,9 +7,9 @@ using Photon.Realtime;
 public class Launcher : MonoBehaviourPunCallbacks
 {
 	///region 1
-	///·ë¿¡ Âü¿©ÇÒ ¼ö ÀÖ´Â ÃÖ´ë ÇÃ·¹ÀÌ¾î ¼ö¸¦ 
-	///°ø°³ÇÊµåÈ­ÇØ¼­ ÇÏµåÄÚµùÇÏÁö ¾Ê°í ÀÎ½ºÆåÅÍ¿¡¼­ ¼öÁ¤ÇÒ ¼ö ÀÖµµ·Ï
-	///¹æÀÌ¸§ ¹Þ¾Æ¿À±â
+	///ï¿½ë¿¡ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½Ö´ï¿½ ï¿½Ö´ï¿½ ï¿½Ã·ï¿½ï¿½Ì¾ï¿½ ï¿½ï¿½ï¿½ï¿½ 
+	///ï¿½ï¿½ï¿½ï¿½ï¿½Êµï¿½È­ï¿½Ø¼ï¿½ ï¿½Ïµï¿½ï¿½Úµï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ê°ï¿½ ï¿½Î½ï¿½ï¿½ï¿½ï¿½Í¿ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½Öµï¿½ï¿½ï¿½
+	///ï¿½ï¿½ï¿½Ì¸ï¿½ ï¿½Þ¾Æ¿ï¿½ï¿½ï¿½
 	#region Private Serializable Fields
 	[SerializeField]
 	private byte maxPlayersPerRoom = 4;
@@ -18,15 +18,15 @@ public class Launcher : MonoBehaviourPunCallbacks
 	#endregion
 
 	///region 2
-	///·ë¿¡ µé¾î°¬´Ù°¡ ´Ù½Ã ·Îºñ·Î ³ª¿ÔÀ» ¶§, ¹Ù·Î ´Ù½Ã joinµÇÁö ¾Êµµ·Ï Á¦¾î
-	///°ÔÀÓ¹öÀü. ±×³É 1·Î
+	///ï¿½ë¿¡ ï¿½ï¿½î°¬ï¿½Ù°ï¿½ ï¿½Ù½ï¿½ ï¿½Îºï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½, ï¿½Ù·ï¿½ ï¿½Ù½ï¿½ joinï¿½ï¿½ï¿½ï¿½ ï¿½Êµï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	///ï¿½ï¿½ï¿½Ó¹ï¿½ï¿½ï¿½. ï¿½×³ï¿½ 1ï¿½ï¿½
 	#region Private Fields
 	bool isConnecting;
 	string gameVersion = "1";
     #endregion
 
     #region Public Fields
-	///ÆÐ³Î ºÐ¸®
+	///ï¿½Ð³ï¿½ ï¿½Ð¸ï¿½
 	public enum ActivePanel
     {
 		LOGIN = 0,
@@ -40,7 +40,7 @@ public class Launcher : MonoBehaviourPunCallbacks
     #region MonoBehaviour CallBacks
     void Awake()
 	{
-		/// ¸ðµç ÇÃ·¹ÀÌ¾î¿¡°Ô ·ÎµåµÇ´Â ¾ÀÀÌ ÀÚµ¿À¸·Î µ¿±âÈ­µÇµµ·Ï
+		/// ï¿½ï¿½ï¿½ ï¿½Ã·ï¿½ï¿½Ì¾î¿¡ï¿½ï¿½ ï¿½Îµï¿½Ç´ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Úµï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½È­ï¿½Çµï¿½ï¿½ï¿½
 		PhotonNetwork.AutomaticallySyncScene = true;
 	}
 	void Start()
@@ -58,7 +58,7 @@ public class Launcher : MonoBehaviourPunCallbacks
 		isConnecting = true;
 	}
 
-	//º¸¿©ÁÖ´Â ÆÐ³Î ¼³Á¤ÇÏ±â
+	//ï¿½ï¿½ï¿½ï¿½ï¿½Ö´ï¿½ ï¿½Ð³ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï±ï¿½
 	private void ChangePanel(ActivePanel panel)
 	{
 		foreach (GameObject _panel in panels)
@@ -69,7 +69,7 @@ public class Launcher : MonoBehaviourPunCallbacks
 		panels[(int)panel].SetActive(true);
 	}
 
-	///single·ë ¼±ÅÃ½Ã ±×³É ·ë ÇÏ³ª ¸¸µé¾îÁÜ
+	///singleï¿½ï¿½ ï¿½ï¿½ï¿½Ã½ï¿½ ï¿½×³ï¿½ ï¿½ï¿½ ï¿½Ï³ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	public void OnSingleRoomClick()
 	{
 		PhotonNetwork.CreateRoom(null
@@ -77,13 +77,13 @@ public class Launcher : MonoBehaviourPunCallbacks
 
 	}
 
-	//muti·ë ¼±ÅÃ½Ã ¹æÀ» ¸¸µé°Å³ª µé¾î°¡´Â È­¸é º¸¿©ÁÜ
+	//mutiï¿½ï¿½ ï¿½ï¿½ï¿½Ã½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Å³ï¿½ ï¿½ï¿½î°¡ï¿½ï¿½ È­ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	public void OnMultiRoomClick()
     {
 		ChangePanel(ActivePanel.ROOMS);
 	}
 
-	//enterÅ¬¸¯ÇÏ¸é ¹æÀ» ¸¸µé°Å³ª, ÀÖ´Â ¹æ¿¡ µé¾î°¨
+	//enterÅ¬ï¿½ï¿½ï¿½Ï¸ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Å³ï¿½, ï¿½Ö´ï¿½ ï¿½æ¿¡ ï¿½ï¿½î°¨
 	public void OnEnterClick()
     {
 		string roomName = RoomNameInputField.text.ToString();
@@ -94,36 +94,37 @@ public class Launcher : MonoBehaviourPunCallbacks
 
 	///region 5
 	#region MonoBehaviourPunCallbacks Callbacks
-	///¿¬°áµÇ¸é ·£´ý ·ë¿¡ µé¾î°¨ 
+	///ï¿½ï¿½ï¿½ï¿½Ç¸ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ë¿¡ ï¿½ï¿½î°¨ 
 	public override void OnConnectedToMaster()
 	{
 		Debug.Log("OnConnectedToMaster() was called by PUN");
 		if (isConnecting)
 		{
 			ChangePanel(ActivePanel.LOBBY);
+			Debug.Log(PhotonNetwork.NetworkingClient.NickName + "here");
 		}
 	}
 
-    ///¿¬°á ¾ÈµÇ¸é ¿À·ù·Î±× 
+    ///ï¿½ï¿½ï¿½ï¿½ ï¿½ÈµÇ¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Î±ï¿½ 
     public override void OnDisconnected(DisconnectCause cause)
 	{
 		Debug.LogWarningFormat("OnDisconnected() was called by PUN with reason {0}", cause);
 		ChangePanel(ActivePanel.LOGIN);
 	}
-	///¹æÀÌ ¾øÀ¸¸é ¸¸µéÀ½
+	///ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	public override void OnJoinRandomFailed(short returnCode, string message)
 	{
 		Debug.Log(":OnJoinRandomFailed() was called by PUN. No random room available");
 		PhotonNetwork.CreateRoom(null, new RoomOptions { MaxPlayers = maxPlayersPerRoom });
 	}
-	///¹æ¿¡ µé¾î°¨ 
+	///ï¿½æ¿¡ ï¿½ï¿½î°¨ 
 	public override void OnJoinedRoom()
 	{
 		Debug.Log("OnJoinedRoom() called by PUN. Now this client is in a room.");
 		if (PhotonNetwork.IsMasterClient)
 		{
 			Debug.Log(PhotonNetwork.CurrentRoom.Name+" im master");
-			PhotonNetwork.LoadLevel("CreateScene");
+			PhotonNetwork.LoadLevel("JoinScene");
 		}
 	}
 	#endregion
