@@ -54,11 +54,14 @@ public class EditKeyboardManager : MonoBehaviour
             }
         }
 
-        if (overlayKeyboard.done)
+        if (overlayKeyboard != null)
         {
-            inputField_create.DeactivateInputField();
-            inputField_edit.DeactivateInputField();
-            opened = false;
+            if (overlayKeyboard.done)
+            {
+                inputField_create.DeactivateInputField();
+                inputField_edit.DeactivateInputField();
+                opened = false;
+            }
         }
     }
 }

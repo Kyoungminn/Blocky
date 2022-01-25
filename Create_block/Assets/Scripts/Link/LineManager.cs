@@ -78,31 +78,7 @@ public class LineManager : MonoBehaviour
             line.GetComponent<Line>().SetEndObject(endObject);
             line.GetComponent<Line>().lineManager = gameObject.GetComponent<LineManager>();
         }
-        // 두번째 블록을 선택한 경우
-        if (rightTriggerReference.action.ReadValue<float>() > 0.0f && rightGripReference.action.ReadValue<float>() == 0.0f && startObject != null && blockObj != startObject)
-        {
-            endObject = blockObj;
-            line.GetComponent<Line>().SetEndObject(endObject);
-
-            // collider 위치와 크기도 바꾸어준다.
-            BoxCollider collider = line.GetComponent<BoxCollider>();
-            float centerX = ((startObject.transform.position.x * endObject.transform.localScale.x + endObject.transform.position.x * startObject.transform.localScale.x) / (endObject.transform.localScale.x + startObject.transform.localScale.x)) / 2;
-            float centerY = ((startObject.transform.position.y * endObject.transform.localScale.x + endObject.transform.position.y * startObject.transform.localScale.x) / (endObject.transform.localScale.x + startObject.transform.localScale.x)) / 2;
-            float centerZ = ((startObject.transform.position.z * endObject.transform.localScale.x + endObject.transform.position.z * startObject.transform.localScale.x) / (endObject.transform.localScale.x + startObject.transform.localScale.x)) / 2;
-            collider.center = new Vector3(centerX, centerY, centerZ);
-            float distance = Mathf.Sqrt(Mathf.Pow(startObject.transform.position.x - endObject.transform.position.x, 2) +
-                Mathf.Pow(startObject.transform.position.y - endObject.transform.position.y, 2) +
-                Mathf.Pow(startObject.transform.position.z - endObject.transform.position.z, 2));
-            float lenX = Mathf.Abs(startObject.transform.position.x - endObject.transform.position.x) / Mathf.Sqrt(Mathf.Pow(startObject.transform.position.x - endObject.transform.position.x, 2));
-            float lenY = Mathf.Abs(startObject.transform.position.y - endObject.transform.position.y) / Mathf.Sqrt(Mathf.Pow(startObject.transform.position.y - endObject.transform.position.y, 2));
-            float lenZ = Mathf.Abs(startObject.transform.position.z - endObject.transform.position.z) / Mathf.Sqrt(Mathf.Pow(startObject.transform.position.z - endObject.transform.position.z, 2));
-            collider.size = new Vector3(lenX, lenY, lenZ);
-
-            line = null;
-            startObject = null;
-            endObject = null;
-        }
-            // 왼편도 마찬가지로 작성해준다.
+        // 왼편도 마찬가지로 작성해준다.
         if (leftTriggerReference.action.ReadValue<float>() > 0.0f && leftGripReference.action.ReadValue<float>() == 0.0f && startObject == null)
         {
             startObject = blockObj;
@@ -126,18 +102,37 @@ public class LineManager : MonoBehaviour
             line.GetComponent<Line>().SetEndObject(endObject);
             line.GetComponent<Line>().lineManager = gameObject.GetComponent<LineManager>();
         }
-        if (leftTriggerReference.action.ReadValue<float>() > 0.0f && leftGripReference.action.ReadValue<float>() == 0.0f && startObject != null && blockObj != startObject)
+        // 두번째 블록을 선택한 경우
+        if ((rightTriggerReference.action.ReadValue<float>() > 0.0f && rightGripReference.action.ReadValue<float>() == 0.0f
+            || leftTriggerReference.action.ReadValue<float>() > 0.0f && leftGripReference.action.ReadValue<float>() == 0.0f) 
+            && startObject != null && blockObj != startObject)
         {
             endObject = blockObj;
             line.GetComponent<Line>().SetEndObject(endObject);
+
+            // collider 위치와 크기도 바꾸어준다.
+            BoxCollider collider = line.GetComponent<BoxCollider>();
+            // 단위 벡터 계산
+            float startVectorX = endObject.transform.position.x - startObject.transform.position.x;
+            float startVectorY = endObject.transform.position.y - startObject.transform.position.y;
+            float startVectorZ = endObject.transform.position.z - startObject.transform.position.z;
+            Vector3 startNormal = new Vector3(startVectorX, startVectorY, startVectorZ).normalized;
+            Vector3 endNormal = new Vector3(-startNormal.x, -startNormal.y, -startNormal.z);
+            // 대략적인 표면 좌표 계산
+            Vector3 startSurface = startObject.transform.position + startNormal * startObject.transform.localScale.x;
+            Vector3 endSurface = endObject.transform.position + endNormal * endObject.transform.localScale.x;
+            // 중점 좌표 계산
+            Vector3 colliderCenter = (startSurface + endSurface) / 2;
+            collider.center = colliderCenter;
+            // 크기 설정
+            float lenX = Mathf.Abs(startObject.transform.position.x - endObject.transform.position.x) / 10;
+            float lenY = Mathf.Abs(startObject.transform.position.y - endObject.transform.position.y) / 10;
+            float lenZ = Mathf.Abs(startObject.transform.position.z - endObject.transform.position.z) / 2;
+            collider.size = new Vector3(lenX, lenY, lenZ);
+
             line = null;
             startObject = null;
             endObject = null;
         }
-    }
-
-    private void Update()
-    {
-        //Debug.Log(count);
     }
 }

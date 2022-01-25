@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.XR.Interaction.Toolkit;
 
 public class DeleteLine : MonoBehaviour
 {
@@ -26,6 +27,7 @@ public class DeleteLine : MonoBehaviour
                 Destroy(gameObject);
             }
         }
+
     }
 
     public void HoverEntered()
