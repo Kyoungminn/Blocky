@@ -11,7 +11,7 @@ public class BlockSimpleInteractableWithPhoton : XRSimpleInteractable
     // Start is called before the first frame update
     void Start()
     {
-        photonView = GetComponent<PhotonView>();
+        photonView = GetComponentInParent<PhotonView>();
     }
 
     // Update is called once per frame

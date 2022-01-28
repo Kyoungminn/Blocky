@@ -38,7 +38,7 @@ public class BlockCreate : MonoBehaviour
         //blockInstance.GetComponent<XRGrabInteractable>().enabled = true;
         blockInstance.GetComponent<GrabInteractableWithPhoton>().enabled = true;
         //blockInstance.GetComponentInChildren<XRSimpleInteractable>().enabled = true;
-        blockInstance.GetComponent<BlockSimpleInteractableWithPhoton>().enabled = true;
+        blockInstance.GetComponentInChildren<BlockSimpleInteractableWithPhoton>().enabled = true;
         blockInstance.GetComponent<FlyBlock>().SetIsDone();
     }
 

@@ -7194,6 +7194,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: BlockSimpleInteractable
       objectReference: {fileID: 0}
+    - target: {fileID: 933349802175253792, guid: 8bab332eb93437b439381b7cbd5dca1f,
+        type: 3}
+      propertyPath: sceneViewId
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 933349802175253792, guid: 8bab332eb93437b439381b7cbd5dca1f,
+        type: 3}
+      propertyPath: ObservedComponents.Array.data[0]
+      value: 
+      objectReference: {fileID: 4422121728192934627}
     - target: {fileID: 1835342021248456568, guid: 8bab332eb93437b439381b7cbd5dca1f,
         type: 3}
       propertyPath: m_TrackPosition
@@ -7269,15 +7279,15 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3876904613470387912, guid: 8bab332eb93437b439381b7cbd5dca1f,
-        type: 3}
-      propertyPath: sceneViewId
-      value: 2
-      objectReference: {fileID: 0}
     - target: {fileID: 3977748326621554966, guid: 8bab332eb93437b439381b7cbd5dca1f,
         type: 3}
       propertyPath: sceneViewId
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6546530475848006785, guid: 8bab332eb93437b439381b7cbd5dca1f,
+        type: 3}
+      propertyPath: sceneViewId
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7190697176392095216, guid: 8bab332eb93437b439381b7cbd5dca1f,
         type: 3}
@@ -7288,7 +7298,7 @@ PrefabInstance:
         type: 3}
       propertyPath: Cam
       value: 
-      objectReference: {fileID: 1233636166}
+      objectReference: {fileID: 873527488}
     - target: {fileID: 8784453152301873755, guid: 8bab332eb93437b439381b7cbd5dca1f,
         type: 3}
       propertyPath: blueBtn
@@ -7306,6 +7316,18 @@ PrefabInstance:
       objectReference: {fileID: 806883764}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8bab332eb93437b439381b7cbd5dca1f, type: 3}
+--- !u!114 &4422121728192934627 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8250285445287639271, guid: 8bab332eb93437b439381b7cbd5dca1f,
+    type: 3}
+  m_PrefabInstance: {fileID: 4422121728192934626}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 627855c7f81362d41938ffe0b1475957, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &5428111295326114989
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7403,6 +7425,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isJoined: 0
+  blockPrefab: {fileID: 1835342021248456581, guid: 8bab332eb93437b439381b7cbd5dca1f,
+    type: 3}
   rightGripReference: {fileID: 187161793506945269, guid: c348712bda248c246b8c49b3db54643f,
     type: 3}
   leftGripReference: {fileID: -6131295136447488360, guid: c348712bda248c246b8c49b3db54643f,

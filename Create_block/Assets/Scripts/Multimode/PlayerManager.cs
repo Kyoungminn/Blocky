@@ -5,7 +5,7 @@ using UnityEngine.XR;
 using Photon.Pun;
 using UnityEngine.XR.Interaction.Toolkit;
 
-public class PlayerManager : MonoBehaviour
+public class PlayerManager : MonoBehaviour, IPunObservable
 {
 
     #region Public Fields
@@ -41,6 +41,10 @@ public class PlayerManager : MonoBehaviour
          *      }
          * }
          */
+
+        /*
+         * 현재 존재하는 모든 블록들과 라인들을 가져옴
+         */
     }
 
     // Update is called once per frame
@@ -56,11 +60,33 @@ public class PlayerManager : MonoBehaviour
             mapPosition(left, leftRig);
             mapPosition(right, rightRig);
         }
+        else
+        {
+            /*
+             * 블록들과 라인들을 업뎃 시켜줌(밑에서 저장한 값으로)
+             */
+        }
     }
 
     void mapPosition(Transform target, Transform rigTransform)
     {
         target.position = rigTransform.position;
         target.rotation = rigTransform.rotation;
+    }
+
+    public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
+    {
+        if (stream.IsWriting)
+        {
+            /*
+             * 현존하는 블록들과 라인들의 정보를 보내줌
+             */
+        }
+        else
+        {
+            /*
+             * 정보를 받아서 저장함
+             */
+        }
     }
 }

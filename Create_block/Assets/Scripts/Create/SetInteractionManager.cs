@@ -8,7 +8,7 @@ public class SetInteractionManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        gameObject.GetComponent<XRGrabInteractable>().interactionManager = GameObject.Find("XR Interaction Manager").GetComponent<XRInteractionManager>();
-        gameObject.GetComponentInChildren<XRSimpleInteractable>().interactionManager = GameObject.Find("Line XR Interaction Manager").GetComponent<XRInteractionManager>();
+        gameObject.GetComponent<GrabInteractableWithPhoton>().interactionManager = GameObject.Find("XR Interaction Manager").GetComponent<XRInteractionManager>();
+        gameObject.GetComponentInChildren<BlockSimpleInteractableWithPhoton>().interactionManager = GameObject.Find("Line XR Interaction Manager").GetComponent<XRInteractionManager>();
     }
 }

@@ -62,10 +62,10 @@ public class Create : MonoBehaviour
 
                 if (blockExist)
                 {
-                    blockPrefab = PhotonNetwork.Instantiate(this.blockPrefab.name, rayPos.position, Quaternion.identity) ; //cubePrefab 생성
+                    currentBlock = PhotonNetwork.Instantiate(this.blockPrefab.name, rayPos.position, Quaternion.identity) ; //cubePrefab 생성
                     //blockPrefab.transform.position = rayPos.position;                                                                  
-                    blockPrefab.tag = "Test";
-                    blockPrefab.name = i.ToString();
+                    currentBlock.tag = "Test";
+                    currentBlock.name = i.ToString();
                     blockExist = false;
                     i = i + 1;
                 }
