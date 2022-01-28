@@ -35,10 +35,10 @@ public class BlockCreate : MonoBehaviour
         rigid.isKinematic = false;
         rigid.useGravity = true;
 
-        blockInstance.GetComponent<XRGrabInteractable>().enabled = true;
-        //blockInstance.GetComponent<GrabInteractableWithPhoton>().enabled = true;
-        blockInstance.GetComponentInChildren<XRSimpleInteractable>().enabled = true;
-        //blockInstance.GetComponent<BlockSimpleInteractableWithPhoton>().enabled = true;
+        //blockInstance.GetComponent<XRGrabInteractable>().enabled = true;
+        blockInstance.GetComponent<GrabInteractableWithPhoton>().enabled = true;
+        //blockInstance.GetComponentInChildren<XRSimpleInteractable>().enabled = true;
+        blockInstance.GetComponent<BlockSimpleInteractableWithPhoton>().enabled = true;
         blockInstance.GetComponent<FlyBlock>().SetIsDone();
     }
 

@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.5993783, g: 0.5997548, b: 0.599493, a: 1}
+  m_IndirectSpecularColor: {r: 0.59937525, g: 0.5997512, b: 0.59948856, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -408,6 +408,8 @@ MonoBehaviour:
   rightRay: {fileID: 243195876}
   rightDeleteRay: {fileID: 2000389787}
   rightPrimaryButtonReference: {fileID: 4578209439429531437, guid: c348712bda248c246b8c49b3db54643f,
+    type: 3}
+  deleteAreaPrefab: {fileID: 9027081691621558435, guid: 1cc01bc32e992604dbbf054887cbd08f,
     type: 3}
 --- !u!114 &92740930
 MonoBehaviour:
@@ -7376,6 +7378,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7430543894478384794, guid: 48eb6d6211fd8e04a84af97fd3a7f3f9,
+        type: 3}
+      propertyPath: sceneViewId
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 8101564134450125707, guid: 48eb6d6211fd8e04a84af97fd3a7f3f9,
         type: 3}
       propertyPath: lineManager
@@ -7439,6 +7446,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 6833437614246070829, guid: 1cc01bc32e992604dbbf054887cbd08f,
+        type: 3}
+      propertyPath: sceneViewId
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 9027081691621558435, guid: 1cc01bc32e992604dbbf054887cbd08f,
         type: 3}
       propertyPath: m_Name

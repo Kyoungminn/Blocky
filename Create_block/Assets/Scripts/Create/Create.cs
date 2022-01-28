@@ -4,6 +4,10 @@ using UnityEngine;
 using UnityEngine.XR;
 using UnityEngine.XR.Interaction.Toolkit;
 using UnityEngine.InputSystem;
+using Photon.Pun;
+using Photon.Pun.UtilityScripts;
+using Photon.Realtime;
+
 
 //canvas(속성창), cubePrefab 생성하는 스크립트 
 
@@ -58,8 +62,8 @@ public class Create : MonoBehaviour
 
                 if (blockExist)
                 {
-                    blockPrefab = (GameObject)Instantiate(Resources.Load("Prefab/Block")); //cubePrefab 생성
-                    blockPrefab.transform.position = rayPos.position;                                                                  
+                    blockPrefab = PhotonNetwork.Instantiate(this.blockPrefab.name, rayPos.position, Quaternion.identity) ; //cubePrefab 생성
+                    //blockPrefab.transform.position = rayPos.position;                                                                  
                     blockPrefab.tag = "Test";
                     blockPrefab.name = i.ToString();
                     blockExist = false;

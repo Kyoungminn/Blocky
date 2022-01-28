@@ -16,19 +16,19 @@ public class PlayerNameInputField : MonoBehaviour
     ///������ �� �̹� �г����� ������ �г��ӿ� �־���
     void Start()
     {
-        string defaultName = string.Empty;
+        /*string defaultName = string.Empty;
         InputField _inputField = this.GetComponent<InputField>();
         if (_inputField != null)
         {
             if (PlayerPrefs.HasKey(playerNamePrefKey))
             {
                 defaultName = PlayerPrefs.GetString(playerNamePrefKey);
-                _inputField.text = defaultName;
                 //defaultName = "1234";
+                _inputField.text = defaultName;
                 Debug.Log(defaultName);
             }
         }
-        PhotonNetwork.NickName = defaultName;
+        PhotonNetwork.NickName = defaultName;*/
     }
     #endregion
 
@@ -47,3 +47,4 @@ public class PlayerNameInputField : MonoBehaviour
     }
     #endregion
 }
+

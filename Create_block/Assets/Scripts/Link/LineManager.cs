@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit;
 using UnityEngine.InputSystem;
+using Photon.Pun;
+using Photon.Pun.UtilityScripts;
+using Photon.Realtime;
 
 public class LineManager : MonoBehaviour
 {
@@ -53,7 +56,7 @@ public class LineManager : MonoBehaviour
             endObject = GameObject.Find("RightFront");
 
             // prefab을 사용하여 라인을 만들어준다.
-            line = Instantiate(linePref);
+            line = PhotonNetwork.Instantiate(this.linePref.name, new Vector3(0, 0, 0), Quaternion.identity);
 
             // line의 속성을 조정하기 위해 component인 LineRenderer를 lr에 저장한다.
             // 그리고 색과 material, 두께 등을 정해준다.
@@ -84,7 +87,7 @@ public class LineManager : MonoBehaviour
             startObject = blockObj;
             endObject = GameObject.Find("LeftFront");
 
-            line = Instantiate(linePref);
+            line = PhotonNetwork.Instantiate(this.linePref.name, new Vector3(0,0,0), Quaternion.identity);
 
             LineRenderer lr = line.GetComponent<LineRenderer>();
             lr.startColor = Color.black;

@@ -15,6 +15,8 @@ public class Launcher : MonoBehaviourPunCallbacks
 	private byte maxPlayersPerRoom = 4;
 	[SerializeField]
 	private Text RoomNameInputField;
+	[SerializeField]
+	private Text PlayerNameInputField;
 	#endregion
 
 	///region 2
@@ -46,6 +48,8 @@ public class Launcher : MonoBehaviourPunCallbacks
 	void Start()
 	{
 		ChangePanel(ActivePanel.LOGIN);
+		//PlayerNameInputField.text = "hee";
+		//RoomNameInputField.text = "1234";
 	}
 	#endregion
 
@@ -72,9 +76,11 @@ public class Launcher : MonoBehaviourPunCallbacks
 	///single�� ���ý� �׳� �� �ϳ� �������
 	public void OnSingleRoomClick()
 	{
-		PhotonNetwork.CreateRoom(null
+		//임시로 바꿔둠(멀티 확인 위헤)
+		/*PhotonNetwork.CreateRoom(null
 								, new RoomOptions { MaxPlayers = 1 });
-
+		*/
+		PhotonNetwork.JoinOrCreateRoom("1234", new RoomOptions { MaxPlayers = maxPlayersPerRoom }, null);
 	}
 
 	//muti�� ���ý� ���� ����ų� ���� ȭ�� ������
