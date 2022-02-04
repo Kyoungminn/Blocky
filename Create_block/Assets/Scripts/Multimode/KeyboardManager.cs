@@ -55,11 +55,14 @@ public class KeyboardManager : MonoBehaviour
             }
         }
 
-        if (overlayKeyboard.done)
+        if (overlayKeyboard != null)
         {
-            inputField_room.DeactivateInputField();
-            inputField_name.DeactivateInputField();
-            opened = false;
+            if (overlayKeyboard.done)
+            {
+                inputField_room.DeactivateInputField();
+                inputField_name.DeactivateInputField();
+                opened = false;
+            }
         }
     }
 }
