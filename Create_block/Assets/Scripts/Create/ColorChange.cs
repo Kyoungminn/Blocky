@@ -6,6 +6,11 @@ using UnityEngine;
 
 public class ColorChange : MonoBehaviour
 {
+    private void Start()
+    {
+        
+    }
+
     public void ChangeYellow()
     {
         GameObject.FindWithTag("Test").GetComponent<Renderer>().material.color = Color.yellow;

@@ -1,9 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.XR;
-using UnityEngine.XR.Interaction.Toolkit;
-using UnityEngine.InputSystem;
 using Photon.Pun;
 using Photon.Pun.UtilityScripts;
 using Photon.Realtime;
@@ -11,7 +8,6 @@ using Photon.Realtime;
 public class BlockColorNetworking : MonoBehaviour, IPunObservable
 {
     Color currentColor;
-    Color syncColor;
     Vector3 tempColor;
     PhotonView photonView;
 
@@ -24,10 +20,8 @@ public class BlockColorNetworking : MonoBehaviour, IPunObservable
 
     void Update()
     {
-        if (!photonView.IsMine)
-        {
-            currentColor = syncColor;
-        }
+        if (GetComponent<Renderer>().material.color != currentColor)
+            currentColor = GetComponent<Renderer>().material.color;
     }
 
     public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
@@ -39,8 +33,8 @@ public class BlockColorNetworking : MonoBehaviour, IPunObservable
         }
         else
         {
-            this.tempColor = (Vector3)stream.ReceiveNext();
-            syncColor = new Color(tempColor.x, tempColor.y, tempColor.z, 1.0f);
+            tempColor = (Vector3)stream.ReceiveNext();
+            GetComponent<Renderer>().material.color = new Color(tempColor.x, tempColor.y, tempColor.z);
         }
     }
 }
