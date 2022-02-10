@@ -5,7 +5,7 @@ using UnityEngine.XR;
 using Photon.Pun;
 using UnityEngine.XR.Interaction.Toolkit;
 
-public class PlayerManager : MonoBehaviour, IPunObservable
+public class PlayerManager : MonoBehaviour
 {
 
     #region Public Fields
@@ -19,6 +19,7 @@ public class PlayerManager : MonoBehaviour, IPunObservable
     private Transform headRig;
     private Transform leftRig;
     private Transform rightRig;
+    private TextMesh nameText;
     #endregion
 
 
@@ -30,6 +31,8 @@ public class PlayerManager : MonoBehaviour, IPunObservable
         headRig = rig.transform.Find("Camera Offset/Main Camera");
         leftRig = rig.transform.Find("Camera Offset/LeftHand Controller");
         rightRig = rig.transform.Find("Camera Offset/RightHand Controller");
+        nameText = transform.GetComponentInChildren<TextMesh>();
+        nameText.text = photonView.Owner.NickName;
 
         //애니메이션 넣을 경우 밑에 setActive 부분 지우고
         /*
@@ -42,9 +45,6 @@ public class PlayerManager : MonoBehaviour, IPunObservable
          * }
          */
 
-        /*
-         * 현재 존재하는 모든 블록들과 라인들을 가져옴
-         */
     }
 
     // Update is called once per frame
@@ -55,16 +55,11 @@ public class PlayerManager : MonoBehaviour, IPunObservable
             head.gameObject.SetActive(false);
             left.gameObject.SetActive(false);
             right.gameObject.SetActive(false);
+            nameText.gameObject.SetActive(false);
 
             mapPosition(head, headRig);
             mapPosition(left, leftRig);
             mapPosition(right, rightRig);
-        }
-        else
-        {
-            /*
-             * 블록들과 라인들을 업뎃 시켜줌(밑에서 저장한 값으로)
-             */
         }
     }
 
@@ -74,19 +69,5 @@ public class PlayerManager : MonoBehaviour, IPunObservable
         target.rotation = rigTransform.rotation;
     }
 
-    public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
-    {
-        if (stream.IsWriting)
-        {
-            /*
-             * 현존하는 블록들과 라인들의 정보를 보내줌
-             */
-        }
-        else
-        {
-            /*
-             * 정보를 받아서 저장함
-             */
-        }
-    }
+
 }

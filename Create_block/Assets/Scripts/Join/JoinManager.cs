@@ -63,8 +63,8 @@ public class JoinManager : MonoBehaviour
 
                 if (scale0.x + scale1.x <= 8)
                 {
-                    Destroy(objects0);
-                    Destroy(objects1);
+                    PhotonNetwork.Destroy(objects0);
+                    PhotonNetwork.Destroy(objects1);
 
                     GameObject newBlock = PhotonNetwork.Instantiate(this.blockPrefab.name, pos, Quaternion.identity);
                     newBlock.name = create.GetI().ToString();
