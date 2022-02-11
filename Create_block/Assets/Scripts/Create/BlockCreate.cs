@@ -7,7 +7,7 @@ using Photon.Pun;
 
 //blockText 생성 & block 생성하면 떨어지도록 하는 스크립트
 
-public class BlockCreate : MonoBehaviour, IPunObservable
+public class BlockCreate : MonoBehaviour
 {
     public InputField inputField;
     private TextMesh blockText;
@@ -41,18 +41,5 @@ public class BlockCreate : MonoBehaviour, IPunObservable
         //blockInstance.GetComponentInChildren<XRSimpleInteractable>().enabled = true;
         blockInstance.GetComponentInChildren<BlockSimpleInteractableWithPhoton>().enabled = true;
         blockInstance.GetComponent<FlyBlock>().SetIsDone();
-    }
-
-    public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
-    {
-        GameObject Useblock = GameObject.FindWithTag("Test");
-        if (stream.IsWriting)
-        {
-            stream.SendNext(Useblock.transform.GetComponentInChildren<TextMesh>().text);
-        }
-        else
-        {
-            Useblock.transform.GetComponentInChildren<TextMesh>().text = (string)stream.ReceiveNext();
-        }
     }
 }
