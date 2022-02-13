@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.XR.Interaction.Toolkit;
+using Photon.Pun;
 
 //blockText 생성 & block 생성하면 떨어지도록 하는 스크립트
 
@@ -35,12 +36,10 @@ public class BlockCreate : MonoBehaviour
         rigid.isKinematic = false;
         rigid.useGravity = true;
 
-        blockInstance.GetComponent<XRGrabInteractable>().enabled = true;
-        //blockInstance.GetComponent<GrabInteractableWithPhoton>().enabled = true;
-        blockInstance.GetComponentInChildren<XRSimpleInteractable>().enabled = true;
-        //blockInstance.GetComponent<BlockSimpleInteractableWithPhoton>().enabled = true;
+        //blockInstance.GetComponent<XRGrabInteractable>().enabled = true;
+        blockInstance.GetComponent<GrabInteractableWithPhoton>().enabled = true;
+        //blockInstance.GetComponentInChildren<XRSimpleInteractable>().enabled = true;
+        blockInstance.GetComponentInChildren<BlockSimpleInteractableWithPhoton>().enabled = true;
         blockInstance.GetComponent<FlyBlock>().SetIsDone();
     }
-
-    
 }

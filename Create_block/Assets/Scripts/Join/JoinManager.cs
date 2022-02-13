@@ -3,10 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit;
 using UnityEngine.InputSystem;
+using Photon.Pun;
+using Photon.Pun.UtilityScripts;
+using Photon.Realtime;
+
 
 public class JoinManager : MonoBehaviour
 {
     public bool isJoined = false;
+    public GameObject blockPrefab;
 
     private int count = 0;
     private GameObject objects0;
@@ -58,20 +63,20 @@ public class JoinManager : MonoBehaviour
 
                 if (scale0.x + scale1.x <= 8)
                 {
-                    Destroy(objects0);
-                    Destroy(objects1);
+                    PhotonNetwork.Destroy(objects0);
+                    PhotonNetwork.Destroy(objects1);
 
-                    GameObject newBlock = (GameObject)Instantiate(Resources.Load("Prefab/Block"));
+                    GameObject newBlock = PhotonNetwork.Instantiate(this.blockPrefab.name, pos, Quaternion.identity);
                     newBlock.name = create.GetI().ToString();
                     create.IncreaseI();
                     newBlock.transform.localScale = scale0 + scale1;
-                    newBlock.transform.position = pos;
+                    //newBlock.transform.position = pos;
                     newBlock.transform.GetChild(0).localPosition = new Vector3(0f, 0f, -5f * (2 / (scale0.z + scale1.z)));
                     newBlock.GetComponent<MeshRenderer>().material.color = Color.green;
                     newBlock.GetComponent<Rigidbody>().useGravity = false;
                     newBlock.GetComponent<Rigidbody>().isKinematic = true;
-                    newBlock.GetComponent<XRGrabInteractable>().enabled = true;
-                    newBlock.GetComponentInChildren<XRSimpleInteractable>().enabled = true;
+                    newBlock.GetComponent<GrabInteractableWithPhoton>().enabled = true;
+                    newBlock.GetComponentInChildren<BlockSimpleInteractableWithPhoton>().enabled = true;
                     newBlock.GetComponent<FlyBlock>().SetIsDone();
                     newBlock.transform.GetChild(2).GetComponent<TextMesh>().text = msgText + "+" + otherMsg;
                     newBlock.transform.tag = "Old";

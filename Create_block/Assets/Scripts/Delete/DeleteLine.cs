@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.XR.Interaction.Toolkit;
+using Photon.Pun;
+using Photon.Pun.UtilityScripts;
+using Photon.Realtime;
 
 public class DeleteLine : MonoBehaviour
 {
@@ -24,7 +27,7 @@ public class DeleteLine : MonoBehaviour
         {
             if (xButton.action.ReadValue<float>() > 0)
             {
-                Destroy(gameObject);
+                PhotonNetwork.Destroy(gameObject);
             }
         }
 

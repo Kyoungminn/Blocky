@@ -43,6 +43,7 @@ public class MultiGameManager : MonoBehaviourPunCallbacks
 	#region Public Methods
 	public void LeaveRoom()
 	{
+		PhotonNetwork.Destroy(playerPrefab);
 		PhotonNetwork.LeaveRoom();
 	}
 	#endregion

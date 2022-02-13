@@ -22,6 +22,16 @@ public class FlyBlock : MonoBehaviour
         isFly = fly;
     }
 
+    public bool GetIsDone()
+    {
+        return isDone;
+    }
+
+    public bool GetIsFly()
+    {
+        return isFly;
+    }
+
     // Start is called before the first frame update
     void Start()
     {

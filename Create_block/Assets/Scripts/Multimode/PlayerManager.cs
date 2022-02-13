@@ -19,6 +19,7 @@ public class PlayerManager : MonoBehaviour
     private Transform headRig;
     private Transform leftRig;
     private Transform rightRig;
+    private TextMesh nameText;
     #endregion
 
 
@@ -30,6 +31,8 @@ public class PlayerManager : MonoBehaviour
         headRig = rig.transform.Find("Camera Offset/Main Camera");
         leftRig = rig.transform.Find("Camera Offset/LeftHand Controller");
         rightRig = rig.transform.Find("Camera Offset/RightHand Controller");
+        nameText = transform.GetComponentInChildren<TextMesh>();
+        nameText.text = photonView.Owner.NickName;
 
         //애니메이션 넣을 경우 밑에 setActive 부분 지우고
         /*
@@ -41,6 +44,7 @@ public class PlayerManager : MonoBehaviour
          *      }
          * }
          */
+
     }
 
     // Update is called once per frame
@@ -51,6 +55,7 @@ public class PlayerManager : MonoBehaviour
             head.gameObject.SetActive(false);
             left.gameObject.SetActive(false);
             right.gameObject.SetActive(false);
+            nameText.gameObject.SetActive(false);
 
             mapPosition(head, headRig);
             mapPosition(left, leftRig);
@@ -63,4 +68,6 @@ public class PlayerManager : MonoBehaviour
         target.position = rigTransform.position;
         target.rotation = rigTransform.rotation;
     }
+
+
 }

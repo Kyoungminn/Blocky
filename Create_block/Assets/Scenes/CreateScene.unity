@@ -3977,6 +3977,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: BlockSimpleInteractable
       objectReference: {fileID: 0}
+    - target: {fileID: 933349802175253792, guid: 8bab332eb93437b439381b7cbd5dca1f,
+        type: 3}
+      propertyPath: sceneViewId
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 1835342021248456568, guid: 8bab332eb93437b439381b7cbd5dca1f,
         type: 3}
       propertyPath: m_InteractionManager
@@ -4046,6 +4051,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6546530475848006785, guid: 8bab332eb93437b439381b7cbd5dca1f,
+        type: 3}
+      propertyPath: sceneViewId
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 7190697176392095216, guid: 8bab332eb93437b439381b7cbd5dca1f,
         type: 3}
@@ -4165,6 +4175,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7430543894478384794, guid: 48eb6d6211fd8e04a84af97fd3a7f3f9,
+        type: 3}
+      propertyPath: sceneViewId
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8101564134450125707, guid: 48eb6d6211fd8e04a84af97fd3a7f3f9,
         type: 3}

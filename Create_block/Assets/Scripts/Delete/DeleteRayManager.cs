@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit;
 using UnityEngine.InputSystem;
+using Photon.Pun;
+using Photon.Pun.UtilityScripts;
+using Photon.Realtime;
 
 public class DeleteRayManager : MonoBehaviour
 {
@@ -15,6 +18,7 @@ public class DeleteRayManager : MonoBehaviour
     [SerializeField]
     private InputActionReference rightPrimaryButtonReference;
 
+    [SerializeField]
     private GameObject deleteAreaPrefab;
 
     // Start is called before the first frame update
@@ -43,7 +47,8 @@ public class DeleteRayManager : MonoBehaviour
         LineRenderer lineRenderer = rightDeleteRay.GetComponent<LineRenderer>();
         if (lineRenderer.GetPosition(lineRenderer.positionCount - 1).y <= 0f)
         {
-            deleteAreaPrefab = (GameObject)Instantiate(Resources.Load("Prefab/DeleteArea")); //cubePrefab 持失
+            deleteAreaPrefab = PhotonNetwork.Instantiate(this.deleteAreaPrefab.name, lineRenderer.GetPosition(lineRenderer.positionCount - 1), Quaternion.identity);
+            //deleteAreaPrefab = (GameObject)Instantiate(Resources.Load("Prefab/DeleteArea")); //cubePrefab 持失
             deleteAreaPrefab.transform.position = lineRenderer.GetPosition(lineRenderer.positionCount - 1);
         }
     }
