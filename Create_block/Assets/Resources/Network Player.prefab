@@ -12,13 +12,14 @@ GameObject:
   - component: {fileID: 4996665894025811701}
   - component: {fileID: 4892906058181628015}
   - component: {fileID: 9071185447638081965}
+  - component: {fileID: 4531827721973841400}
   m_Layer: 0
   m_Name: Network Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4067094854771323367
 Transform:
   m_ObjectHideFlags: 0
@@ -56,6 +57,7 @@ MonoBehaviour:
   OwnershipTransfer: 0
   observableSearch: 2
   ObservedComponents:
+  - {fileID: 4531827721973841400}
   - {fileID: 3173288762948366756}
   - {fileID: 4369453103345312978}
   - {fileID: 1513535164545917091}
@@ -100,6 +102,18 @@ MonoBehaviour:
   AutoCreateRecorderIfNotFound: 0
   UsePrimaryRecorder: 1
   SetupDebugSpeaker: 0
+--- !u!114 &4531827721973841400
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3449962590303765454}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6dd403b28a499164db8cbe5931f392ed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4230079255744048076
 GameObject:
   m_ObjectHideFlags: 0
@@ -665,11 +679,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Custom Right Hand Model
       objectReference: {fileID: 0}
-    - target: {fileID: 5686134208196863108, guid: 2624925a7c8d4684dabae54d28b2effb,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 39b07d9c0b28ec94aa7a30ebc7ccaa93, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2624925a7c8d4684dabae54d28b2effb, type: 3}
 --- !u!4 &6814915398498108451 stripped
@@ -703,11 +712,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4916732182620455416}
     m_Modifications:
-    - target: {fileID: 109434732392105323, guid: 7ebf7a04e6ee86e42a3f068787cd05e3,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 39b07d9c0b28ec94aa7a30ebc7ccaa93, type: 2}
     - target: {fileID: 109434732395284509, guid: 7ebf7a04e6ee86e42a3f068787cd05e3,
         type: 3}
       propertyPath: m_Name

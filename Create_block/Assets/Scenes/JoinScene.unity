@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.62084275, g: 0.567544, b: 0.98622304, a: 1}
+  m_IndirectSpecularColor: {r: 0.6214938, g: 0.5687699, b: 0.98704886, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -9401,6 +9401,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerPrefab: {fileID: 3449962590303765454, guid: 4656fedd562f2c04cbb382f4e356c92a,
     type: 3}
+  playerNumber: 0
+  materials:
+  - {fileID: 2100000, guid: 33321b82fa99c9a43a3f16cd1d7727e8, type: 2}
+  - {fileID: 2100000, guid: 2ed07dd7de1913a42baa2b4f5b53ddad, type: 2}
+  - {fileID: 2100000, guid: 3b62806ef62e8274f9a2099a78464691, type: 2}
+  - {fileID: 2100000, guid: f155c35491ce4b3478c59f601acd6a3a, type: 2}
+  hands: []
+  currentPlayer: {fileID: 0}
 --- !u!4 &1981556207
 Transform:
   m_ObjectHideFlags: 0

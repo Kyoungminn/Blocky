@@ -10,6 +10,10 @@ public class MultiGameManager : MonoBehaviourPunCallbacks
 {
 	#region Public Variables
 	public GameObject playerPrefab;
+	public int playerNumber;
+	public Material[] materials;
+	public GameObject[] hands;
+	public GameObject currentPlayer;
 	#endregion
 
 	///게임 시작할 때 플레이어 프리팹 생성시켜줌 
@@ -23,15 +27,48 @@ public class MultiGameManager : MonoBehaviourPunCallbacks
 		else
 		{
 			Debug.LogFormat("We are Instantiating LocalPlayer");
-			PhotonNetwork.Instantiate(this.playerPrefab.name, transform.position, transform.rotation);
+			currentPlayer = PhotonNetwork.Instantiate(this.playerPrefab.name, transform.position, transform.rotation);
+			Invoke("makePlayerNumber", 1f);
+
+			//Debug.Log(playerPrefab.transform.GetChild(1).GetChild(0).GetChild(0).GetChild(0).GetComponent<SkinnedMeshRenderer>().sharedMaterial);
+
 		}
 	}
-    #endregion
+	public Material ColorSetting(int num)
+	{
+		if (num == 0)
+		{
+			return materials[0]; //red
+		}
+		else if (num == 1)
+		{
+			return materials[1]; //purple
 
-    //방에 나가면 로비씬(0)을 로드함
-    #region Photon Callbacks
+		}
+		else if (num == 2)
+		{
+			return materials[2]; //blue
+		}
+		else
+		{
+			return materials[3]; //yellow
+		}
+	}
+	#endregion
 
-    public override void OnLeftRoom()
+	//방에 나가면 로비씬(0)을 로드함
+	#region Photon Callbacks
+	void makePlayerNumber()
+	{
+		playerNumber = PhotonNetwork.LocalPlayer.GetPlayerNumber();
+		Debug.Log("prefab:" + playerNumber);
+
+		currentPlayer.transform.GetChild(0).GetChild(0).GetComponent<MeshRenderer>().sharedMaterial = ColorSetting(playerNumber);
+		currentPlayer.transform.GetChild(1).GetChild(0).GetChild(0).GetChild(0).GetComponent<SkinnedMeshRenderer>().sharedMaterial = ColorSetting(playerNumber);
+		currentPlayer.transform.GetChild(2).GetChild(0).GetChild(0).GetChild(0).GetComponent<SkinnedMeshRenderer>().sharedMaterial = ColorSetting(playerNumber);
+	}
+
+	public override void OnLeftRoom()
 	{
 		PhotonNetwork.Destroy(playerPrefab);
 		SceneManager.LoadScene(0);

@@ -9,6 +9,7 @@ using Photon.Pun.UtilityScripts;
 public class PlayerManager : MonoBehaviour
 {
 
+
     #region Public Fields
     public Transform head;
     public Transform left;
@@ -40,8 +41,8 @@ public class PlayerManager : MonoBehaviour
         nameText = transform.GetComponentInChildren<TextMesh>();
         nameText.text = photonView.Owner.NickName;
 
-         if(photonView.IsMine)
-         {
+        if (photonView.IsMine)
+        {
             /*foreach (var item in GetComponentsInChildren<Renderer>())
                 {   
                      item.enabled = false;
@@ -56,7 +57,6 @@ public class PlayerManager : MonoBehaviour
             //Invoke("makePlayerNumber", 1f);
 
         }
-         
 
     }
 
@@ -88,7 +88,7 @@ public class PlayerManager : MonoBehaviour
 
     void UpdateHandAnimation(InputDevice targetDevice, Animator handAnimator)
     {
-        if(targetDevice.TryGetFeatureValue(CommonUsages.trigger, out float triggerValue))
+        if (targetDevice.TryGetFeatureValue(CommonUsages.trigger, out float triggerValue))
         {
             handAnimator.SetFloat("Trigger", triggerValue);
         }
@@ -112,6 +112,5 @@ public class PlayerManager : MonoBehaviour
         target.position = rigTransform.position;
         target.rotation = rigTransform.rotation;
     }
-
 
 }
