@@ -1930,7 +1930,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e515eb798836b24c9711a1256c1f7ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inputField: {fileID: 0}
+  inputField: {fileID: 1816388142}
   rigid: {fileID: 0}
 --- !u!1 &418060720
 GameObject:
