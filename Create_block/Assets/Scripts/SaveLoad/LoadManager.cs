@@ -26,6 +26,7 @@ public class LoadManager : MonoBehaviour
                 GameObject newButton = GameObject.Instantiate(buttonPref);
                 newButton.transform.parent = contents.transform;
                 newButton.transform.localPosition = new Vector3(0, 0, 0);
+                newButton.transform.localScale = new Vector3(1, 1, 1);
                 newButton.GetComponentInChildren<Text>().text = item.Name;
             }
         }
