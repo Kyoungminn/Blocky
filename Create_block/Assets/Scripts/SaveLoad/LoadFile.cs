@@ -8,22 +8,17 @@ public class LoadFile : MonoBehaviour
 {
     public GameObject blockPref;
     public GameObject linePref;
-    private string path;
-    private GameObject loadPanel;
 
     // Start is called before the first frame update
     void Start()
     {
-        path = Application.persistentDataPath + "/Resources/JsonFiles/" + GetComponentInChildren<Text>().text;
-        loadPanel = GameObject.Find("LoadPanel");
+        
     }
 
     public void LoadFiles()
     {
-        loadPanel.SetActive(false);
-
-        string blockPath = path + "/block.json";
-        if (File.Exists(blockPath))
+        string blockPath = PlayerPrefs.GetString("blockPath");
+        if (blockPath != null && File.Exists(blockPath))
         {
             string json = File.ReadAllText(blockPath);
             List<BlockData> data = JsonUtility.FromJson<Serialization<BlockData>>(json).ToList();
@@ -34,8 +29,8 @@ public class LoadFile : MonoBehaviour
             Debug.Log("no file");
         }
 
-        string linePath = path + "/line.json";
-        if (File.Exists(linePath))
+        string linePath = PlayerPrefs.GetString("linePath");
+        if (linePath != null && File.Exists(linePath))
         {
             string json = File.ReadAllText(linePath);
             List<LineData> data = JsonUtility.FromJson<Serialization<LineData>>(json).ToList();
