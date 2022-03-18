@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.6214938, g: 0.5687699, b: 0.98704886, a: 1}
+  m_IndirectSpecularColor: {r: 0, g: 0.99999905, b: 0.99999905, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2364,7 +2364,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 12.67, y: 3.81}
+  m_AnchoredPosition: {x: 12.67, y: -10}
   m_SizeDelta: {x: 100, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &447040116
@@ -3972,9 +3972,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62604e73a89d3094dbf3e6c5d7a9185c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inputField_create: {fileID: 0}
+  inputField_create: {fileID: 1816388142}
   inputField_edit: {fileID: 1793714852}
-  placeholder_create: {fileID: 0}
+  placeholder_create: {fileID: 1137700610}
   placeholder_edit: {fileID: 1758066950}
 --- !u!4 &700193071
 Transform:

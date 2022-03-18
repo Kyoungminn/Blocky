@@ -8885,9 +8885,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inputField_name: {fileID: 1468248575}
-  inputField_room: {fileID: 0}
-  placeholder_name: {fileID: 0}
-  placeholder_room: {fileID: 0}
+  inputField_room: {fileID: 936567898}
+  placeholder_name: {fileID: 939086268}
+  placeholder_room: {fileID: 466679113}
 --- !u!4 &1376353781
 Transform:
   m_ObjectHideFlags: 0
