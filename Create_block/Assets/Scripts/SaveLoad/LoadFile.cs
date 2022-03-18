@@ -52,6 +52,10 @@ public class LoadFile : MonoBehaviour
             newblock.GetComponent<Renderer>().material.color = data[i].color;
             newblock.transform.localScale = data[i].scale;
             newblock.GetComponent<Rigidbody>().useGravity = data[i].gravity;
+            newblock.GetComponent<Rigidbody>().isKinematic = !data[i].gravity;
+            newblock.GetComponent<GrabInteractableWithPhoton>().enabled = true;
+            newblock.GetComponentInChildren<BlockSimpleInteractableWithPhoton>().enabled = true;
+            newblock.GetComponent<FlyBlock>().SetIsDone();
             newblock.tag = "Old";
         }
     }
