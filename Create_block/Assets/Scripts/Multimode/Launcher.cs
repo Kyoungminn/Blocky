@@ -29,7 +29,11 @@ public class Launcher : MonoBehaviourPunCallbacks
     {
 		LOGIN = 0,
 		LOBBY = 1,
-		ROOMS = 2,
+		SINGLE = 2,
+		LOAD = 3,
+		MULTI = 4,
+		MULTIFIND = 5,
+		MULTINEW = 6
     }
 	public GameObject[] panels;
     #endregion
@@ -72,16 +76,36 @@ public class Launcher : MonoBehaviourPunCallbacks
 	{
 		//PhotonNetwork.CreateRoom(null, new RoomOptions { MaxPlayers = 1 });
 		//임시로 바꿔둠(멀티 확인 위헤)
-		PhotonNetwork.JoinOrCreateRoom("1234", new RoomOptions { MaxPlayers = maxPlayersPerRoom }, null);
+		ChangePanel(ActivePanel.SINGLE);
+		//PhotonNetwork.JoinOrCreateRoom("1234", new RoomOptions { MaxPlayers = maxPlayersPerRoom }, null);
 	}
 
 	
 	public void OnMultiRoomClick()
     {
-		ChangePanel(ActivePanel.ROOMS);
+		ChangePanel(ActivePanel.MULTI);
 	}
 
-	
+	public void OnLoadClick()
+    {
+		ChangePanel(ActivePanel.LOAD);
+    }
+
+	public void OnNewClick()
+    {
+		PhotonNetwork.JoinOrCreateRoom("1234", new RoomOptions { MaxPlayers = maxPlayersPerRoom }, null);
+	}
+
+	public void OnFindClick()
+    {
+		ChangePanel(ActivePanel.MULTIFIND);
+    }
+
+	public void OnMultiNewClick()
+    {
+		ChangePanel(ActivePanel.MULTINEW);
+    }
+
 	public void OnEnterClick()
     {
 		string roomName = RoomNameInputField.text.ToString();
