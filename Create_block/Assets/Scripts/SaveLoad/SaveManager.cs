@@ -11,16 +11,16 @@ public class BlockData
     public Color color;
     public Vector3 pos;
     public Vector3 scale;
-    public bool gravity;
+    public bool fly;
 
-    public BlockData(string name, string text, Color color, Vector3 position, Vector3 scale, bool gravity)
+    public BlockData(string name, string text, Color color, Vector3 position, Vector3 scale, bool fly)
     {
         this.name = name;
         this.color = color;
         this.pos = position;
         this.scale = scale;
         this.text = text;
-        this.gravity = gravity;
+        this.fly = fly;
     }
 }
 
@@ -66,7 +66,7 @@ public class SaveManager : MonoBehaviour
         for (int i = 0; i < temp.Length; i++)
         {
             BlockData data = new BlockData(temp[i].name, temp[i].transform.GetChild(2).GetComponent<TextMesh>().text,
-                temp[i].GetComponent<Renderer>().material.color, temp[i].transform.position, temp[i].transform.localScale, temp[i].GetComponent<Rigidbody>().useGravity);
+                temp[i].GetComponent<Renderer>().material.color, temp[i].transform.position, temp[i].transform.localScale, temp[i].GetComponent<FlyBlock>().GetIsFly());
             DataList.Add(data);
         }
 
