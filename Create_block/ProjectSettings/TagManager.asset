@@ -9,6 +9,10 @@ TagManager:
   - GameManager
   - Controller
   - Edit
+  - vrkb_image0
+  - vrkb_label0
+  - EditCanvas
+  - ColorManager
   layers:
   - Default
   - TransparentFX

@@ -10,9 +10,13 @@ public class MultiGameManager : MonoBehaviourPunCallbacks
 {
 	#region Public Variables
 	public GameObject playerPrefab;
+	public int playerNumber;
+	public Material[] materials;
+	public GameObject[] hands;
+	public GameObject currentPlayer;
 	#endregion
 
-	///°ÔÀÓ ½ÃÀÛÇÒ ¶§ ÇÃ·¹ÀÌ¾î ÇÁ¸®ÆÕ »ý¼º½ÃÄÑÁÜ 
+	///ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½Ã·ï¿½ï¿½Ì¾ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 
 	#region MonoBehaviour CallBacks
 	void Start()
 	{
@@ -23,15 +27,48 @@ public class MultiGameManager : MonoBehaviourPunCallbacks
 		else
 		{
 			Debug.LogFormat("We are Instantiating LocalPlayer");
-			PhotonNetwork.Instantiate(this.playerPrefab.name, transform.position, transform.rotation);
+			currentPlayer = PhotonNetwork.Instantiate(this.playerPrefab.name, transform.position, transform.rotation);
+			Invoke("makePlayerNumber", 1f);
+
+			//Debug.Log(playerPrefab.transform.GetChild(1).GetChild(0).GetChild(0).GetChild(0).GetComponent<SkinnedMeshRenderer>().sharedMaterial);
+
 		}
 	}
-    #endregion
+	public Material ColorSetting(int num)
+	{
+		if (num == 0)
+		{
+			return materials[0]; //red
+		}
+		else if (num == 1)
+		{
+			return materials[1]; //purple
 
-    //¹æ¿¡ ³ª°¡¸é ·Îºñ¾À(0)À» ·ÎµåÇÔ
-    #region Photon Callbacks
+		}
+		else if (num == 2)
+		{
+			return materials[2]; //blue
+		}
+		else
+		{
+			return materials[3]; //yellow
+		}
+	}
+	#endregion
 
-    public override void OnLeftRoom()
+	//ï¿½æ¿¡ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Îºï¿½ï¿½(0)ï¿½ï¿½ ï¿½Îµï¿½ï¿½ï¿½
+	#region Photon Callbacks
+	void makePlayerNumber()
+	{
+		playerNumber = PhotonNetwork.LocalPlayer.GetPlayerNumber();
+		Debug.Log("prefab:" + playerNumber);
+
+		currentPlayer.transform.GetChild(0).GetChild(0).GetComponent<MeshRenderer>().sharedMaterial = ColorSetting(playerNumber);
+		currentPlayer.transform.GetChild(1).GetChild(0).GetChild(0).GetChild(0).GetComponent<SkinnedMeshRenderer>().sharedMaterial = ColorSetting(playerNumber);
+		currentPlayer.transform.GetChild(2).GetChild(0).GetChild(0).GetChild(0).GetComponent<SkinnedMeshRenderer>().sharedMaterial = ColorSetting(playerNumber);
+	}
+
+	public override void OnLeftRoom()
 	{
 		PhotonNetwork.Destroy(playerPrefab);
 		SceneManager.LoadScene(0);
@@ -39,7 +76,7 @@ public class MultiGameManager : MonoBehaviourPunCallbacks
 	}
 	#endregion
 
-	//¹æÀ» ¶°³²
+	//ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	#region Public Methods
 	public void LeaveRoom()
 	{

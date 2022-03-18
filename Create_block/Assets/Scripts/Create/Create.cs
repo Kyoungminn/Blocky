@@ -28,6 +28,19 @@ public class Create : MonoBehaviour
     [SerializeField]
     private InputActionReference leftTriggerReference;
 
+    public int playerNumber;
+
+    void Start()
+    {
+        Invoke("makePlayerNumber", 1f);
+    }
+
+    void makePlayerNumber()
+    {
+        playerNumber = PhotonNetwork.LocalPlayer.GetPlayerNumber();
+        Debug.Log(playerNumber);
+    }
+
     // ray에 이미 감지되는 블록이 있는 경우에는 블록을 새로 만들면 안됨.
     private bool isRayHit;
     public void SetRayHit(bool hit)
@@ -44,6 +57,27 @@ public class Create : MonoBehaviour
     public void IncreaseI()
     {
         i++;
+    }
+
+    public Color32 ColorSetting(int num)
+    {
+        if (num == 0)
+        {
+            return new Color32(255, 169, 124, 1); //red
+        }
+        else if (num == 1)
+        {
+            return new Color32(191, 151, 253, 1); //purple
+            
+        }
+        else if (num == 2)
+        {
+            return new Color32(158, 170, 255, 1); //blue
+        }
+        else
+        {
+            return new Color32(250, 227, 107, 1); //yellow
+        }
     }
 
     void Update() 
@@ -65,7 +99,8 @@ public class Create : MonoBehaviour
                 if (blockExist)
                 {
                     currentBlock = PhotonNetwork.Instantiate(this.blockPrefab.name, rayPos.position, Quaternion.identity) ; //cubePrefab 생성
-                    //blockPrefab.transform.position = rayPos.position;                                                                  
+                    //blockPrefab.transform.position = rayPos.position;
+                    currentBlock.GetComponent<Renderer>().material.color = ColorSetting(playerNumber);
                     currentBlock.tag = "Test";
                     currentBlock.name = i.ToString();
                     blockExist = false;

@@ -13,16 +13,21 @@ public class ColorChange : MonoBehaviour
 
     public void ChangeYellow()
     {
-        GameObject.FindWithTag("Test").GetComponent<Renderer>().material.color = Color.yellow;
+        GameObject.FindWithTag("Test").GetComponent<Renderer>().material.color = new Color32(250, 227, 107, 1);
     }
 
     public void ChangeBlue()
     {
-        GameObject.FindWithTag("Test").GetComponent<Renderer>().material.color = Color.blue;
+        GameObject.FindWithTag("Test").GetComponent<Renderer>().material.color = new Color32(158, 170, 255, 1);
     }
 
     public void ChangeRed()
     {
-        GameObject.FindWithTag("Test").GetComponent<Renderer>().material.color = Color.red;
+        GameObject.FindWithTag("Test").GetComponent<Renderer>().material.color = new Color32(255, 169, 124, 1);
+    }
+
+    public void ChangePurple()
+    {
+        GameObject.FindWithTag("Test").GetComponent<Renderer>().material.color = new Color32(191, 151, 253, 1);
     }
 }

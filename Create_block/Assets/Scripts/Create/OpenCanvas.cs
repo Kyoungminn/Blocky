@@ -27,10 +27,10 @@ public class OpenCanvas : MonoBehaviour
         {
             if (bButton.action.ReadValue<float>() > 0)
             {
-                canvas = GameObject.Find("EditCanvas");
+                canvas = GameObject.FindWithTag("EditCanvas");
                 block.tag = "Edit";
                 canvas.transform.position = new Vector3(block.transform.position.x, block.transform.position.y + 2f, block.transform.position.z);
-                canvas.transform.GetChild(1).GetComponent<InputField>().text = block.transform.GetComponentInChildren<TextMesh>().text;
+                canvas.transform.GetComponentInChildren<InputField>().text = block.transform.GetComponentInChildren<TextMesh>().text;
             }
         }
     }
@@ -49,26 +49,32 @@ public class OpenCanvas : MonoBehaviour
     public void EditColorYellow()
     {
         GameObject block = GameObject.FindWithTag("Edit");
-        block.GetComponent<Renderer>().material.color = Color.yellow;
+        block.GetComponent<Renderer>().material.color = new Color32(250, 227, 107, 1);
     }
 
     public void EditColorBlue()
     {
         GameObject block = GameObject.FindWithTag("Edit");
-        block.GetComponent<Renderer>().material.color = Color.blue;
+        block.GetComponent<Renderer>().material.color = new Color32(158, 170, 255, 1);
     }
 
     public void EditColorRed()
     {
         GameObject block = GameObject.FindWithTag("Edit");
-        block.GetComponent<Renderer>().material.color = Color.red;
+        block.GetComponent<Renderer>().material.color = new Color32(255, 169, 124, 1);
+    }
+
+    public void EditColorPurple()
+    {
+        GameObject block = GameObject.FindWithTag("Edit");
+        block.GetComponent<Renderer>().material.color = new Color32(191, 151, 253, 1);
     }
 
     public void EditWord()
     {
-        GameObject canvas = GameObject.Find("EditCanvas");
+        GameObject canvas = GameObject.FindWithTag("EditCanvas");
         GameObject block = GameObject.FindWithTag("Edit");
-        block.GetComponentInChildren<TextMesh>().text = canvas.transform.GetChild(1).GetComponent<InputField>().text;
+        block.transform.GetComponentInChildren<TextMesh>().text = canvas.transform.GetComponentInChildren<InputField>().text;
         block.tag = "Old";
         canvas.transform.position = new Vector3(canvas.transform.position.x, -10f, canvas.transform.position.z);
     }

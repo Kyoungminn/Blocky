@@ -30,7 +30,7 @@ public class JoinManager : MonoBehaviour
     {
         if (count == 0)
         {
-            if (obj != objects1) // °°Àº ºí·ÏÀÌ 2¹ø µî·ÏµÇÁö ¾Êµµ·Ï
+            if (obj != objects1) // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 2ï¿½ï¿½ ï¿½ï¿½Ïµï¿½ï¿½ï¿½ ï¿½Êµï¿½ï¿½ï¿½
                 objects0 = obj;
         }
         else
@@ -44,7 +44,7 @@ public class JoinManager : MonoBehaviour
 
     void Update()
     {
-        // ¾çÂÊ ÄÁÆ®·Ñ·¯·Î Àâ°í ÀÖ´Â°Ô ¾Æ´Ñ °æ¿ì¿¡´Â ÇÕÃÄÁöÁö ¾Êµµ·Ï ´Ù½Ã null°ªÀ» ³Ö´Â´Ù.
+        // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Æ®ï¿½Ñ·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½Ö´Â°ï¿½ ï¿½Æ´ï¿½ ï¿½ï¿½ì¿¡ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Êµï¿½ï¿½ï¿½ ï¿½Ù½ï¿½ nullï¿½ï¿½ï¿½ï¿½ ï¿½Ö´Â´ï¿½.
         if (rightGripReference.action.ReadValue<float>() <= 0.0f || leftGripReference.action.ReadValue<float>() <= 0.0f)
         {
             objects0 = null;
@@ -61,7 +61,7 @@ public class JoinManager : MonoBehaviour
                 string msgText = objects0.transform.GetChild(2).GetComponent<TextMesh>().text;
                 string otherMsg = objects1.transform.GetChild(2).GetComponent<TextMesh>().text;
 
-                if (scale0.x + scale1.x <= 8)
+                if (scale0.x + scale1.x <= 240)
                 {
                     PhotonNetwork.Destroy(objects0);
                     PhotonNetwork.Destroy(objects1);
@@ -71,8 +71,8 @@ public class JoinManager : MonoBehaviour
                     create.IncreaseI();
                     newBlock.transform.localScale = scale0 + scale1;
                     //newBlock.transform.position = pos;
-                    newBlock.transform.GetChild(0).localPosition = new Vector3(0f, 0f, -5f * (2 / (scale0.z + scale1.z)));
-                    newBlock.GetComponent<MeshRenderer>().material.color = Color.green;
+                    newBlock.transform.GetChild(0).localPosition = new Vector3(0f, 0f, -0.1f / ((scale0.z + scale1.z) / 60));
+                    newBlock.GetComponent<MeshRenderer>().material.color = new Color32(117, 224, 194, 255);
                     newBlock.GetComponent<Rigidbody>().useGravity = false;
                     newBlock.GetComponent<Rigidbody>().isKinematic = true;
                     newBlock.GetComponent<GrabInteractableWithPhoton>().enabled = true;
