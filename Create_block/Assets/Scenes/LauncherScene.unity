@@ -8168,7 +8168,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 283335528}
         m_TargetAssemblyTypeName: Launcher, Assembly-CSharp
-        m_MethodName: OnSingleRoomClick
+        m_MethodName: OnNewClick
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

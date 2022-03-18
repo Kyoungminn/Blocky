@@ -735,7 +735,6 @@ GameObject:
   - component: {fileID: 98822318}
   - component: {fileID: 98822317}
   - component: {fileID: 98822316}
-  - component: {fileID: 98822319}
   m_Layer: 5
   m_Name: Save
   m_TagString: Untagged
@@ -807,7 +806,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 98822319}
+      - m_Target: {fileID: 710990694}
         m_TargetAssemblyTypeName: SaveManager, Assembly-CSharp
         m_MethodName: saveAllData
         m_Mode: 1
@@ -857,21 +856,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 98822314}
   m_CullTransparentMesh: 1
---- !u!114 &98822319
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 98822314}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8c9798abab31a4d8ea309c997327e170, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  block: {fileID: 0}
-  DataList: []
-  LineDataList: []
 --- !u!1 &180944775
 GameObject:
   m_ObjectHideFlags: 0
@@ -1638,7 +1622,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &398466053
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4254,6 +4238,8 @@ GameObject:
   m_Component:
   - component: {fileID: 710990693}
   - component: {fileID: 710990692}
+  - component: {fileID: 710990695}
+  - component: {fileID: 710990694}
   m_Layer: 0
   m_Name: SaveLoadManager
   m_TagString: Untagged
@@ -4291,6 +4277,34 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 26
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &710990694
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 710990691}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8c9798abab31a4d8ea309c997327e170, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  block: {fileID: 0}
+  DataList: []
+  LineDataList: []
+--- !u!114 &710990695
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 710990691}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc941b1e9d7ea442e8f54ba37edec0e5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  saveManager: {fileID: 710990694}
 --- !u!1 &718634795
 GameObject:
   m_ObjectHideFlags: 0
