@@ -27,6 +27,11 @@ public class DeleteArea : MonoBehaviour
         StartCoroutine("Timer", other);
     }
 
+    private void OnTriggerExit(Collider other)
+    {
+        StopCoroutine("Timer");
+    }
+
     IEnumerator AreaLifeTimer()
     {
         yield return new WaitForSeconds(60f);
