@@ -5,7 +5,7 @@ using UnityEngine.InputSystem;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
-public class OpenSettingCanvas : MonoBehaviour
+public class SettingCanvas : MonoBehaviour
 {
     [SerializeField]
     private InputActionReference oculusButton;
@@ -27,9 +27,14 @@ public class OpenSettingCanvas : MonoBehaviour
     {
         if (oculusButton.action.ReadValue<float>() > 0)
         {
-            canvas = GameObject.FindWithTag("SettingCanvas");
-            canvas.transform.position = new Vector3(player.transform.position.x, player.transform.position.y - 2, player.transform.position.z + 5);
+            OpenCanvas();
         }
+    }
+
+    private void OpenCanvas()
+    {
+        canvas = GameObject.FindWithTag("SettingCanvas");
+        canvas.transform.position = new Vector3(player.transform.position.x, player.transform.position.y - 2, player.transform.position.z + 5);
     }
 
     public void CloseCanvas()

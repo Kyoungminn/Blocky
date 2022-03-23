@@ -2255,6 +2255,7 @@ GameObject:
   - component: {fileID: 438809959}
   - component: {fileID: 438809958}
   - component: {fileID: 438809957}
+  - component: {fileID: 438809963}
   m_Layer: 5
   m_Name: EditCanvas
   m_TagString: EditCanvas
@@ -2376,6 +2377,19 @@ RectTransform:
   m_AnchoredPosition: {x: 12.67, y: -10}
   m_SizeDelta: {x: 100, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &438809963
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 438809956}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e4b3fb852a19de349979d70147facc39, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  editCanvas: {fileID: 438809956}
 --- !u!1 &447040116
 GameObject:
   m_ObjectHideFlags: 0
@@ -2731,7 +2745,6 @@ GameObject:
   - component: {fileID: 560288493}
   - component: {fileID: 560288492}
   - component: {fileID: 560288491}
-  - component: {fileID: 560288494}
   m_Layer: 5
   m_Name: close
   m_TagString: Untagged
@@ -2802,9 +2815,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 560288494}
-        m_TargetAssemblyTypeName: CloseEditCanvas, Assembly-CSharp
-        m_MethodName: Close
+      - m_Target: {fileID: 438809963}
+        m_TargetAssemblyTypeName: EditCanvas, Assembly-CSharp
+        m_MethodName: CloseCanvas
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2852,19 +2865,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 560288489}
   m_CullTransparentMesh: 1
---- !u!114 &560288494
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 560288489}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e4b3fb852a19de349979d70147facc39, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  editCanvas: {fileID: 438809956}
 --- !u!1 &565122960
 GameObject:
   m_ObjectHideFlags: 0
@@ -5646,6 +5646,7 @@ GameObject:
   - component: {fileID: 1056800844}
   - component: {fileID: 1056800843}
   - component: {fileID: 1056800848}
+  - component: {fileID: 1056800849}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -5767,6 +5768,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Cam: {fileID: 0}
   pos: {x: 0, y: 0, z: 0}
+--- !u!114 &1056800849
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1056800842}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f04dd5ac41ba429e994d269fcf61853, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1065768097
 GameObject:
   m_ObjectHideFlags: 0
@@ -8340,7 +8353,6 @@ GameObject:
   - component: {fileID: 1735346683}
   - component: {fileID: 1735346682}
   - component: {fileID: 1735346681}
-  - component: {fileID: 1735346680}
   m_Layer: 5
   m_Name: close
   m_TagString: Untagged
@@ -8367,19 +8379,6 @@ RectTransform:
   m_AnchoredPosition: {x: 50.4, y: 16.3}
   m_SizeDelta: {x: 7.393, y: 8.153}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1735346680
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1735346678}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e4b3fb852a19de349979d70147facc39, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  editCanvas: {fileID: 438809956}
 --- !u!114 &1735346681
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8424,9 +8423,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1735346680}
-        m_TargetAssemblyTypeName: CloseEditCanvas, Assembly-CSharp
-        m_MethodName: Close
+      - m_Target: {fileID: 1056800849}
+        m_TargetAssemblyTypeName: CreateCanvas, Assembly-CSharp
+        m_MethodName: CloseCanvas
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

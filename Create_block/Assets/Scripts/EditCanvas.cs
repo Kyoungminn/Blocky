@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CloseEditCanvas : MonoBehaviour
+public class EditCanvas : MonoBehaviour
 {
     [SerializeField]
     private GameObject editCanvas;
@@ -19,7 +19,7 @@ public class CloseEditCanvas : MonoBehaviour
         
     }
 
-    public void Close()
+    public void CloseCanvas()
     {
         GameObject block = GameObject.FindWithTag("Edit");
         block.tag = "Old";
