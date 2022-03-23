@@ -2,8 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.UI;
-using UnityEngine.EventSystems;
+using UnityEngine.SceneManagement;
+using Photon.Pun;
 
 public class SettingCanvas : MonoBehaviour
 {
@@ -14,7 +14,6 @@ public class SettingCanvas : MonoBehaviour
     private GameObject player;
 
     private GameObject canvas;
-    private bool hover = false;
 
     // Start is called before the first frame update
     void Start()
@@ -41,5 +40,21 @@ public class SettingCanvas : MonoBehaviour
     {
         canvas = GameObject.FindWithTag("SettingCanvas");
         canvas.transform.position = new Vector3(0, -20, 0);
+    }
+
+    public void MainButton()
+    {
+        PhotonNetwork.Disconnect();
+        SceneManager.LoadScene("LauncherScene");
+    }
+
+    public void VolumeUp()
+    {
+
+    }
+
+    public void VolumeDown()
+    {
+
     }
 }
