@@ -1048,7 +1048,7 @@
                 {
                     "name": "",
                     "id": "003fc9cd-310e-4716-81ab-462bc151eb82",
-                    "path": "<XRController>{LeftHand}/gripPressed",
+                    "path": "<XRController>{RightHand}/gripPressed",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
