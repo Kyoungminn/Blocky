@@ -21,6 +21,8 @@ public class DeleteRayManager : MonoBehaviour
     [SerializeField]
     private GameObject deleteAreaPrefab;
 
+    public bool isOn;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -30,15 +32,18 @@ public class DeleteRayManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (rightPrimaryButtonReference.action.ReadValue<float>() > 0f)
+        if (isOn)
         {
-            rightRay.gameObject.SetActive(false);
-            rightDeleteRay.gameObject.SetActive(true);
-        }
-        else
-        {
-            rightRay.gameObject.SetActive(true);
-            rightDeleteRay.gameObject.SetActive(false);
+            if (rightPrimaryButtonReference.action.ReadValue<float>() > 0f)
+            {
+                rightRay.gameObject.SetActive(false);
+                rightDeleteRay.gameObject.SetActive(true);
+            }
+            else
+            {
+                rightRay.gameObject.SetActive(true);
+                rightDeleteRay.gameObject.SetActive(false);
+            }
         }
     }
 
