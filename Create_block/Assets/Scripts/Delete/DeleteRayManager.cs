@@ -21,7 +21,7 @@ public class DeleteRayManager : MonoBehaviour
     [SerializeField]
     private GameObject deleteAreaPrefab;
 
-    public bool isOn;
+    public bool isOn = true;
 
     // Start is called before the first frame update
     void Start()

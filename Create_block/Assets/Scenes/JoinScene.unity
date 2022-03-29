@@ -2756,6 +2756,7 @@ GameObject:
   m_Component:
   - component: {fileID: 510236235}
   - component: {fileID: 510236234}
+  - component: {fileID: 510236236}
   m_Layer: 0
   m_Name: CustomModeManager
   m_TagString: Untagged
@@ -2775,6 +2776,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c720c5316b3ab4b2bbfb32150d0cf3c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  XRRigPhotonView: {fileID: 510236236}
+  leftLineRayPhotonView: {fileID: 1449808610}
+  rightLineRayPhotonView: {fileID: 1449808610}
   deleteRayManager: {fileID: 92740929}
   leftLineRayInteractor: {fileID: 418060720}
   rightLineRayInteractor: {fileID: 1227664366}
@@ -2792,6 +2796,28 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 27
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &510236236
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 510236233}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 3
+  OwnershipTransfer: 0
+  observableSearch: 2
+  ObservedComponents: []
+  sceneViewId: 6
+  InstantiationId: 0
+  isRuntimeInstantiated: 0
 --- !u!1 &560288489
 GameObject:
   m_ObjectHideFlags: 0
@@ -7659,6 +7685,7 @@ GameObject:
   - component: {fileID: 1449808606}
   - component: {fileID: 1449808609}
   - component: {fileID: 1449808608}
+  - component: {fileID: 1449808610}
   m_Layer: 0
   m_Name: XR Rig - Device Based
   m_TagString: Untagged
@@ -7737,6 +7764,28 @@ MonoBehaviour:
   - {fileID: 2105095654}
   m_DeadzoneMin: 0.125
   m_DeadzoneMax: 0.925
+--- !u!114 &1449808610
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1449808605}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 3
+  OwnershipTransfer: 0
+  observableSearch: 2
+  ObservedComponents: []
+  sceneViewId: 5
+  InstantiationId: 0
+  isRuntimeInstantiated: 0
 --- !u!1 &1450091842
 GameObject:
   m_ObjectHideFlags: 0
@@ -9572,7 +9621,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2000389783
 Transform:
   m_ObjectHideFlags: 0
