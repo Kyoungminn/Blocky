@@ -9,6 +9,9 @@ public class LimitFunc : MonoBehaviour
     private PhotonView photonView;
 
     [SerializeField]
+    private Create create;
+
+    [SerializeField]
     private DeleteRayManager deleteRayManager;
 
     [SerializeField]
@@ -16,6 +19,9 @@ public class LimitFunc : MonoBehaviour
 
     [SerializeField]
     private GameObject rightLineRayInteractor;
+
+    [SerializeField]
+    private GameObject editCanvas;
 
     // Start is called before the first frame update
     void Start()
@@ -33,6 +39,14 @@ public class LimitFunc : MonoBehaviour
         else if (Input.GetKeyDown(KeyCode.Alpha2))
         {
             photonView.RPC("Step2", RpcTarget.All);
+        }
+        else if (Input.GetKeyDown(KeyCode.Alpha3))
+        {
+            photonView.RPC("Tutorial1", RpcTarget.All);
+        }
+        else if (Input.GetKeyDown(KeyCode.Alpha4))
+        {
+            photonView.RPC("Tutorial2", RpcTarget.All);
         }
     }
 
@@ -52,5 +66,21 @@ public class LimitFunc : MonoBehaviour
         leftLineRayInteractor.SetActive(true);
         rightLineRayInteractor.SetActive(true);
         Debug.Log("Step2");
+    }
+
+    [PunRPC]
+    void Tutorial1()
+    {
+        create.isOn = false;
+        editCanvas.SetActive(false);
+        deleteRayManager.isOn = false;
+        leftLineRayInteractor.SetActive(false);
+        rightLineRayInteractor.SetActive(false);
+    }
+
+    [PunRPC]
+    void Tutorial2()
+    {
+        create.isOn = true;
     }
 }

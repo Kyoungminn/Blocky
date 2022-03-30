@@ -691,6 +691,7 @@ MonoBehaviour:
   leftTriggerReference: {fileID: -6131295136447488360, guid: c348712bda248c246b8c49b3db54643f,
     type: 3}
   playerNumber: 0
+  isOn: 1
 --- !u!4 &92740928
 Transform:
   m_ObjectHideFlags: 0
@@ -2776,12 +2777,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c720c5316b3ab4b2bbfb32150d0cf3c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  XRRigPhotonView: {fileID: 510236236}
-  leftLineRayPhotonView: {fileID: 1449808610}
-  rightLineRayPhotonView: {fileID: 1449808610}
+  photonView: {fileID: 510236236}
+  create: {fileID: 92740927}
   deleteRayManager: {fileID: 92740929}
   leftLineRayInteractor: {fileID: 418060720}
   rightLineRayInteractor: {fileID: 1227664366}
+  editCanvas: {fileID: 438809956}
 --- !u!4 &510236235
 Transform:
   m_ObjectHideFlags: 0

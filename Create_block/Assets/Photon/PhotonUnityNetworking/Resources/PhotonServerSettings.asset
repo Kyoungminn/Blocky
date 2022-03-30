@@ -46,6 +46,8 @@ MonoBehaviour:
   - HeresWhy
   - Step1
   - Step2
+  - Tutorial1
+  - Tutorial2
   DisableAutoOpenWizard: 1
   ShowSettings: 1
   DevRegionSetOnce: 1
