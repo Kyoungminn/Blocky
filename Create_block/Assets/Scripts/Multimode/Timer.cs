@@ -36,7 +36,7 @@ public class Timer : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        photonView.RPC("SetMinute", RpcTarget.All, PlayerPrefs.GetInt("Time"));
     }
 
     // Update is called once per frame
@@ -49,11 +49,10 @@ public class Timer : MonoBehaviour
             secText.text = ((int)second % 60).ToString();
 
         }
+    }
 
-        if (Input.GetMouseButtonDown(0))
-        {
-            photonView.RPC("SetMinute", RpcTarget.All, 15) ;
-            photonView.RPC("TimerOn", RpcTarget.All);
-        }
+    public void StartTimer()
+    {
+        photonView.RPC("TimerOn", RpcTarget.All);
     }
 }
