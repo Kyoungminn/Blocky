@@ -54,7 +54,7 @@ public class Line : MonoBehaviour, IPunObservable
             if (startObject == null || endObject == null)
             {
                 Debug.Log("Destroy Line");
-                Destroy(gameObject);
+                PhotonNetwork.Destroy(gameObject);
             }
             else
             {
@@ -102,7 +102,7 @@ public class Line : MonoBehaviour, IPunObservable
                     if (endObject.name == "LeftFront" || endObject.name == "RightFront")
                     {
                         lineManager.ResetObject();
-                        Destroy(gameObject);
+                        PhotonNetwork.Destroy(gameObject);
                     }
                 }
             }
