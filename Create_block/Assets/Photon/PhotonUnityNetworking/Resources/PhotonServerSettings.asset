@@ -44,6 +44,8 @@ MonoBehaviour:
   - CantHearYou
   - ChangeColour
   - HeresWhy
+  - SetMinute
+  - TimerOn
   - Step1
   - Step2
   - Tutorial1

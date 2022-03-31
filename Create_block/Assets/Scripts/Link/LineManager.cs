@@ -95,8 +95,8 @@ public class LineManager : MonoBehaviour
             line.GetComponent<Line>().lineManager = gameObject.GetComponent<LineManager>();
         }
         // ?????? ?????? ?????? ????
-        if ((rightTriggerReference.action.ReadValue<float>() > 0.0f && rightGripReference.action.ReadValue<float>() == 0.0f
-            || leftTriggerReference.action.ReadValue<float>() > 0.0f && leftGripReference.action.ReadValue<float>() == 0.0f) 
+        if ((rightTriggerReference.action.ReadValue<float>() > 0.0f && rightGripReference.action.ReadValue<float>() == 0.0f)
+            || (leftTriggerReference.action.ReadValue<float>() > 0.0f && leftGripReference.action.ReadValue<float>() == 0.0f) 
             && startObject != null && blockObj != startObject)
         {
             endObject = blockObj;
