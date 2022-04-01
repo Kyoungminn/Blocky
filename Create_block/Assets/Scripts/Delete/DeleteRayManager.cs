@@ -24,7 +24,7 @@ public class DeleteRayManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        isOn = true;
+
     }
 
     // Update is called once per frame

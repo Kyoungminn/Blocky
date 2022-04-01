@@ -52,6 +52,22 @@ public class LimitFunc : MonoBehaviour
         {
             photonView.RPC("Tutorial2", RpcTarget.All);
         }
+        else if (Input.GetKeyDown(KeyCode.Alpha5))
+        {
+            photonView.RPC("Tutorial3", RpcTarget.All);
+        }
+        else if (Input.GetKeyDown(KeyCode.Alpha6))
+        {
+            photonView.RPC("Tutorial4", RpcTarget.All);
+        }
+        else if (Input.GetKeyDown(KeyCode.Alpha7))
+        {
+            photonView.RPC("Tutorial5", RpcTarget.All);
+        }
+        else if (Input.GetKeyDown(KeyCode.Alpha7))
+        {
+            photonView.RPC("Tutorial6", RpcTarget.All);
+        }
     }
 
     private void LimitCreate(bool isLimit)
@@ -127,7 +143,7 @@ public class LimitFunc : MonoBehaviour
         LimitEdit(false);
         LimitDelete(true);
         LimitLink(true);
-        LimitJoin(true);
+        LimitJoin(false);
         Debug.Log("Step1");
     }
 
