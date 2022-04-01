@@ -2838,10 +2838,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   photonView: {fileID: 510236236}
   create: {fileID: 92740927}
+  editCanvas: {fileID: 438809956}
   deleteRayManager: {fileID: 92740929}
   leftLineRayInteractor: {fileID: 418060720}
   rightLineRayInteractor: {fileID: 1227664366}
-  editCanvas: {fileID: 438809956}
+  joinManager: {fileID: 7276786419902636860}
 --- !u!4 &510236235
 Transform:
   m_ObjectHideFlags: 0
