@@ -30,7 +30,11 @@ public class LimitFunc : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        LimitCreate(false);
+        LimitEdit(false);
+        LimitDelete(false);
+        LimitLink(false);
+        LimitJoin(false);
     }
 
     // Update is called once per frame
@@ -46,27 +50,27 @@ public class LimitFunc : MonoBehaviour
         }
         else if (Input.GetKeyDown(KeyCode.Alpha3))
         {
-            photonView.RPC("Tutorial1", RpcTarget.All);
+            StartTutorial("1");
         }
         else if (Input.GetKeyDown(KeyCode.Alpha4))
         {
-            photonView.RPC("Tutorial2", RpcTarget.All);
+            StartTutorial("2");
         }
         else if (Input.GetKeyDown(KeyCode.Alpha5))
         {
-            photonView.RPC("Tutorial3", RpcTarget.All);
+            StartTutorial("3");
         }
         else if (Input.GetKeyDown(KeyCode.Alpha6))
         {
-            photonView.RPC("Tutorial4", RpcTarget.All);
+            StartTutorial("4");
         }
         else if (Input.GetKeyDown(KeyCode.Alpha7))
         {
-            photonView.RPC("Tutorial5", RpcTarget.All);
+            StartTutorial("5");
         }
-        else if (Input.GetKeyDown(KeyCode.Alpha7))
+        else if (Input.GetKeyDown(KeyCode.Alpha8))
         {
-            photonView.RPC("Tutorial6", RpcTarget.All);
+            StartTutorial("6");
         }
     }
 
@@ -216,5 +220,31 @@ public class LimitFunc : MonoBehaviour
         LimitDelete(true);
         LimitLink(true);
         LimitJoin(false);
+    }
+
+    public void StartTutorial(string step)
+    {
+        switch (step)
+        {
+            case "1":
+                photonView.RPC("Tutorial1", RpcTarget.All);
+                break;
+            case "2":
+                photonView.RPC("Tutorial2", RpcTarget.All);
+                break;
+            case "3":
+                photonView.RPC("Tutorial3", RpcTarget.All);
+                break;
+            case "4":
+                photonView.RPC("Tutorial4", RpcTarget.All);
+                break;
+            case "5":
+                photonView.RPC("Tutorial5", RpcTarget.All);
+                break;
+            case "6":
+                photonView.RPC("Tutorial6", RpcTarget.All);
+                break;
+
+        }
     }
 }
