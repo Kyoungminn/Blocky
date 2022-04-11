@@ -72,24 +72,13 @@ public class Line : MonoBehaviour, IPunObservable
                     float lenZ = Mathf.Abs(startObject.transform.position.z - endObject.transform.position.z) / 2;
                     collider.size = new Vector3(lenX, lenY, lenZ);
                 }
-
-                /* 기존 선택지
+                
                 if (rightTriggerReference.action.ReadValue<float>() > 0.0f || leftTriggerReference.action.ReadValue<float>() > 0.0f)
                 {
                     gameObject.GetComponent<LineRenderer>().SetPosition(0, startObject.transform.position);
                     gameObject.GetComponent<LineRenderer>().SetPosition(1, endObject.transform.position);
                 }
                 else
-                {
-                    if (endObject.name == "LeftFront" || endObject.name == "RightFront")
-                    {
-                        lineManager.ResetObject();
-                        PhotonNetwork.Destroy(gameObject);
-                    }
-                }
-                */
-                // 수정
-                if (rightTriggerReference.action.ReadValue<float>() <= 0.0f && leftTriggerReference.action.ReadValue<float>() <= 0.0f)
                 {
                     if (endObject.name == "LeftFront" || endObject.name == "RightFront")
                     {
