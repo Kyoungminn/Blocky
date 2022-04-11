@@ -113,7 +113,7 @@ namespace FrostweepGames.Plugins.GoogleCloud.SpeechRecognition.Examples
 			{
 				foreach (var alternative in result.alternatives)
 				{
-					_resultText.text += alternative.transcript;
+					_resultText.text += alternative.transcript.TrimEnd('.');
 				}
 			}
 		}
