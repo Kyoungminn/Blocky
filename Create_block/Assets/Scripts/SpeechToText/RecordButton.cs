@@ -59,16 +59,16 @@ namespace FrostweepGames.Plugins.GoogleCloud.SpeechRecognition.Examples
 			{
 				Debug.Log("Rec Start");
 				_resultText.text = "";
-
 				_speechRecognition.StartRecord(false);
+				_startRecordButton.GetComponent<Animator>().SetBool("isBlink", true);
 			}
             else
             {
 				Debug.Log("Rec Stop");
 				_speechRecognition.StopRecord();
+				_startRecordButton.GetComponent<Animator>().SetBool("isBlink", false);
 			}
 			isStart = !isStart;
-			Debug.Log(isStart);
 		}
 
 		private void EndTalkigEventHandler(AudioClip clip, float[] raw)
@@ -113,7 +113,8 @@ namespace FrostweepGames.Plugins.GoogleCloud.SpeechRecognition.Examples
 			{
 				foreach (var alternative in result.alternatives)
 				{
-					_resultText.text += alternative.transcript.TrimEnd('.');
+					if (_resultText.text == "")
+						_resultText.text += alternative.transcript.TrimEnd('.');
 				}
 			}
 		}

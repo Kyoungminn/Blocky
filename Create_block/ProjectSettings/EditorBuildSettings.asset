@@ -11,9 +11,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/JoinScene.unity
     guid: aabe82a326e00fb4c9cd39fc0d880fcd
-  - enabled: 1
-    path: Assets/Scenes/GCSTest.unity
-    guid: 9f67007d6c1ac4821924e68f186ebb66
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: bfa1182bd221b4ca89619141f66f1260,
       type: 2}

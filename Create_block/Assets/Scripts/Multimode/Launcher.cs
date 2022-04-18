@@ -146,8 +146,7 @@ public class Launcher : MonoBehaviourPunCallbacks
 		if (PhotonNetwork.IsMasterClient)
 		{
 			Debug.Log(PhotonNetwork.CurrentRoom.Name+" im master");
-			//PhotonNetwork.LoadLevel("JoinScene");
-			PhotonNetwork.LoadLevel("GCSTest");
+			PhotonNetwork.LoadLevel("JoinScene");
 		}
 	}
 	#endregion
