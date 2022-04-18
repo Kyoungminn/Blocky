@@ -30,11 +30,14 @@ public class Create : MonoBehaviour
 
     public int playerNumber;
 
+    public bool isOn;
+
     void Start()
     {
         Invoke("makePlayerNumber", 1f);
     }
 
+    // for multiplay
     void makePlayerNumber()
     {
         playerNumber = PhotonNetwork.LocalPlayer.GetPlayerNumber();
@@ -47,8 +50,8 @@ public class Create : MonoBehaviour
     {
         isRayHit = hit;
     }
-
-    // 블록 합칠때 i변수 가져오기 위한 함수
+    
+    // 블록 이름 제어 함수
     public int GetI()
     {
         return i;
@@ -83,7 +86,7 @@ public class Create : MonoBehaviour
     void Update() 
     {
         // 현재 컨트롤러가 향하는 방향에 아무것도 없고, 생성이 완료되지 않은 블록이 없는 경우에 생성 가능
-        if (!isRayHit && GameObject.FindGameObjectsWithTag("Test").Length == 0)
+        if (isOn && !isRayHit && GameObject.FindGameObjectsWithTag("Test").Length == 0)
         {
             if (rightTriggerReference.action.ReadValue<float>() > 0.0f || leftTriggerReference.action.ReadValue<float>() > 0.0f || Input.GetKeyDown(KeyCode.G)) //트리거 버튼 누르면 생성되도록(원래 트리거 버튼은 왼쪽 마우스이지만 텍스트나 버튼 입력과 혼동되서 g키를 누르면 생성되도록 Unity에는 grip으로 지정해놓았습니다)
             {
@@ -99,7 +102,6 @@ public class Create : MonoBehaviour
                 if (blockExist)
                 {
                     currentBlock = PhotonNetwork.Instantiate(this.blockPrefab.name, rayPos.position, Quaternion.identity) ; //cubePrefab 생성
-                    //blockPrefab.transform.position = rayPos.position;
                     currentBlock.GetComponent<Renderer>().material.color = ColorSetting(playerNumber);
                     currentBlock.tag = "Test";
                     currentBlock.name = i.ToString();

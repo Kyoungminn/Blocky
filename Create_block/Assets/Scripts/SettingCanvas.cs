@@ -33,12 +33,15 @@ public class SettingCanvas : MonoBehaviour
     private void OpenCanvas()
     {
         canvas = GameObject.FindWithTag("SettingCanvas");
-        canvas.transform.position = new Vector3(player.transform.position.x, player.transform.position.y - 2, player.transform.position.z + 5);
+        canvas.transform.parent = player.transform;
+        canvas.transform.localPosition = new Vector3(0, -2, 5);
+        canvas.transform.rotation = player.transform.rotation;
     }
 
     public void CloseCanvas()
     {
         canvas = GameObject.FindWithTag("SettingCanvas");
+        canvas.transform.parent = null;
         canvas.transform.position = new Vector3(0, -20, 0);
     }
 

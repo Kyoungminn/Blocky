@@ -53,7 +53,6 @@ public class PlayerManager : MonoBehaviour
             //right.gameObject.SetActive(false);
 
 
-            //�÷��̾� �ѹ����� �ð��� �� �ɷ��� 1������ �������Ѿ� ����� ����
             //Invoke("makePlayerNumber", 1f);
 
         }
