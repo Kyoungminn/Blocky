@@ -11,7 +11,9 @@ public class Launcher : MonoBehaviourPunCallbacks
 	[SerializeField]
 	private byte maxPlayersPerRoom = 4;
 	[SerializeField]
-	private Text RoomNameInputField;
+	private Text FindRoomNameInputField;
+	[SerializeField]
+	private Text NewRoomNameInputField;
 	[SerializeField]
 	private Text PlayerNameInputField;
 	#endregion
@@ -21,20 +23,23 @@ public class Launcher : MonoBehaviourPunCallbacks
 	#region Private Fields
 	bool isConnecting;
 	string gameVersion = "1";
-    #endregion
+	#endregion
 
-    #region Public Fields
+	#region Public Fields
 	///�г� �и�
 	public enum ActivePanel
-    {
+	{
 		LOGIN = 0,
 		LOBBY = 1,
 		SINGLE = 2,
 		LOAD = 3,
 		MULTI = 4,
 		MULTIFIND = 5,
-		MULTINEW = 6
-    }
+		MULTINEW = 6,
+		MULTICHOOSE = 7,
+		MULTISETTING = 8,
+		WARNING =9,
+	}
 	public GameObject[] panels;
     #endregion
 
@@ -71,52 +76,82 @@ public class Launcher : MonoBehaviourPunCallbacks
 		panels[(int)panel].SetActive(true);
 	}
 
-	
+
 	public void OnSingleRoomClick()
 	{
-		//PhotonNetwork.CreateRoom(null, new RoomOptions { MaxPlayers = 1 });
-		//임시로 바꿔둠(멀티 확인 위헤)
 		ChangePanel(ActivePanel.SINGLE);
-		//PhotonNetwork.JoinOrCreateRoom("1234", new RoomOptions { MaxPlayers = maxPlayersPerRoom }, null);
 	}
 
-	
 	public void OnMultiRoomClick()
-    {
+	{
 		ChangePanel(ActivePanel.MULTI);
 	}
 
 	public void OnLoadClick()
-    {
+	{
 		ChangePanel(ActivePanel.LOAD);
-    }
+	}
 
+	//싱글 패널(로드, 뉴)
 	public void OnNewClick()
-    {
+	{
+		//PhotonNetwork.CreateRoom(null, new RoomOptions { MaxPlayers = 1 });
+		//임시로 바꿔둠(멀티 확인 위해)
+		PlayerPrefs.SetInt("Custom", 0);
 		PhotonNetwork.JoinOrCreateRoom("1234", new RoomOptions { MaxPlayers = maxPlayersPerRoom }, null);
 	}
 
 	public void OnFindClick()
-    {
+	{
 		ChangePanel(ActivePanel.MULTIFIND);
-    }
+	}
 
 	public void OnMultiNewClick()
-    {
+	{
 		ChangePanel(ActivePanel.MULTINEW);
-    }
+	}
 
+	//찾아서 방 들어가기
 	public void OnEnterClick()
-    {
-		string roomName = RoomNameInputField.text.ToString();
-		PhotonNetwork.JoinOrCreateRoom(roomName, new RoomOptions { MaxPlayers = maxPlayersPerRoom },null);
-    }
+	{
+		string roomName = FindRoomNameInputField.text.ToString();
+		PhotonNetwork.JoinRoom(roomName);
+	}
+
+	//멀티방 새로 만들기 
+	public void OnNewEnterClick()
+	{
+		ChangePanel(ActivePanel.MULTICHOOSE);
+
+	}
+
+	//자유모드 바로 만들기
+	public void OnFreeModeClick()
+	{
+		PlayerPrefs.SetInt("Custom", 0);
+		string roomName = NewRoomNameInputField.text.ToString();
+		PhotonNetwork.CreateRoom(roomName, new RoomOptions { MaxPlayers = maxPlayersPerRoom }, null);
+	}
+
+	//커스텀 모드 선택 후 셋팅창으로 넘어가기
+	public void OnCustomModeClick()
+	{
+		ChangePanel(ActivePanel.MULTISETTING);
+	}
+
+	//커스텀 모드 셋팅하고 방 만들기
+	public void OnCustomModeCompleteClick()
+	{
+		PlayerPrefs.SetInt("Custom", 1);
+		string roomName = NewRoomNameInputField.text.ToString();
+		PhotonNetwork.CreateRoom(roomName, new RoomOptions { MaxPlayers = maxPlayersPerRoom }, null);
+	}
 	#endregion
 
 
-	
+
 	#region MonoBehaviourPunCallbacks Callbacks
-	
+
 	public override void OnConnectedToMaster()
 	{
 		Debug.Log("OnConnectedToMaster() was called by PUN");
@@ -133,13 +168,14 @@ public class Launcher : MonoBehaviourPunCallbacks
 		Debug.LogWarningFormat("OnDisconnected() was called by PUN with reason {0}", cause);
 		ChangePanel(ActivePanel.LOGIN);
 	}
-	
-	public override void OnJoinRandomFailed(short returnCode, string message)
+
+	public override void OnJoinRoomFailed(short returnCode, string message)
 	{
-		Debug.Log(":OnJoinRandomFailed() was called by PUN. No random room available");
-		PhotonNetwork.CreateRoom(null, new RoomOptions { MaxPlayers = maxPlayersPerRoom });
+		Debug.Log(":OnJoinRoomFailed() was called by PUN. No room available");
+		ChangePanel(ActivePanel.WARNING);
+		//경고 문구 출력 
 	}
-	
+
 	public override void OnJoinedRoom()
 	{
 		Debug.Log("OnJoinedRoom() called by PUN. Now this client is in a room.");

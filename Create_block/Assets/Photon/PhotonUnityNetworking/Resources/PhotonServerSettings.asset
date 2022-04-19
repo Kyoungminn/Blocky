@@ -54,6 +54,8 @@ MonoBehaviour:
   - Tutorial4
   - Tutorial5
   - Tutorial6
+  - TimerSetting
+  - ModeSetting
   DisableAutoOpenWizard: 1
   ShowSettings: 1
   DevRegionSetOnce: 1

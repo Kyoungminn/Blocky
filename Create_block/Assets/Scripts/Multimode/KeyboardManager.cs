@@ -7,17 +7,19 @@ using UnityEngine.XR.Interaction.Toolkit;
 public class KeyboardManager : MonoBehaviour
 {
     public InputField inputField_name;
-    public InputField inputField_room;
+    public InputField inputField_find;
+    public InputField inputField_new;
     private TouchScreenKeyboard overlayKeyboard;
     public Text placeholder_name;
-    public Text placeholder_room;
+    public Text placeholder_find;
+    public Text placeholder_new;
     public static string inputText_name = "";
     public static string inputText_room = "";
     private bool opened = false;
 
     void Update()
     {
-        if (inputField_name.isFocused == true && !opened)    
+        if (inputField_name.isFocused == true && !opened)
         {
             overlayKeyboard = TouchScreenKeyboard.Open("", TouchScreenKeyboardType.Default);
             opened = true;
@@ -36,22 +38,41 @@ public class KeyboardManager : MonoBehaviour
             }
         }
 
-        if (inputField_room.isFocused == true && !opened)    
+        if (inputField_find.isFocused == true && !opened)
         {
             overlayKeyboard = TouchScreenKeyboard.Open("", TouchScreenKeyboardType.Default);
             opened = true;
         }
 
-        if (inputField_room.isFocused == true && opened)
+        if (inputField_find.isFocused == true && opened)
         {
             if (overlayKeyboard != null)
             {
                 inputText_room = overlayKeyboard.text;
-                inputField_room.text = inputText_room;
+                inputField_find.text = inputText_room;
             }
             else
             {
-                inputField_room.DeactivateInputField();
+                inputField_find.DeactivateInputField();
+            }
+        }
+
+        if (inputField_new.isFocused == true && !opened)
+        {
+            overlayKeyboard = TouchScreenKeyboard.Open("", TouchScreenKeyboardType.Default);
+            opened = true;
+        }
+
+        if (inputField_new.isFocused == true && opened)
+        {
+            if (overlayKeyboard != null)
+            {
+                inputText_room = overlayKeyboard.text;
+                inputField_new.text = inputText_room;
+            }
+            else
+            {
+                inputField_new.DeactivateInputField();
             }
         }
 
@@ -59,7 +80,8 @@ public class KeyboardManager : MonoBehaviour
         {
             if (overlayKeyboard.done)
             {
-                inputField_room.DeactivateInputField();
+                inputField_find.DeactivateInputField();
+                inputField_new.DeactivateInputField();
                 inputField_name.DeactivateInputField();
                 opened = false;
             }
