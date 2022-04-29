@@ -16,7 +16,6 @@ public class MultiGameManager : MonoBehaviourPunCallbacks
 	public GameObject currentPlayer;
 	#endregion
 
-	///���� ������ �� �÷��̾� ������ ���������� 
 	#region MonoBehaviour CallBacks
 	void Start()
 	{
@@ -56,7 +55,6 @@ public class MultiGameManager : MonoBehaviourPunCallbacks
 	}
 	#endregion
 
-	//�濡 ������ �κ��(0)�� �ε���
 	#region Photon Callbacks
 	void makePlayerNumber()
 	{
@@ -76,7 +74,6 @@ public class MultiGameManager : MonoBehaviourPunCallbacks
 	}
 	#endregion
 
-	//���� ����
 	#region Public Methods
 	public void LeaveRoom()
 	{

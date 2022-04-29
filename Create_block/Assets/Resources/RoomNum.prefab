@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 6741431183525121421}
   - component: {fileID: 6741431183525121418}
   - component: {fileID: 6741431183525121419}
+  - component: {fileID: 9099891903498591731}
   m_Layer: 5
   m_Name: RoomNum
   m_TagString: Untagged
@@ -122,9 +123,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: Launcher, Assembly-CSharp
-        m_MethodName: OnEnterClick
+      - m_Target: {fileID: 9099891903498591731}
+        m_TargetAssemblyTypeName: ChooseFile, Assembly-CSharp
+        m_MethodName: ChooseFileName
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -134,6 +135,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &9099891903498591731
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6741431183525121417}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cbc80bd85f1e44a69bc2051c286a9b8b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6741431184935660358
 GameObject:
   m_ObjectHideFlags: 0

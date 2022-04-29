@@ -13,6 +13,8 @@ TagManager:
   - vrkb_label0
   - EditCanvas
   - ColorManager
+  - Line
+  - SettingCanvas
   layers:
   - Default
   - TransparentFX

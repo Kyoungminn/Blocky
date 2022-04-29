@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Photon.Pun;
 
 public class DeleteArea : MonoBehaviour
 {
@@ -27,10 +28,15 @@ public class DeleteArea : MonoBehaviour
         StartCoroutine("Timer", other);
     }
 
+    private void OnTriggerExit(Collider other)
+    {
+        StopCoroutine("Timer");
+    }
+
     IEnumerator AreaLifeTimer()
     {
         yield return new WaitForSeconds(60f);
-        Destroy(gameObject);
+        PhotonNetwork.Destroy(gameObject);
     }
     
     IEnumerator Timer(Collider other)

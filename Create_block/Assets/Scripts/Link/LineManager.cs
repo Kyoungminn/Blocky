@@ -9,15 +9,9 @@ using Photon.Realtime;
 
 public class LineManager : MonoBehaviour
 {
-    // lineÀº prefabÀ» cloneÀ¸·Î ¸¸µå´Â ¹æ½ÄÀ¸·Î »ç¿ëÇÑ´Ù.
     [SerializeField]
     private GameObject linePref;
 
-    // lineÀÇ material
-    [SerializeField]
-    private Material blackMtl;
-
-    // ÄÁÆ®·Ñ·¯ input°ªÀ» ¹Ş¾Æ¿À±â À§ÇØ »ç¿ë
     [SerializeField]
     private InputActionReference rightTriggerReference;
 
@@ -30,58 +24,38 @@ public class LineManager : MonoBehaviour
     [SerializeField]
     private InputActionReference leftGripReference;
 
-    // start object¿Í end object¸¦ ÀúÀåÇÏ±â À§ÇÑ º¯¼ö
     private GameObject startObject = null;
     private GameObject endObject = null;
-
-    // »ı¼ºÇÑ lineÀ» ÀúÀåÇÏ±â À§ÇÑ º¯¼ö
     private GameObject line;
 
-    // ¼±ÀÌ »ı¼ºµÇ°Å³ª »èÁ¦µÇ´Â °æ¿ì object¸¦ ¸®¼ÂÇÏ±â À§ÇØ »ç¿ëÇÏ´Â ÇÔ¼ö
     public void ResetObject()
     {
         startObject = null;
         endObject = null;
     }
 
-    // ¼±À» ¸¸µé±â À§ÇØ »ç¿ëÇÏ´Â ÇÔ¼ö
     public void CreateLine(GameObject blockObj)
     {
-        // ±×¸³Àº ´©¸£Áö ¾Ê°í Æ®¸®°Å¸¸ ´­·¶À» ¶§ ÀÛµ¿ÇÏµµ·Ï Á¶°ÇÀ» ºÙÀÎ´Ù.
-        // ±×¸®°í Ã¹¹øÂ° ºí·ÏÀ» ¼±ÅÃÇÑ °æ¿ì¿¡¸¸ ¼±À» ¸¸µéµµ·Ï Á¶°ÇÀ» ºÙÀÎ´Ù.
+        // ì˜¤ë¥¸ì†
         if (rightTriggerReference.action.ReadValue<float>() > 0.0f && rightGripReference.action.ReadValue<float>() == 0.0f && startObject == null)
         {
-            // Ã¹¹øÂ° ºí·Ï°ú ÄÁÆ®·Ñ·¯¿Í ¿¬°áµÇ¾î¾ß ÇÏ¹Ç·Î endObject¿¡´Â ÄÁÆ®·Ñ·¯ object¸¦ Ã£¾Æ ³Ö¾îÁØ´Ù.
             startObject = blockObj;
             endObject = GameObject.Find("RightFront");
 
-            // prefabÀ» »ç¿ëÇÏ¿© ¶óÀÎÀ» ¸¸µé¾îÁØ´Ù.
             line = PhotonNetwork.Instantiate(this.linePref.name, new Vector3(0, 0, 0), Quaternion.identity);
 
-            // lineÀÇ ¼Ó¼ºÀ» Á¶Á¤ÇÏ±â À§ÇØ componentÀÎ LineRenderer¸¦ lr¿¡ ÀúÀåÇÑ´Ù.
-            // ±×¸®°í »ö°ú material, µÎ²² µîÀ» Á¤ÇØÁØ´Ù.
             LineRenderer lr = line.GetComponent<LineRenderer>();
 
-            lr.startColor = Color.black;
-            lr.endColor = Color.black;
-            lr.material = blackMtl;
-            lr.startWidth = 0.1f;
-            lr.endWidth = 0.1f;
-
-            // ÇöÀç ÀúÀåµÇ¾î ÀÖ´Â startObject¿Í endObject¿¡¼­ positionÀ» ¹Ş¾Æ¿Í ÀúÀåÇÑ´Ù.
-            // ±×¸®°í lrÀÇ position¿¡ ÀÌ¸¦ ³Ö¾îÁØ´Ù.
             Vector3 startPos = startObject.transform.position;
             Vector3 endPos = endObject.transform.position;
             lr.SetPosition(0, startPos);
             lr.SetPosition(1, endPos);
 
-            // lineÀ» °ü¸®ÇÏ±â À§ÇØ componentÀÎ LineÀ» °¡Á®¿À°í
-            // ÇÔ¼ö¸¦ È£ÃâÇÏ¿© startObject, endObject, LineManager¸¦ ³Ñ°ÜÁØ´Ù.
             line.GetComponent<Line>().SetStartObject(startObject);
             line.GetComponent<Line>().SetEndObject(endObject);
             line.GetComponent<Line>().lineManager = gameObject.GetComponent<LineManager>();
         }
-        // ¿ŞÆíµµ ¸¶Âù°¡Áö·Î ÀÛ¼ºÇØÁØ´Ù.
+        // ì™¼ì†
         if (leftTriggerReference.action.ReadValue<float>() > 0.0f && leftGripReference.action.ReadValue<float>() == 0.0f && startObject == null)
         {
             startObject = blockObj;
@@ -90,11 +64,6 @@ public class LineManager : MonoBehaviour
             line = PhotonNetwork.Instantiate(this.linePref.name, new Vector3(0,0,0), Quaternion.identity);
 
             LineRenderer lr = line.GetComponent<LineRenderer>();
-            lr.startColor = Color.black;
-            lr.endColor = Color.black;
-            lr.material = blackMtl;
-            lr.startWidth = 0.1f;
-            lr.endWidth = 0.1f;
 
             Vector3 startPos = startObject.transform.position;
             Vector3 endPos = endObject.transform.position;
@@ -105,29 +74,28 @@ public class LineManager : MonoBehaviour
             line.GetComponent<Line>().SetEndObject(endObject);
             line.GetComponent<Line>().lineManager = gameObject.GetComponent<LineManager>();
         }
-        // µÎ¹øÂ° ºí·ÏÀ» ¼±ÅÃÇÑ °æ¿ì
-        if ((rightTriggerReference.action.ReadValue<float>() > 0.0f && rightGripReference.action.ReadValue<float>() == 0.0f
-            || leftTriggerReference.action.ReadValue<float>() > 0.0f && leftGripReference.action.ReadValue<float>() == 0.0f) 
-            && startObject != null && blockObj != startObject)
+        // 2ë²ˆì§¸ ë¸”ë¡ ì—°ê²°
+        if (((rightTriggerReference.action.ReadValue<float>() > 0.0f && rightGripReference.action.ReadValue<float>() == 0.0f)
+            || (leftTriggerReference.action.ReadValue<float>() > 0.0f && leftGripReference.action.ReadValue<float>() == 0.0f))
+            && (startObject != null && blockObj != startObject))
         {
             endObject = blockObj;
             line.GetComponent<Line>().SetEndObject(endObject);
 
-            // collider À§Ä¡¿Í Å©±âµµ ¹Ù²Ù¾îÁØ´Ù.
+            // ì–‘ìª½ ë¸”ë¡ì˜ í¬ê¸°ì— ë”°ë¼ collider position, center, scale ê³„ì‚¬
             BoxCollider collider = line.GetComponent<BoxCollider>();
-            // ´ÜÀ§ º¤ÅÍ °è»ê
+
             float startVectorX = endObject.transform.position.x - startObject.transform.position.x;
             float startVectorY = endObject.transform.position.y - startObject.transform.position.y;
             float startVectorZ = endObject.transform.position.z - startObject.transform.position.z;
+
             Vector3 startNormal = new Vector3(startVectorX, startVectorY, startVectorZ).normalized;
             Vector3 endNormal = new Vector3(-startNormal.x, -startNormal.y, -startNormal.z);
-            // ´ë·«ÀûÀÎ Ç¥¸é ÁÂÇ¥ °è»ê
             Vector3 startSurface = startObject.transform.position + startNormal * startObject.transform.localScale.x;
             Vector3 endSurface = endObject.transform.position + endNormal * endObject.transform.localScale.x;
-            // ÁßÁ¡ ÁÂÇ¥ °è»ê
             Vector3 colliderCenter = (startSurface + endSurface) / 2;
             collider.center = colliderCenter;
-            // Å©±â ¼³Á¤
+
             float lenX = Mathf.Abs(startObject.transform.position.x - endObject.transform.position.x) / 10;
             float lenY = Mathf.Abs(startObject.transform.position.y - endObject.transform.position.y) / 10;
             float lenZ = Mathf.Abs(startObject.transform.position.z - endObject.transform.position.z) / 2;

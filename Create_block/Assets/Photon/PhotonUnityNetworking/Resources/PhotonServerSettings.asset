@@ -44,6 +44,16 @@ MonoBehaviour:
   - CantHearYou
   - ChangeColour
   - HeresWhy
+  - SetMinute
+  - TimerOn
+  - Step1
+  - Step2
+  - Tutorial1
+  - Tutorial2
+  - Tutorial3
+  - Tutorial4
+  - Tutorial5
+  - Tutorial6
   DisableAutoOpenWizard: 1
   ShowSettings: 1
   DevRegionSetOnce: 1

@@ -162,6 +162,14 @@
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": ""
+                },
+                {
+                    "name": "PressMenu",
+                    "type": "Button",
+                    "id": "4fb60caf-9063-4451-9998-ad8dd3e8e21a",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
                 }
             ],
             "bindings": [
@@ -492,6 +500,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "PressX",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "7678f943-e555-4a21-a79c-c7242227d8d5",
+                    "path": "<XRController>{LeftHand}/start",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "PressMenu",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
@@ -1029,7 +1048,7 @@
                 {
                     "name": "",
                     "id": "003fc9cd-310e-4716-81ab-462bc151eb82",
-                    "path": "<XRController>{LeftHand}/gripPressed",
+                    "path": "<XRController>{RightHand}/gripPressed",
                     "interactions": "",
                     "processors": "",
                     "groups": "",

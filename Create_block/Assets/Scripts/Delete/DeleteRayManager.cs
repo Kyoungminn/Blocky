@@ -24,7 +24,7 @@ public class DeleteRayManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
@@ -47,9 +47,9 @@ public class DeleteRayManager : MonoBehaviour
         LineRenderer lineRenderer = rightDeleteRay.GetComponent<LineRenderer>();
         if (lineRenderer.GetPosition(lineRenderer.positionCount - 1).y <= 0f)
         {
-            deleteAreaPrefab = PhotonNetwork.Instantiate(this.deleteAreaPrefab.name, lineRenderer.GetPosition(lineRenderer.positionCount - 1), Quaternion.identity);
-            //deleteAreaPrefab = (GameObject)Instantiate(Resources.Load("Prefab/DeleteArea")); //cubePrefab »ý¼º
-            deleteAreaPrefab.transform.position = lineRenderer.GetPosition(lineRenderer.positionCount - 1);
+            GameObject newDeleteArea = PhotonNetwork.Instantiate(this.deleteAreaPrefab.name, lineRenderer.GetPosition(lineRenderer.positionCount - 1), Quaternion.identity);
+            //deleteAreaPrefab = (GameObject)Instantiate(Resources.Load("Prefab/DeleteArea")); //cubePrefab ????
+            //deleteAreaPrefab.transform.position = lineRenderer.GetPosition(lineRenderer.positionCount - 1);
         }
     }
 }
