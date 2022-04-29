@@ -15,7 +15,7 @@ public class CustomStarter : MonoBehaviour
 
     void Start()
     {
-        timer = GameObject.Find("TimeManager").GetComponent<Timer>();
+        startPanel = GameObject.Find("ModeCanvas").transform.GetChild(2).gameObject;
         if (PhotonNetwork.IsMasterClient)
         {
             Debug.Log(PhotonNetwork.CurrentRoom.Name + " im master in room");
@@ -33,6 +33,14 @@ public class CustomStarter : MonoBehaviour
     {
         PlayerPrefs.SetString("Penalty",penalty);
         PlayerPrefs.SetString("Ranking",ranking);
+    }
+
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            startCustom();
+        }
     }
 
     public void startCustom()

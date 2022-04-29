@@ -95,13 +95,14 @@ GameObject:
   - component: {fileID: 4892906058181628015}
   - component: {fileID: 9071185447638081965}
   - component: {fileID: 7702625960424098083}
+  - component: {fileID: 5164193543389071371}
   m_Layer: 0
   m_Name: Network Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4067094854771323367
 Transform:
   m_ObjectHideFlags: 0
@@ -198,6 +199,21 @@ MonoBehaviour:
   photonView: {fileID: 4996665894025811701}
   minText: {fileID: 5315056793223241009}
   secText: {fileID: 2923481943847469645}
+--- !u!114 &5164193543389071371
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3449962590303765454}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90999786e9f951746a81e87d236c204b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  photonView: {fileID: 4996665894025811701}
+  startPanel: {fileID: 0}
+  timer: {fileID: 7702625960424098083}
 --- !u!1 &4230079255744048076
 GameObject:
   m_ObjectHideFlags: 0
