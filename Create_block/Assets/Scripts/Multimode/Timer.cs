@@ -51,6 +51,8 @@ public class Timer : MonoBehaviour
             second -= Time.deltaTime;
             minText.text = ((int)second / 60).ToString();
             secText.text = ((int)second % 60).ToString();
+            Debug.Log(minText.text);
+            Debug.Log(secText.text);
         }
     }
 

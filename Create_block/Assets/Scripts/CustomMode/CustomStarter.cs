@@ -45,6 +45,7 @@ public class CustomStarter : MonoBehaviour
 
     public void startCustom()
     {
+        startPanel = GameObject.Find("ModeCanvas").transform.GetChild(2).gameObject;
         startPanel.SetActive(false);
         //설정한 프리팹 값 중 타이머 값 빼고 모든 유저에게 전송
         //photonView.RPC("ModeSetting", RpcTarget.All, PlayerPrefs.GetString("Penalty"), PlayerPrefs.GetString("Ranking"));
@@ -54,6 +55,7 @@ public class CustomStarter : MonoBehaviour
 
     public void CancelCustom()
     {
+        startPanel = GameObject.Find("ModeCanvas").transform.GetChild(2).gameObject;
         startPanel.SetActive(false);
         //커스텀 모드 취소. 설정 값 초기화
         PlayerPrefs.SetInt("Custom", 0);

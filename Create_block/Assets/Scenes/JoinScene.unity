@@ -2731,7 +2731,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 0.5568628, g: 0.5568628, b: 0.5568628, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -6706,7 +6706,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 5164193543389071371, guid: 4656fedd562f2c04cbb382f4e356c92a,
+          type: 3}
         m_TargetAssemblyTypeName: CustomStarter, Assembly-CSharp
         m_MethodName: CancelCustom
         m_Mode: 1
@@ -9765,7 +9766,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 5164193543389071371, guid: 4656fedd562f2c04cbb382f4e356c92a,
+          type: 3}
         m_TargetAssemblyTypeName: CustomStarter, Assembly-CSharp
         m_MethodName: startCustom
         m_Mode: 1
