@@ -16,6 +16,8 @@ public class Launcher : MonoBehaviourPunCallbacks
 	private Text NewRoomNameInputField;
 	[SerializeField]
 	private Text PlayerNameInputField;
+	[SerializeField]
+	private Slider timerSlider;
 	#endregion
 
 	///region 2
@@ -143,6 +145,7 @@ public class Launcher : MonoBehaviourPunCallbacks
 	public void OnCustomModeCompleteClick()
 	{
 		PlayerPrefs.SetInt("Custom", 1);
+		PlayerPrefs.SetInt("Time", (int)timerSlider.value);
 		string roomName = NewRoomNameInputField.text.ToString();
 		PhotonNetwork.CreateRoom(roomName, new RoomOptions { MaxPlayers = maxPlayersPerRoom }, null);
 	}
