@@ -15,6 +15,7 @@ TagManager:
   - ColorManager
   - Line
   - SettingCanvas
+  - myAvatar
   layers:
   - Default
   - TransparentFX

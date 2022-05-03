@@ -20,7 +20,7 @@ public class ChangeEmotion : MonoBehaviour
 
     void Start()
     {
-        MainRenderer = gameObject.GetComponent<SpriteRenderer>();
+        MainRenderer = GameObject.FindWithTag("myAvatar").GetComponent<SpriteRenderer>();
     }
 
     public void Angry()
