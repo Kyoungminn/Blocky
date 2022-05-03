@@ -25,12 +25,12 @@ public class JoinManager : MonoBehaviour
     [SerializeField]
     private Create create;
 
-
+    // 양손에 있는 블록이 무엇인지 등록
     public void SetObject(GameObject obj)
     {
         if (count == 0)
         {
-            if (obj != objects1) // ���� ������ 2�� ��ϵ��� �ʵ���
+            if (obj != objects1)
                 objects0 = obj;
         }
         else
@@ -44,11 +44,10 @@ public class JoinManager : MonoBehaviour
 
     void Update()
     {
-        // ���� ��Ʈ�ѷ��� ��� �ִ°� �ƴ� ��쿡�� �������� �ʵ��� �ٽ� null���� �ִ´�.
         if (rightGripReference.action.ReadValue<float>() <= 0.0f || leftGripReference.action.ReadValue<float>() <= 0.0f)
         {
             objects0 = null;
-            objects1 = null;
+            objects1 = null; // 초기화
         }
         else
         {
@@ -66,11 +65,11 @@ public class JoinManager : MonoBehaviour
                     PhotonNetwork.Destroy(objects0);
                     PhotonNetwork.Destroy(objects1);
 
+                    // 새로운 블록 생성
                     GameObject newBlock = PhotonNetwork.Instantiate(this.blockPrefab.name, pos, Quaternion.identity);
                     newBlock.name = create.GetI().ToString();
                     create.IncreaseI();
                     newBlock.transform.localScale = scale0 + scale1;
-                    //newBlock.transform.position = pos;
                     newBlock.transform.GetChild(0).localPosition = new Vector3(0f, 0f, -0.1f / ((scale0.z + scale1.z) / 60));
                     newBlock.GetComponent<MeshRenderer>().material.color = new Color32(117, 224, 194, 255);
                     newBlock.GetComponent<Rigidbody>().useGravity = false;

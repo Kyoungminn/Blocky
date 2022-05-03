@@ -37,6 +37,7 @@ public class Create : MonoBehaviour
         Invoke("makePlayerNumber", 1f);
     }
 
+    // for multiplay
     void makePlayerNumber()
     {
         playerNumber = PhotonNetwork.LocalPlayer.GetPlayerNumber();
@@ -49,8 +50,8 @@ public class Create : MonoBehaviour
     {
         isRayHit = hit;
     }
-
-    // 블록 합칠때 i변수 가져오기 위한 함수
+    
+    // 블록 이름 제어 함수
     public int GetI()
     {
         return i;
@@ -101,7 +102,6 @@ public class Create : MonoBehaviour
                 if (blockExist)
                 {
                     currentBlock = PhotonNetwork.Instantiate(this.blockPrefab.name, rayPos.position, Quaternion.identity) ; //cubePrefab 생성
-                    //blockPrefab.transform.position = rayPos.position;
                     currentBlock.GetComponent<Renderer>().material.color = ColorSetting(playerNumber);
                     currentBlock.tag = "Test";
                     currentBlock.name = i.ToString();
