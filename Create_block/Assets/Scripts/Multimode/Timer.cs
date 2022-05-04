@@ -18,10 +18,15 @@ public class Timer : MonoBehaviour
     private TextMeshPro secText;
 
     private float second;
+    private float timer; 
     private bool timerOn = false;
+    private bool penaltyTimerOn = false;
 
     public AudioSource audio;
     public bool isRang = false;
+    public bool isOpend = false;
+    public bool isBiggered = false;
+    public GameObject rankingPanel;
 
     [PunRPC]
     void SetMinute(int minute)
@@ -34,6 +39,12 @@ public class Timer : MonoBehaviour
     void TimerOn()
     {
         timerOn = true;
+        if (PlayerPrefs.GetString("Penalty") == "on")
+        {
+            penaltyTimerOn = true;
+            timer = 60;
+            Debug.Log("penalty start");
+        }
     }
 
     // Start is called before the first frame update
@@ -49,18 +60,35 @@ public class Timer : MonoBehaviour
         {
             StartTimer();
         }*/
-        if (timerOn)
+        if (timerOn&&second>=0)
         {
             second -= Time.deltaTime;
             minText.text = ((int)second / 60).ToString();
             secText.text = ((int)second % 60).ToString();
-            Debug.Log(minText.text);
-            Debug.Log(secText.text);
+            //Debug.Log(minText.text);
+           // Debug.Log(secText.text);
 
             if(minText.text=="1" && secText.text == "0" && isRang==false)
             {
                 photonView.RPC("Ringing", RpcTarget.All);
             }
+            /*if (minText.text == "0" && secText.text == "0" && PlayerPrefs.GetString("Ranking")=="on")
+            {
+                photonView.RPC("OpenPanel", RpcTarget.All);
+            }*/
+
+            if (penaltyTimerOn&&timer>=0)
+            {
+                timer -= Time.deltaTime;
+                if ((int)timer==0&&isBiggered==false){
+                    Debug.Log(transform.GetChild(0).GetChild(0).localScale);
+                    transform.GetChild(0).GetChild(0).localScale = transform.GetChild(0).GetChild(0).localScale * 2f;
+                    Debug.Log(transform.GetChild(0).GetChild(0).localScale);
+                    isBiggered = true;
+                }
+
+            }
+            
         }
     }
 
@@ -77,4 +105,13 @@ public class Timer : MonoBehaviour
         audio.Play();
         isRang = true;
     }
+
+    [PunRPC]
+    void OpenPanel()
+    {
+        Debug.Log(GameObject.Find("RankingCanvas"));
+        rankingPanel = GameObject.Find("RankingCanvas").gameObject;
+        rankingPanel.SetActive(true);
+    }
+
 }

@@ -7,8 +7,6 @@ using UnityEngine.InputSystem;
 using Photon.Pun;
 using Photon.Pun.UtilityScripts;
 using Photon.Realtime;
-using Hashtable = ExitGames.Client.Photon.Hashtable;
-
 
 
 //canvas(속성창), cubePrefab 생성하는 스크립트 
@@ -34,12 +32,14 @@ public class Create : MonoBehaviour
 
     public bool isOn;
 
-    public int count;
+    public GameObject counter;
+    PlayerBlockCount forCount;
 
     void Start()
     {
-        count = (int)PhotonNetwork.LocalPlayer.CustomProperties["count"];
         Invoke("makePlayerNumber", 1f);
+        forCount = counter.GetComponent<PlayerBlockCount>();
+
     }
 
     // for multiplay
@@ -112,6 +112,7 @@ public class Create : MonoBehaviour
                     currentBlock.name = i.ToString();
                     blockExist = false;
                     i = i + 1;
+                    forCount.IncrementCount(PhotonNetwork.LocalPlayer);
                 }
             }
             else
@@ -120,4 +121,5 @@ public class Create : MonoBehaviour
             }
         }
     }
+
 }

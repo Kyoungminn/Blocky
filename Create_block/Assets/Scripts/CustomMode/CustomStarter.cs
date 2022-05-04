@@ -33,13 +33,13 @@ public class CustomStarter : MonoBehaviour
         PlayerPrefs.SetString("Ranking",ranking);
     }
 
-    void Update()
+    /*void Update()
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
             startCustom();
         }
-    }
+    }*/
 
     public void startCustom()
     {
