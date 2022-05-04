@@ -56,6 +56,7 @@ MonoBehaviour:
   - Tutorial6
   - TimerSetting
   - ModeSetting
+  - Ringing
   DisableAutoOpenWizard: 1
   ShowSettings: 1
   DevRegionSetOnce: 1

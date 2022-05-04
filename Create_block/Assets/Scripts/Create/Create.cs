@@ -7,6 +7,8 @@ using UnityEngine.InputSystem;
 using Photon.Pun;
 using Photon.Pun.UtilityScripts;
 using Photon.Realtime;
+using Hashtable = ExitGames.Client.Photon.Hashtable;
+
 
 
 //canvas(속성창), cubePrefab 생성하는 스크립트 
@@ -32,8 +34,11 @@ public class Create : MonoBehaviour
 
     public bool isOn;
 
+    public int count;
+
     void Start()
     {
+        count = (int)PhotonNetwork.LocalPlayer.CustomProperties["count"];
         Invoke("makePlayerNumber", 1f);
     }
 

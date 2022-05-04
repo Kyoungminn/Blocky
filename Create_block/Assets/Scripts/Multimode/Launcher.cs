@@ -146,6 +146,7 @@ public class Launcher : MonoBehaviourPunCallbacks
 	{
 		PlayerPrefs.SetInt("Custom", 1);
 		PlayerPrefs.SetInt("Time", (int)timerSlider.value);
+		Debug.Log(PlayerPrefs.GetInt("Time"));
 		string roomName = NewRoomNameInputField.text.ToString();
 		PhotonNetwork.CreateRoom(roomName, new RoomOptions { MaxPlayers = maxPlayersPerRoom }, null);
 	}
