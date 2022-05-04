@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ChangeEmotion : MonoBehaviour
 {
-    SpriteRenderer MainRenderer;
+    private SpriteRenderer MainRenderer;
     public Sprite angry;
     public Sprite beard;
     public Sprite happy;
@@ -20,7 +20,15 @@ public class ChangeEmotion : MonoBehaviour
 
     void Start()
     {
-        MainRenderer = GameObject.FindWithTag("myAvatar").GetComponent<SpriteRenderer>();
+        
+    }
+
+    private void Update()
+    {
+        if (MainRenderer == null)
+        {
+            MainRenderer = GameObject.FindWithTag("myAvatar").GetComponentInChildren<SpriteRenderer>();
+        }
     }
 
     public void Angry()
