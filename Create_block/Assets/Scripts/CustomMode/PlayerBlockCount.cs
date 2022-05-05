@@ -16,6 +16,7 @@ public class PlayerBlockCount : MonoBehaviour
     const string countKey = "count";
     public Text[] text;
     Player[] players;
+    PhotonView photonView;
 
     // Start is called before the first frame update
     void Start()
@@ -73,15 +74,17 @@ public class PlayerBlockCount : MonoBehaviour
     {
         players = PhotonNetwork.PlayerList;
         Array.Sort(players, (a, b) => GetScore(b) - GetScore(a));
-        /*for(int i=0; i<players.Length; i++)
+        for(int i=0; i<players.Length; i++)
         {
-            text[i].text = players[i].NickName;
-        }*/
-        text[0].text = players[0].NickName + ":"+ players[0].CustomProperties["count"];
+            text[i].text = players[i].NickName + ": " + players[i].CustomProperties["count"] +"°³";
+            
+        }
+        //text[0].text = players[0].NickName + ":"+ players[0].CustomProperties["count"];
     }
 
     int GetScore(Player player)
     {
         return (int)player.CustomProperties["count"];
     }
+
 }

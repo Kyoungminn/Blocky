@@ -74,6 +74,16 @@ public class LimitFunc : MonoBehaviour
         }
     }
 
+    public void Step1Start()
+    {
+        photonView.RPC("Step1", RpcTarget.All);
+    }
+
+    public void Step2Start()
+    {
+        photonView.RPC("Step2", RpcTarget.All);
+    }
+
     private void LimitCreate(bool isLimit)
     {
         if (isLimit)

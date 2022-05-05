@@ -5,6 +5,8 @@ using UnityEngine.UI;
 using TMPro;
 using Photon.Pun;
 using Photon.Realtime;
+using Hashtable = ExitGames.Client.Photon.Hashtable;
+using System;
 
 public class Timer : MonoBehaviour
 {
@@ -27,6 +29,11 @@ public class Timer : MonoBehaviour
     public bool isOpend = false;
     public bool isBiggered = false;
     public GameObject rankingPanel;
+    public GameObject step1;
+    public GameObject step2;
+    public PlayerBlockCount rankingManager;
+    public LimitFunc limitManager;
+
 
     [PunRPC]
     void SetMinute(int minute)
@@ -39,6 +46,9 @@ public class Timer : MonoBehaviour
     void TimerOn()
     {
         timerOn = true;
+        //step1 패널 뜸
+        //photonView.RPC("Step1", RpcTarget.All);
+        limitManager.Step1Start();
         if (PlayerPrefs.GetString("Penalty") == "on")
         {
             penaltyTimerOn = true;
@@ -51,42 +61,46 @@ public class Timer : MonoBehaviour
     void Start()
     {
         photonView.RPC("SetMinute", RpcTarget.All, PlayerPrefs.GetInt("Time"));
+        rankingManager = GameObject.Find("RankingManager").GetComponent<PlayerBlockCount>();
+        limitManager = GameObject.Find("CustomModeManager").GetComponent<LimitFunc>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        /*if (Input.GetMouseButtonDown(0))
-        {
-            StartTimer();
-        }*/
         if (timerOn&&second>=0)
         {
             second -= Time.deltaTime;
             minText.text = ((int)second / 60).ToString();
             secText.text = ((int)second % 60).ToString();
             //Debug.Log(minText.text);
-           // Debug.Log(secText.text);
+            //Debug.Log(secText.text);
 
+            //1분남으면 벨 울림
             if(minText.text=="1" && secText.text == "0" && isRang==false)
             {
                 photonView.RPC("Ringing", RpcTarget.All);
             }
-            /*if (minText.text == "0" && secText.text == "0" && PlayerPrefs.GetString("Ranking")=="on")
-            {
-                photonView.RPC("OpenPanel", RpcTarget.All);
-            }*/
 
+            //0분되면 랭킹보드 뜸 & step2 패널 뜸
+            if (minText.text == "0" && secText.text == "0" && PlayerPrefs.GetString("Ranking")=="on")
+            {
+                rankingManager.Ranking();
+                photonView.RPC("OpenPanel", RpcTarget.All);
+                //photonView.RPC("Step2", RpcTarget.All);
+                limitManager.Step2Start();
+            }
+
+            //시작하고 1분동안 안만들면 머리커짐
             if (penaltyTimerOn&&timer>=0)
             {
                 timer -= Time.deltaTime;
                 if ((int)timer==0&&isBiggered==false){
                     Debug.Log(transform.GetChild(0).GetChild(0).localScale);
-                    transform.GetChild(0).GetChild(0).localScale = transform.GetChild(0).GetChild(0).localScale * 2f;
+                    transform.GetChild(0).GetChild(0).localScale = transform.GetChild(0).GetChild(0).localScale * 4f;
                     Debug.Log(transform.GetChild(0).GetChild(0).localScale);
                     isBiggered = true;
                 }
-
             }
             
         }
@@ -110,8 +124,23 @@ public class Timer : MonoBehaviour
     void OpenPanel()
     {
         Debug.Log(GameObject.Find("RankingCanvas"));
-        rankingPanel = GameObject.Find("RankingCanvas").gameObject;
-        rankingPanel.SetActive(true);
+        rankingPanel = GameObject.Find("RankingCanvas");
+        rankingPanel.transform.position = new Vector3(0, 10, 10);
+    }
+
+    [PunRPC]
+    void Step1()
+    {
+        Debug.Log(GameObject.Find("StepCanvas"));
+        step1 = GameObject.Find("StepCanvas").transform.GetChild(0).gameObject;
+        step1.transform.position = new Vector3(-11, 25, 0);
+    }
+
+    [PunRPC]
+    void Step2()
+    {
+        step2 = GameObject.Find("StepCanvas").transform.GetChild(1).gameObject;
+        step2.transform.position = new Vector3(150, 25, 0);
     }
 
 }
