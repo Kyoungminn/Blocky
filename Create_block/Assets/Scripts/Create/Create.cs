@@ -30,7 +30,7 @@ public class Create : MonoBehaviour
 
     public int playerNumber;
 
-    public bool isOn;
+    public bool isOn = true;
 
     void Start()
     {

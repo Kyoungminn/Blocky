@@ -1,17 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.XR;
-using UnityEngine.XR.Interaction.Toolkit;
-using UnityEngine.InputSystem;
 
-public class ForJoin : MonoBehaviour
+public class TutorialForJoin : MonoBehaviour
 {
-    private JoinManager joinManager;
+    private TutorialJoinManager joinManager;
 
     void Start()
     {
-        joinManager = GameObject.Find("JoinManager").GetComponent<JoinManager>();
+        joinManager = GameObject.Find("JoinManager").GetComponent<TutorialJoinManager>();
     }
 
     private void OnCollisionEnter(Collision collision)

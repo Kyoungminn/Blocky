@@ -12,7 +12,7 @@ public class OpenCanvas : MonoBehaviour
 
     private GameObject block;
     private GameObject canvas;
-    public bool checkClick;
+    public bool checkClick = false;
 
     private bool hover = false;
 
