@@ -48,7 +48,10 @@ public class PlayerManager : MonoBehaviour
                      item.enabled = false;
                 }*/
 
-            head.gameObject.SetActive(false);
+            //head.gameObject.SetActive(false);
+            head.transform.GetChild(0).GetComponent<MeshFilter>().mesh = null;
+            head.transform.GetChild(0).GetChild(0).GetComponent<SpriteRenderer>().color = new Color(255, 255, 255, 0);
+
             //left.gameObject.SetActive(false);
             //right.gameObject.SetActive(false);
 

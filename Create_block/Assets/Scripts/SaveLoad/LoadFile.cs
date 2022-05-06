@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using System.IO;
+using Photon.Pun;
 
 public class LoadFile : MonoBehaviour
 {
@@ -46,7 +47,7 @@ public class LoadFile : MonoBehaviour
     {
         for (int i = 0; i < data.Count; i++)
         {
-            GameObject newblock = Instantiate(blockPref, data[i].pos, Quaternion.identity);
+            GameObject newblock = PhotonNetwork.Instantiate(blockPref.name, data[i].pos, Quaternion.identity);
             newblock.name = data[i].name;
             newblock.transform.GetChild(2).GetComponent<TextMesh>().text = data[i].text;
             newblock.GetComponent<Renderer>().material.color = data[i].color;
@@ -63,14 +64,9 @@ public class LoadFile : MonoBehaviour
     {
         for (int i = 0; i < lineData.Count; i++)
         {
-            Debug.Log("Line");
-            GameObject newLine = Instantiate(linePref);
+            GameObject newLine = PhotonNetwork.Instantiate(linePref.name, new Vector3 (0, 0, 0), Quaternion.identity);
 
             LineRenderer lr = newLine.GetComponent<LineRenderer>();
-            lr.startColor = Color.black;
-            lr.endColor = Color.black;
-            lr.startWidth = 0.1f;
-            lr.endWidth = 0.1f;
 
             Vector3 startPos = GameObject.Find(lineData[i].startObject).transform.position;
             Vector3 endPos = GameObject.Find(lineData[i].endObject).transform.position;
@@ -79,6 +75,25 @@ public class LoadFile : MonoBehaviour
 
             newLine.GetComponent<Line>().SetStartObject(GameObject.Find(lineData[i].startObject));
             newLine.GetComponent<Line>().SetEndObject(GameObject.Find(lineData[i].endObject));
+            newLine.GetComponent<Line>().lineManager = gameObject.GetComponent<LineManager>();
+
+            BoxCollider collider = newLine.GetComponent<BoxCollider>();
+
+            float startVectorX = endPos.x - startPos.x;
+            float startVectorY = endPos.y - startPos.y;
+            float startVectorZ = endPos.z - startPos.z;
+
+            Vector3 startNormal = new Vector3(startVectorX, startVectorY, startVectorZ).normalized;
+            Vector3 endNormal = new Vector3(-startNormal.x, -startNormal.y, -startNormal.z);
+            Vector3 startSurface = startPos + startNormal * GameObject.Find(lineData[i].startObject).transform.localScale.x;
+            Vector3 endSurface = endPos + endNormal * GameObject.Find(lineData[i].endObject).transform.localScale.x;
+            Vector3 colliderCenter = (startSurface + endSurface) / 2;
+            collider.center = colliderCenter;
+
+            float lenX = Mathf.Abs(startPos.x - endPos.x) / 10;
+            float lenY = Mathf.Abs(startPos.y - endPos.y) / 10;
+            float lenZ = Mathf.Abs(startPos.z - endPos.z) / 2;
+            collider.size = new Vector3(lenX, lenY, lenZ);
         }
     }
 }

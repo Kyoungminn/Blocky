@@ -170,6 +170,14 @@
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": ""
+                },
+                {
+                    "name": "PressY",
+                    "type": "Button",
+                    "id": "4069e330-8a6c-4a5f-a626-3b8da36b10c1",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
                 }
             ],
             "bindings": [
@@ -511,6 +519,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "PressMenu",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "3c0fed19-ddba-4a5a-b590-c91179e5cf4a",
+                    "path": "<XRController>{LeftHand}/secondaryButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "PressY",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
