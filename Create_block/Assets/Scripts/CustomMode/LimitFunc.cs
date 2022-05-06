@@ -163,7 +163,7 @@ public class LimitFunc : MonoBehaviour
     }
 
     [PunRPC]
-    void Tutorial1()
+    public void Tutorial1()
     {
         LimitCreate(true);
         LimitEdit(true);
@@ -173,7 +173,7 @@ public class LimitFunc : MonoBehaviour
     }
 
     [PunRPC]
-    void Tutorial2()
+    public void Tutorial2()
     {
         LimitCreate(false);
         LimitEdit(true);
@@ -183,7 +183,7 @@ public class LimitFunc : MonoBehaviour
     }
 
     [PunRPC]
-    void Tutorial3()
+    public void Tutorial3()
     {
         LimitCreate(true);
         LimitEdit(false);
@@ -193,7 +193,7 @@ public class LimitFunc : MonoBehaviour
     }
 
     [PunRPC]
-    void Tutorial4()
+    public void Tutorial4()
     {
         LimitCreate(true);
         LimitEdit(true);
@@ -203,7 +203,7 @@ public class LimitFunc : MonoBehaviour
     }
 
     [PunRPC]
-    void Tutorial5()
+    public void Tutorial5()
     {
         LimitCreate(true);
         LimitEdit(true);
@@ -213,7 +213,7 @@ public class LimitFunc : MonoBehaviour
     }
 
     [PunRPC]
-    void Tutorial6()
+    public void Tutorial6()
     {
         LimitCreate(true);
         LimitEdit(true);
