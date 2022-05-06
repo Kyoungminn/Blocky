@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0, g: 0.99999905, b: 0.99999905, a: 1}
+  m_IndirectSpecularColor: {r: 0.6208086, g: 0.56735754, b: 0.9866201, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -7483,6 +7483,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 5546776400020208831}
+        m_TargetAssemblyTypeName: OpenCanvas, Assembly-CSharp
+        m_MethodName: isClicked
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1334866134
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11904,6 +11916,18 @@ PrefabInstance:
     m_RemovedComponents:
     - {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: c09036f24b9d7f94abce47227fbb12cf, type: 3}
+--- !u!114 &5546776400020208831 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: -7474447690282895588, guid: c09036f24b9d7f94abce47227fbb12cf,
+    type: 3}
+  m_PrefabInstance: {fileID: 5546776400020208830}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d9d8cfc4b460ce48ad3d919f78d4070, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &7276786419902636860
 MonoBehaviour:
   m_ObjectHideFlags: 0

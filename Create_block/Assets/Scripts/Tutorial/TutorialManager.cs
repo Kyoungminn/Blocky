@@ -1,11 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 
 public class TutorialManager : MonoBehaviour
 {
-    LimitFunc limit;
+    public GameObject limit;
+    public GameObject line;
+    OpenCanvas edit;
     public GameObject block1;
     public GameObject block2;
 
@@ -24,7 +27,7 @@ public class TutorialManager : MonoBehaviour
     public void tutorialFirst()
     {
         SceneManager.LoadScene("Tutorial");
-        limit.Tutorial1();
+        limit.GetComponent<LimitFunc>().Tutorial1();
         Vector3 pos;
         pos = block1.gameObject.transform.position;
         if (pos.y > 0.6)
@@ -36,7 +39,7 @@ public class TutorialManager : MonoBehaviour
 
     public void tutorialSecond()
     {
-        limit.Tutorial2();
+        limit.GetComponent<LimitFunc>().Tutorial2();
         block1.SetActive(false);
         GameObject.Find("Tutorial").transform.Find("moveSecondPanel").gameObject.SetActive(false);
         GameObject.Find("Tutorial").transform.Find("SecondPanel").gameObject.SetActive(true);
@@ -48,13 +51,15 @@ public class TutorialManager : MonoBehaviour
         }
     }
  
-    public void tutorialThird() //수정필요
+    public void tutorialThird() //수정필요 edit 버튼 눌렸는지 
     {
-        limit.Tutorial3();
+        limit.GetComponent<LimitFunc>().Tutorial3();
         GameObject.Find("Tutorial").transform.Find("moveThirdPanel").gameObject.SetActive(false);
         GameObject.Find("Tutorial").transform.Find("ThirdPanel").gameObject.SetActive(true);
         GameObject blockInstance = GameObject.FindWithTag("Old");
-        if (blockInstance)
+        edit.GetComponent<OpenCanvas>().isClicked();
+       ;
+        if (edit.checkClick == true)
         {
             GameObject.Find("Tutorial").transform.Find("thirdPanel").gameObject.SetActive(false);
             GameObject.Find("Tutorial").transform.Find("moveFourthPanel").gameObject.SetActive(true);
@@ -62,7 +67,7 @@ public class TutorialManager : MonoBehaviour
     }
     public void tutorialFourth()
     {
-        limit.Tutorial4();
+        limit.GetComponent<LimitFunc>().Tutorial4();
         GameObject.Find("Tutorial").transform.Find("moveFourthPanel").gameObject.SetActive(false);
         GameObject.Find("Tutorial").transform.Find("FourthPanel").gameObject.SetActive(true);
         GameObject blockInstance = GameObject.FindWithTag("Old");
@@ -73,14 +78,15 @@ public class TutorialManager : MonoBehaviour
         }
     }
 
-    public void tutorialFifth()
+    public void tutorialFifth() 
     {
-        limit.Tutorial5();
+        limit.GetComponent<LimitFunc>().Tutorial5();
         GameObject.Find("Tutorial").transform.Find("moveFifthPanel").gameObject.SetActive(false);
         GameObject.Find("Tutorial").transform.Find("FifthPanel").gameObject.SetActive(true);
         block1.SetActive(true);
         block2.SetActive(true);
-        //if (blockInstance == false) //라인 생성되었는지 확인
+        GameObject lineCheck = GameObject.FindWithTag("Line");
+        if (lineCheck == true && line.GetComponent<Line>().IsLinked()==true)  
         {
             GameObject.Find("Tutorial").transform.Find("FifthPanel").gameObject.SetActive(false);
             GameObject.Find("Tutorial").transform.Find("moveSixthPanel").gameObject.SetActive(true);
@@ -89,16 +95,23 @@ public class TutorialManager : MonoBehaviour
 
     public void tutorialSixth()
     {
-        limit.Tutorial6();
+        limit.GetComponent<LimitFunc>().Tutorial6();
         GameObject.Find("Tutorial").transform.Find("moveSixthPanel").gameObject.SetActive(false);
         GameObject.Find("Tutorial").transform.Find("SixthPanel").gameObject.SetActive(true);
         block1.SetActive(true);
         block2.SetActive(true);
-        //if (blockInstance == false) //합쳐졌는지 확인
+        GameObject blockInstance = GameObject.FindWithTag("Old");
+
+        if (blockInstance.transform.localScale == new Vector3(120,120,120)) //합쳐졌는지 확인
         {
             GameObject.Find("Tutorial").transform.Find("SixthPanel").gameObject.SetActive(false);
             GameObject.Find("Tutorial").transform.Find("endPanel").gameObject.SetActive(true);
         }
+    }
+
+    public void moveToLobby()
+    {
+        SceneManager.LoadScene("LauncherScene");
     }
 
 }

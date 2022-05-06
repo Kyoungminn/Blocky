@@ -116,4 +116,13 @@ public class Line : MonoBehaviour, IPunObservable
 
         return objects;
     }
+
+    public bool IsLinked()
+    {
+        if (startObject.tag == "Old" && endObject.tag == "Old")
+            return true;
+        else
+            return false;
+    }
+    
 }

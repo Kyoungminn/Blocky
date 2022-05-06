@@ -12,6 +12,8 @@ public class OpenCanvas : MonoBehaviour
 
     private GameObject block;
     private GameObject canvas;
+    public bool checkClick;
+
     private bool hover = false;
 
     // Start is called before the first frame update
@@ -77,5 +79,10 @@ public class OpenCanvas : MonoBehaviour
         block.transform.GetComponentInChildren<TextMesh>().text = canvas.transform.GetComponentInChildren<InputField>().text;
         block.tag = "Old";
         canvas.transform.position = new Vector3(canvas.transform.position.x, -10f, canvas.transform.position.z);
+    }
+
+    public void isClicked()
+    {
+        checkClick = true;
     }
 }
