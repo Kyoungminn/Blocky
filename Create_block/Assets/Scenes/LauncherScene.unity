@@ -336,7 +336,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &188644835
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1209,13 +1209,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 334173903}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9f8472639fb9bec45a97a146def9cc36, type: 3}
+  m_Script: {fileID: 11500000, guid: c581d9b9360d646709dd050f38898a9c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  limit: {fileID: 334173903}
-  line: {fileID: 0}
-  block1: {fileID: 0}
-  block2: {fileID: 0}
 --- !u!4 &334173905
 Transform:
   m_ObjectHideFlags: 0
@@ -5381,7 +5377,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 334173904}
-        m_TargetAssemblyTypeName: TutorialManager, Assembly-CSharp
+        m_TargetAssemblyTypeName: TutorialSceneManager, Assembly-CSharp
         m_MethodName: tutorialFirst
         m_Mode: 1
         m_Arguments:
