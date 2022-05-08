@@ -528,19 +528,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f27f3743a442a1744830b9624a35474f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pos: {x: 0, y: 0, z: 0}
-  scale: {x: 0, y: 0, z: 0}
-  newBlock: {fileID: 0}
-  threeSecond: 1
-  jm: 0
-  otherMsg: ' '
-  msgText: ' '
-  rightGripReference: {fileID: 187161793506945269, guid: c348712bda248c246b8c49b3db54643f,
-    type: 3}
-  leftGripReference: {fileID: -6131295136447488360, guid: c348712bda248c246b8c49b3db54643f,
-    type: 3}
-  joinManager: {fileID: 386083258229662809, guid: 0735c5d010e13d84b8a5d47d4b70af8d,
-    type: 3}
 --- !u!114 &-7474447690282895588
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -554,6 +541,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bButton: {fileID: 9154613164557424581, guid: c348712bda248c246b8c49b3db54643f, type: 3}
+  checkClick: 0
 --- !u!114 &-6476004557829897974
 MonoBehaviour:
   m_ObjectHideFlags: 0
