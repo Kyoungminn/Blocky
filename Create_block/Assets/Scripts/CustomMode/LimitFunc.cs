@@ -11,6 +11,8 @@ public class LimitFunc : MonoBehaviour
     [SerializeField]
     private Create create;
 
+    [SerializeField]
+    private TutorialCreate tutorialCreate;
 
     [SerializeField]
     private GameObject editCanvas;
@@ -28,7 +30,7 @@ public class LimitFunc : MonoBehaviour
     private JoinManager joinManager;
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         LimitCreate(false);
         LimitEdit(false);
@@ -79,10 +81,12 @@ public class LimitFunc : MonoBehaviour
         if (isLimit)
         {
             create.isOn = false;
+            tutorialCreate.isOn = false;
         }
         else
         {
             create.isOn = true;
+            tutorialCreate.isOn = true;
         }
     }
 
@@ -162,8 +166,7 @@ public class LimitFunc : MonoBehaviour
         Debug.Log("Step2");
     }
 
-    [PunRPC]
-    void Tutorial1()
+    public void Tutorial1()
     {
         LimitCreate(true);
         LimitEdit(true);
@@ -172,8 +175,7 @@ public class LimitFunc : MonoBehaviour
         LimitJoin(true);
     }
 
-    [PunRPC]
-    void Tutorial2()
+    public void Tutorial2()
     {
         LimitCreate(false);
         LimitEdit(true);
@@ -182,8 +184,7 @@ public class LimitFunc : MonoBehaviour
         LimitJoin(true);
     }
 
-    [PunRPC]
-    void Tutorial3()
+    public void Tutorial3()
     {
         LimitCreate(true);
         LimitEdit(false);
@@ -192,8 +193,7 @@ public class LimitFunc : MonoBehaviour
         LimitJoin(true);
     }
 
-    [PunRPC]
-    void Tutorial4()
+    public void Tutorial4()
     {
         LimitCreate(true);
         LimitEdit(true);
@@ -202,8 +202,7 @@ public class LimitFunc : MonoBehaviour
         LimitJoin(true);
     }
 
-    [PunRPC]
-    void Tutorial5()
+    public void Tutorial5()
     {
         LimitCreate(true);
         LimitEdit(true);
@@ -212,8 +211,7 @@ public class LimitFunc : MonoBehaviour
         LimitJoin(true);
     }
 
-    [PunRPC]
-    void Tutorial6()
+    public void Tutorial6()
     {
         LimitCreate(true);
         LimitEdit(true);

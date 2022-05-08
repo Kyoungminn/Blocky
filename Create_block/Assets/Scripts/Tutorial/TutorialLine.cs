@@ -2,9 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using Photon.Pun;
 
-public class Line : MonoBehaviour, IPunObservable
+public class TutorialLine : MonoBehaviour
 {
     [SerializeField]
     private InputActionReference rightTriggerReference;
@@ -12,7 +11,7 @@ public class Line : MonoBehaviour, IPunObservable
     [SerializeField]
     private InputActionReference leftTriggerReference;
 
-    public LineManager lineManager;
+    public TutorialLineManager lineManager;
     private GameObject startObject;
     private GameObject endObject;
 
@@ -42,7 +41,7 @@ public class Line : MonoBehaviour, IPunObservable
             if (startObject == null || endObject == null)
             {
                 Debug.Log("Destroy Line");
-                PhotonNetwork.Destroy(gameObject);
+                Destroy(gameObject);
             }
             else
             {
@@ -72,7 +71,7 @@ public class Line : MonoBehaviour, IPunObservable
                     float lenZ = Mathf.Abs(startObject.transform.position.z - endObject.transform.position.z) / 2;
                     collider.size = new Vector3(lenX, lenY, lenZ);
                 }
-                
+
                 if (rightTriggerReference.action.ReadValue<float>() > 0.0f || leftTriggerReference.action.ReadValue<float>() > 0.0f)
                 {
                     gameObject.GetComponent<LineRenderer>().SetPosition(0, startObject.transform.position);
@@ -83,7 +82,7 @@ public class Line : MonoBehaviour, IPunObservable
                     if (endObject.name == "LeftFront" || endObject.name == "RightFront")
                     {
                         lineManager.ResetObject();
-                        PhotonNetwork.Destroy(gameObject);
+                        Destroy(gameObject);
                     }
                 }
             }
@@ -92,21 +91,6 @@ public class Line : MonoBehaviour, IPunObservable
         {
             gameObject.GetComponent<LineRenderer>().SetPosition(0, startObject.transform.position);
             gameObject.GetComponent<LineRenderer>().SetPosition(1, endObject.transform.position);
-        }
-    }
-
-    public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
-    {
-        if (stream.IsWriting)
-        {
-            tempObjectIDs = new int[] {startObject.GetComponent<PhotonView>().ViewID, endObject.GetComponent<PhotonView>().ViewID };
-            stream.SendNext(tempObjectIDs);
-        }
-        else
-        {
-            tempObjectIDs = (int[])stream.ReceiveNext();
-            startObject = PhotonView.Find(tempObjectIDs[0]).gameObject;
-            endObject = PhotonView.Find(tempObjectIDs[1]).gameObject;
         }
     }
 
@@ -124,5 +108,5 @@ public class Line : MonoBehaviour, IPunObservable
         else
             return false;
     }
-    
+
 }

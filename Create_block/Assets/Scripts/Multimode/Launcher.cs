@@ -49,11 +49,20 @@ public class Launcher : MonoBehaviourPunCallbacks
 	{
 		ChangePanel(ActivePanel.LOGIN);
 	}
-	#endregion
 
-	///region 4
-	#region Public Methods
-	public void Connect()
+    void Update()
+    {
+        if (PhotonNetwork.IsConnectedAndReady && panels[0].activeSelf)
+        {
+			Debug.Log("Connected!");
+			ChangePanel(ActivePanel.LOBBY);
+        }
+    }
+    #endregion
+
+    ///region 4
+    #region Public Methods
+    public void Connect()
 	{
 		PhotonNetwork.GameVersion = gameVersion;
 		PhotonNetwork.ConnectUsingSettings();
