@@ -8,9 +8,12 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/LauncherScene.unity
     guid: 757a489375402324594aa301b8ea5034
+  - enabled: 0
+    path: Assets/Scenes/JoinScene_Xmax.unity
+    guid: aabe82a326e00fb4c9cd39fc0d880fcd
   - enabled: 1
     path: Assets/Scenes/JoinScene.unity
-    guid: aabe82a326e00fb4c9cd39fc0d880fcd
+    guid: 5fe02aeb648aeee4389e2212f64f9803
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: bfa1182bd221b4ca89619141f66f1260,
       type: 2}

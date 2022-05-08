@@ -45,6 +45,7 @@ public class Timer : MonoBehaviour
     [PunRPC]
     void TimerOn()
     {
+        GameObject.FindWithTag("myAvatar").GetPhotonView().RPC("SetMinute", RpcTarget.All, PlayerPrefs.GetInt("Time"));
         timerOn = true;
         //step1 ÆÐ³Î ¶ä
         //photonView.RPC("Step1", RpcTarget.All);
@@ -60,7 +61,7 @@ public class Timer : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        photonView.RPC("SetMinute", RpcTarget.All, PlayerPrefs.GetInt("Time"));
+        //photonView.RPC("SetMinute", RpcTarget.All, PlayerPrefs.GetInt("Time"));
         rankingManager = GameObject.Find("RankingManager").GetComponent<PlayerBlockCount>();
         limitManager = GameObject.Find("CustomModeManager").GetComponent<LimitFunc>();
     }
@@ -68,6 +69,7 @@ public class Timer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
         if (timerOn&&second>=0)
         {
             second -= Time.deltaTime;
@@ -85,6 +87,8 @@ public class Timer : MonoBehaviour
             //0ºÐµÇ¸é ·©Å·º¸µå ¶ä & step2 ÆÐ³Î ¶ä
             if (minText.text == "0" && secText.text == "0" && PlayerPrefs.GetString("Ranking")=="on")
             {
+                rankingManager = GameObject.Find("RankingManager").GetComponent<PlayerBlockCount>();
+                limitManager = GameObject.Find("CustomModeManager").GetComponent<LimitFunc>();
                 rankingManager.Ranking();
                 photonView.RPC("OpenPanel", RpcTarget.All);
                 //photonView.RPC("Step2", RpcTarget.All);
@@ -109,7 +113,7 @@ public class Timer : MonoBehaviour
     public void StartTimer()
     {
         //FindWithTag("MyAvater")·Î ¹Ù²Ü °Í
-        GameObject.Find("Network Player(Clone)").GetPhotonView().RPC("TimerOn", RpcTarget.All);
+        GameObject.FindWithTag("myAvatar").GetPhotonView().RPC("TimerOn", RpcTarget.All);
         //photonView.RPC("TimerOn", RpcTarget.All);
     }
 
