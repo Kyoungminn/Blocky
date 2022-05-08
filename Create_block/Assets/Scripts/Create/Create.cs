@@ -32,9 +32,14 @@ public class Create : MonoBehaviour
 
     public bool isOn = true;
 
+    public GameObject counter;
+    PlayerBlockCount forCount;
+
     void Start()
     {
         Invoke("makePlayerNumber", 1f);
+        forCount = counter.GetComponent<PlayerBlockCount>();
+
     }
 
     // for multiplay
@@ -107,6 +112,7 @@ public class Create : MonoBehaviour
                     currentBlock.name = i.ToString();
                     blockExist = false;
                     i = i + 1;
+                    forCount.IncrementCount(PhotonNetwork.LocalPlayer);
                 }
             }
             else
@@ -115,4 +121,5 @@ public class Create : MonoBehaviour
             }
         }
     }
+
 }

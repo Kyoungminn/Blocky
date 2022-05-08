@@ -54,6 +54,10 @@ MonoBehaviour:
   - Tutorial4
   - Tutorial5
   - Tutorial6
+  - TimerSetting
+  - ModeSetting
+  - Ringing
+  - OpenPanel
   DisableAutoOpenWizard: 1
   ShowSettings: 1
   DevRegionSetOnce: 1

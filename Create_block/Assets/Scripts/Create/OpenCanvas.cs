@@ -27,11 +27,14 @@ public class OpenCanvas : MonoBehaviour
     {
         if (hover)
         {
-            if (bButton.action.ReadValue<float>() > 0)
+            if (bButton.action.ReadValue<float>() > 0 || Input.GetKeyDown(KeyCode.B))
             {
+                Debug.Log("B button");
                 canvas = GameObject.FindWithTag("EditCanvas");
                 block.tag = "Edit";
                 canvas.transform.position = new Vector3(block.transform.position.x, block.transform.position.y + 2f, block.transform.position.z);
+                //Debug.Log(canvas.transform.GetChild(0).GetComponentInChildren<InputField>().text);
+                Debug.Log(canvas);
                 canvas.transform.GetComponentInChildren<InputField>().text = block.transform.GetComponentInChildren<TextMesh>().text;
             }
         }
@@ -39,6 +42,7 @@ public class OpenCanvas : MonoBehaviour
 
     public void HoverEntered(GameObject gobject)
     {
+        Debug.Log("Hover Entered");
         hover = true;
         block = gobject;
     }

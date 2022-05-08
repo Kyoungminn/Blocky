@@ -27,6 +27,7 @@ public class MultiGameManager : MonoBehaviourPunCallbacks
 		{
 			Debug.LogFormat("We are Instantiating LocalPlayer");
 			currentPlayer = PhotonNetwork.Instantiate(this.playerPrefab.name, transform.position, transform.rotation);
+			currentPlayer.tag = "myAvatar";
 			Invoke("makePlayerNumber", 1f);
 
 			//Debug.Log(playerPrefab.transform.GetChild(1).GetChild(0).GetChild(0).GetChild(0).GetComponent<SkinnedMeshRenderer>().sharedMaterial);

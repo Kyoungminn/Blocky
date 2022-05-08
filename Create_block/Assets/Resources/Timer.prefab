@@ -180,7 +180,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6672599054054262185}
-  - component: {fileID: 5928047609956228564}
   m_Layer: 0
   m_Name: Timer
   m_TagString: Untagged
@@ -195,29 +194,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 888975850357514710}
-  m_LocalRotation: {x: -0, y: -0, z: 0.7071068, w: 0.7071068}
+  m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
   m_LocalPosition: {x: -0.32999998, y: 0.0010000467, z: 0.57699996}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 3594262950327397029}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &5928047609956228564
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 888975850357514710}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0c2854403b3c64487973e7e322df8f76, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  photonView: {fileID: 0}
-  minText: {fileID: 0}
-  secText: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
 --- !u!1 &4272436500561239917
 GameObject:
   m_ObjectHideFlags: 0

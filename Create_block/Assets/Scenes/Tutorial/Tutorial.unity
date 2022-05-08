@@ -5710,6 +5710,7 @@ MonoBehaviour:
     type: 3}
   playerNumber: 0
   isOn: 1
+  counter: {fileID: 0}
 --- !u!114 &1098581187
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8362,6 +8363,7 @@ MonoBehaviour:
   leftLineRayInteractor: {fileID: 650401569}
   rightLineRayInteractor: {fileID: 697381268}
   joinManager: {fileID: 1419470359}
+  tutorial: 1
 --- !u!1 &1476615827
 GameObject:
   m_ObjectHideFlags: 0

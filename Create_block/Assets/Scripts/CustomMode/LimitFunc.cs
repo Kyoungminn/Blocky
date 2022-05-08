@@ -29,6 +29,9 @@ public class LimitFunc : MonoBehaviour
     [SerializeField]
     private JoinManager joinManager;
 
+    [SerializeField]
+    private bool tutorial;
+
     // Start is called before the first frame update
     void Awake()
     {
@@ -76,17 +79,29 @@ public class LimitFunc : MonoBehaviour
         }
     }
 
+    public void Step1Start()
+    {
+        photonView.RPC("Step1", RpcTarget.All);
+    }
+
+    public void Step2Start()
+    {
+        photonView.RPC("Step2", RpcTarget.All);
+    }
+
     private void LimitCreate(bool isLimit)
     {
         if (isLimit)
         {
             create.isOn = false;
-            tutorialCreate.isOn = false;
+            if(tutorial)
+                tutorialCreate.isOn = false;
         }
         else
         {
             create.isOn = true;
-            tutorialCreate.isOn = true;
+            if(tutorial)
+                tutorialCreate.isOn = true;
         }
     }
 

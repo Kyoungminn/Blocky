@@ -10,7 +10,7 @@ EditorBuildSettings:
     guid: 757a489375402324594aa301b8ea5034
   - enabled: 1
     path: Assets/Scenes/JoinScene.unity
-    guid: aabe82a326e00fb4c9cd39fc0d880fcd
+    guid: 5fe02aeb648aeee4389e2212f64f9803
   - enabled: 1
     path: Assets/Scenes/Tutorial/Tutorial.unity
     guid: ffb9f4956233c1e498720abc15d88760
