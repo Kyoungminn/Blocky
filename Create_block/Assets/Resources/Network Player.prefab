@@ -331,6 +331,7 @@ GameObject:
   - component: {fileID: 5075338325451485051}
   - component: {fileID: 1388504689093624188}
   - component: {fileID: 3144029713060473994}
+  - component: {fileID: 5408971005181172280}
   m_Layer: 0
   m_Name: Sphere
   m_TagString: Untagged
@@ -435,6 +436,22 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &5408971005181172280
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4230079255744048076}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8448808fd0d42420799ec63ef5fe6a6b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spriteRenderer: {fileID: 8397226513338846760}
+  talkingEmotions:
+  - {fileID: 21300000, guid: 7fdad05e9ed2b4e75af78942dfcb1d3d, type: 3}
+  - {fileID: 21300000, guid: 396b099893cc649a8bba52358ecb8bac, type: 3}
 --- !u!1 &4275132279491476270
 GameObject:
   m_ObjectHideFlags: 0
