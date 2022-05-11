@@ -118,7 +118,9 @@ public class TutorialManager : MonoBehaviour
         panels[7].SetActive(false);
         panels[8].SetActive(true);
         block1.SetActive(true);
+        block1.transform.position = new Vector3(2.5f, 4f, -2f);
         block2.SetActive(true);
+        block2.transform.position = new Vector3(-2.5f, 0.6f, -2f);
         level++;
     }
 
