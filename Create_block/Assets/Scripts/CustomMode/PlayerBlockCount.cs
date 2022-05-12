@@ -82,7 +82,7 @@ public class PlayerBlockCount : MonoBehaviour
         //text[0].text = players[0].NickName + ":"+ players[0].CustomProperties["count"];
     }
 
-    int GetScore(Player player)
+    public int GetScore(Player player)
     {
         return (int)player.CustomProperties["count"];
     }

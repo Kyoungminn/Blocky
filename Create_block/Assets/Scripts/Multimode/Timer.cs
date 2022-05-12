@@ -23,6 +23,7 @@ public class Timer : MonoBehaviour
     private float timer; 
     private bool timerOn = false;
     private bool penaltyTimerOn = false;
+    public int penaltyCnt;
 
     public AudioSource audio;
     public bool isRang = false;
@@ -33,6 +34,7 @@ public class Timer : MonoBehaviour
     public GameObject step2;
     public PlayerBlockCount rankingManager;
     public LimitFunc limitManager;
+
 
 
     [PunRPC]
@@ -52,8 +54,8 @@ public class Timer : MonoBehaviour
         limitManager.Step1Start();
         if (PlayerPrefs.GetString("Penalty") == "on")
         {
-            penaltyTimerOn = true;
-            timer = 60;
+            penaltyCnt = 3;
+            StartCoroutine("PenaltyTimer");
             Debug.Log("penalty start");
         }
     }
@@ -95,20 +97,10 @@ public class Timer : MonoBehaviour
                 limitManager.Step2Start();
             }
 
-            //시작하고 1분동안 안만들면 머리커짐
-            if (penaltyTimerOn&&timer>=0)
-            {
-                timer -= Time.deltaTime;
-                if ((int)timer==0&&isBiggered==false){
-                    Debug.Log(transform.GetChild(0).GetChild(0).localScale);
-                    transform.GetChild(0).GetChild(0).localScale = transform.GetChild(0).GetChild(0).localScale * 4f;
-                    Debug.Log(transform.GetChild(0).GetChild(0).localScale);
-                    isBiggered = true;
-                }
-            }
             
         }
     }
+
 
     public void StartTimer()
     {
@@ -130,35 +122,78 @@ public class Timer : MonoBehaviour
         Debug.Log(GameObject.Find("RankingCanvas"));
         rankingPanel = GameObject.Find("RankingCanvas");
         rankingPanel.transform.position = new Vector3(0, 10, 10);
-        //Invoke("View30Sec", 30f);
-        //rankingPanel.transform.position = new Vector3(0, -100, 10);
-    }
-
-    void View30Sec()
-    {
-        Debug.Log("30sec after");
-        return;
+        StartCoroutine("View30SecForRanking");
     }
 
     [PunRPC]
     void Step1()
     {
-        Debug.Log("this is " + GameObject.FindWithTag("Step1Canvas"));
         step1 = GameObject.FindWithTag("Step1Canvas");
-        Debug.Log(step1);
         step1.transform.position = new Vector3(0, 30, 10);
-        Debug.Log(step1.transform.position);
-        Invoke("View30Sec", 30f);
-        step1.transform.position = new Vector3(0, -100, 10);
+        StartCoroutine("View30Sec",1);
+        
     }
 
     [PunRPC]
     void Step2()
     {
         step2 = GameObject.FindWithTag("Step2Canvas");
-        step2.transform.position = new Vector3(0, 30, 10);
-        Invoke("View30Sec", 30f);
-        step1.transform.position = new Vector3(0, -100, 10);
+        step2.transform.position = new Vector3(20, 25, 10);
+        StartCoroutine("View30Sec",2);
+    }
+
+    IEnumerator PenaltyTimer()
+    {
+        yield return new WaitForSeconds(60f);
+        Debug.Log("60sec after");
+        penaltyCnt--;
+        Debug.Log(penaltyCnt);
+
+
+        if(PlayerPrefs.GetInt("Time") == 2)
+        {
+            if (rankingManager.GetScore(PhotonNetwork.LocalPlayer) == 0 && penaltyCnt > 0)
+            {
+
+                transform.GetChild(0).GetChild(0).localScale = transform.GetChild(0).GetChild(0).localScale * 2f;
+                Debug.Log(transform.GetChild(0).GetChild(0).localScale);
+                StartCoroutine("PenaltyTimer");
+            }
+        }
+        else
+        {
+            if (rankingManager.GetScore(PhotonNetwork.LocalPlayer) == 0 && penaltyCnt >= 0)
+            {
+
+                transform.GetChild(0).GetChild(0).localScale = transform.GetChild(0).GetChild(0).localScale * 2f;
+                Debug.Log(transform.GetChild(0).GetChild(0).localScale);
+                StartCoroutine("PenaltyTimer");
+            }
+        }
+
+    }
+
+    IEnumerator View30Sec(int n)
+    {
+        yield return new WaitForSeconds(30f);
+        Debug.Log("30sec after");
+        if (n == 1)
+        {
+            step1.transform.position = new Vector3(0, -100, 10);
+        }
+        else
+        {
+            step2.transform.position = new Vector3(0, -100, 10);
+        }
+
+    }
+
+    IEnumerator View30SecForRanking()
+    {
+        yield return new WaitForSeconds(30f);
+        Debug.Log("30sec after ranking");
+        rankingPanel.transform.position = new Vector3(0, -100, 10);
+
     }
 
 }
