@@ -48,7 +48,7 @@ public class Timer : MonoBehaviour
         GameObject.FindWithTag("myAvatar").GetPhotonView().RPC("SetMinute", RpcTarget.All, PlayerPrefs.GetInt("Time"));
         timerOn = true;
         //step1 ÆÐ³Î ¶ä
-        //photonView.RPC("Step1", RpcTarget.All);
+        photonView.RPC("Step1", RpcTarget.All);
         limitManager.Step1Start();
         if (PlayerPrefs.GetString("Penalty") == "on")
         {
@@ -91,7 +91,7 @@ public class Timer : MonoBehaviour
                 limitManager = GameObject.Find("CustomModeManager").GetComponent<LimitFunc>();
                 rankingManager.Ranking();
                 photonView.RPC("OpenPanel", RpcTarget.All);
-                //photonView.RPC("Step2", RpcTarget.All);
+                photonView.RPC("Step2", RpcTarget.All);
                 limitManager.Step2Start();
             }
 
@@ -130,21 +130,35 @@ public class Timer : MonoBehaviour
         Debug.Log(GameObject.Find("RankingCanvas"));
         rankingPanel = GameObject.Find("RankingCanvas");
         rankingPanel.transform.position = new Vector3(0, 10, 10);
+        //Invoke("View30Sec", 30f);
+        //rankingPanel.transform.position = new Vector3(0, -100, 10);
+    }
+
+    void View30Sec()
+    {
+        Debug.Log("30sec after");
+        return;
     }
 
     [PunRPC]
     void Step1()
     {
-        Debug.Log(GameObject.Find("StepCanvas"));
-        step1 = GameObject.Find("StepCanvas").transform.GetChild(0).gameObject;
-        step1.transform.position = new Vector3(-11, 25, 0);
+        Debug.Log("this is " + GameObject.FindWithTag("Step1Canvas"));
+        step1 = GameObject.FindWithTag("Step1Canvas");
+        Debug.Log(step1);
+        step1.transform.position = new Vector3(0, 30, 10);
+        Debug.Log(step1.transform.position);
+        Invoke("View30Sec", 30f);
+        step1.transform.position = new Vector3(0, -100, 10);
     }
 
     [PunRPC]
     void Step2()
     {
-        step2 = GameObject.Find("StepCanvas").transform.GetChild(1).gameObject;
-        step2.transform.position = new Vector3(150, 25, 0);
+        step2 = GameObject.FindWithTag("Step2Canvas");
+        step2.transform.position = new Vector3(0, 30, 10);
+        Invoke("View30Sec", 30f);
+        step1.transform.position = new Vector3(0, -100, 10);
     }
 
 }
