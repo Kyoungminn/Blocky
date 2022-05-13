@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
 
-public class TagNetworking : MonoBehaviour
+public class TagNetworking : MonoBehaviour, IPunObservable
 {
     private string currentTag;
     private string tempTag;
