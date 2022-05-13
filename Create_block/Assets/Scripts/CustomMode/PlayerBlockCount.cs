@@ -40,7 +40,8 @@ public class PlayerBlockCount : MonoBehaviour
         else if (Input.GetKeyDown(KeyCode.A))
         {
             DisplayPlayerList();
-        }else if (Input.GetKeyDown(KeyCode.W))
+        }
+        else if (Input.GetKeyDown(KeyCode.W))
         {
             Ranking();
         }
@@ -74,15 +75,15 @@ public class PlayerBlockCount : MonoBehaviour
     {
         players = PhotonNetwork.PlayerList;
         Array.Sort(players, (a, b) => GetScore(b) - GetScore(a));
-        for(int i=0; i<players.Length; i++)
+        for (int i = 0; i < players.Length; i++)
         {
-            text[i].text = players[i].NickName + ": " + players[i].CustomProperties["count"] +"°³";
-            
+            text[i].text = players[i].NickName + ": " + players[i].CustomProperties["count"] + "°³";
+
         }
         //text[0].text = players[0].NickName + ":"+ players[0].CustomProperties["count"];
     }
 
-    int GetScore(Player player)
+    public int GetScore(Player player)
     {
         return (int)player.CustomProperties["count"];
     }

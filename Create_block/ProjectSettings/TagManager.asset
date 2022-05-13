@@ -17,6 +17,7 @@ TagManager:
   - SettingCanvas
   - myAvatar
   - EmotionCanvas
+  - StepCanvas
   layers:
   - Default
   - TransparentFX

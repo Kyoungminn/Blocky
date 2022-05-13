@@ -201,6 +201,7 @@ MonoBehaviour:
   photonView: {fileID: 4996665894025811701}
   minText: {fileID: 1293439572055155968}
   secText: {fileID: 8116520999808334460}
+  penaltyCnt: 0
   audio: {fileID: 3826093198719824854}
   isRang: 0
   isOpend: 0
