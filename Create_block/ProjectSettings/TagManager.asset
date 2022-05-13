@@ -18,6 +18,7 @@ TagManager:
   - myAvatar
   - EmotionCanvas
   - StepCanvas
+  - Block
   layers:
   - Default
   - TransparentFX
