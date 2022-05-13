@@ -71,6 +71,14 @@ public class SaveManager : MonoBehaviour
             DataList.Add(data);
         }
 
+        GameObject[] tempOthers = GameObject.FindGameObjectsWithTag("Block");
+        for (int i = 0; i < tempOthers.Length; i++)
+        {
+            BlockData data = new BlockData(tempOthers[i].GetComponent<PhotonView>().ViewID.ToString(), tempOthers[i].transform.GetChild(2).GetComponent<TextMesh>().text,
+                tempOthers[i].GetComponent<Renderer>().material.color, tempOthers[i].transform.position, tempOthers[i].transform.localScale, tempOthers[i].GetComponent<FlyBlock>().GetIsFly());
+            DataList.Add(data);
+        }
+
         GameObject[] tempLine = GameObject.FindGameObjectsWithTag("Line");
         for (int j = 0; j < tempLine.Length; j++)
         {
