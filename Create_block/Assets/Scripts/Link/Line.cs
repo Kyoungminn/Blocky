@@ -112,7 +112,7 @@ public class Line : MonoBehaviour, IPunObservable
 
     public string[] GetObjects()
     {
-        string[] objects = { startObject.name, endObject.name };
+        string[] objects = { startObject.GetComponent<PhotonView>().ViewID.ToString(), endObject.GetComponent<PhotonView>().ViewID.ToString() };
 
         return objects;
     }

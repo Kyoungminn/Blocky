@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System.IO;
+using Photon.Pun;
 
 [System.Serializable]
 public class BlockData
@@ -65,7 +66,7 @@ public class SaveManager : MonoBehaviour
         GameObject[] temp = GameObject.FindGameObjectsWithTag("Old");
         for (int i = 0; i < temp.Length; i++)
         {
-            BlockData data = new BlockData(temp[i].name, temp[i].transform.GetChild(2).GetComponent<TextMesh>().text,
+            BlockData data = new BlockData(temp[i].GetComponent<PhotonView>().ViewID.ToString(), temp[i].transform.GetChild(2).GetComponent<TextMesh>().text,
                 temp[i].GetComponent<Renderer>().material.color, temp[i].transform.position, temp[i].transform.localScale, temp[i].GetComponent<FlyBlock>().GetIsFly());
             DataList.Add(data);
         }
