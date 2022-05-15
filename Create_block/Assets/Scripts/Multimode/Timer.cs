@@ -122,7 +122,7 @@ public class Timer : MonoBehaviour
         Debug.Log(GameObject.Find("RankingCanvas"));
         rankingPanel = GameObject.Find("RankingCanvas");
         rankingPanel.transform.position = new Vector3(0, 10, 10);
-        StartCoroutine("View30SecForRanking");
+        StartCoroutine("View15SecForRanking");
     }
 
     [PunRPC]
@@ -132,7 +132,7 @@ public class Timer : MonoBehaviour
         step1 = GameObject.FindWithTag("StepCanvas").transform.GetChild(0).transform.gameObject;
         step1.SetActive(true);
         //step1.transform.position = new Vector3(0, 30, 0);
-        StartCoroutine("View30Sec", 1);
+        StartCoroutine("View15Sec", 1);
 
     }
 
@@ -142,7 +142,7 @@ public class Timer : MonoBehaviour
         step2 = GameObject.FindWithTag("StepCanvas").transform.GetChild(1).transform.gameObject;
         step2.SetActive(true);
         //step2.transform.position = new Vector3(150, 0, 0);
-        StartCoroutine("View30Sec", 2);
+        StartCoroutine("View15Sec", 2);
     }
 
     IEnumerator PenaltyTimer()
@@ -176,10 +176,10 @@ public class Timer : MonoBehaviour
 
     }
 
-    IEnumerator View30Sec(int n)
+    IEnumerator View15Sec(int n)
     {
-        yield return new WaitForSeconds(30f);
-        Debug.Log("30sec after");
+        yield return new WaitForSeconds(15f);
+        Debug.Log("15sec after");
         if (n == 1)
         {
             step1.transform.position = new Vector3(0, -200, 10);
@@ -191,10 +191,10 @@ public class Timer : MonoBehaviour
 
     }
 
-    IEnumerator View30SecForRanking()
+    IEnumerator View15SecForRanking()
     {
-        yield return new WaitForSeconds(30f);
-        Debug.Log("30sec after ranking");
+        yield return new WaitForSeconds(15f);
+        Debug.Log("15sec after ranking");
         rankingPanel.transform.position = new Vector3(0, -200, 10);
 
     }

@@ -1303,7 +1303,6 @@ GameObject:
   - component: {fileID: 138887362}
   - component: {fileID: 138887361}
   - component: {fileID: 138887360}
-  - component: {fileID: 138887359}
   - component: {fileID: 138887358}
   m_Layer: 5
   m_Name: 'StepCanvas '
@@ -1325,20 +1324,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   editCanvas: {fileID: 138887355}
---- !u!114 &138887359
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 138887355}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1281f1a99f9e850478c487492649accc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Cam: {fileID: 0}
-  pos: {x: 0, y: 0, z: 0}
 --- !u!114 &138887360
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9504,7 +9489,6 @@ GameObject:
   - component: {fileID: 1323128509}
   - component: {fileID: 1323128508}
   - component: {fileID: 1323128507}
-  - component: {fileID: 1323128506}
   - component: {fileID: 1323128505}
   - component: {fileID: 1323128513}
   - component: {fileID: 1323128512}
@@ -9528,20 +9512,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   editCanvas: {fileID: 1323128504}
---- !u!114 &1323128506
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1323128504}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1281f1a99f9e850478c487492649accc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Cam: {fileID: 0}
-  pos: {x: 0, y: 0, z: 0}
 --- !u!114 &1323128507
 MonoBehaviour:
   m_ObjectHideFlags: 0
