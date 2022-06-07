@@ -12,9 +12,9 @@
 <br/>
 
 # 📌팀 호접지몽 
-|<img src="https://user-images.githubusercontent.com/55428816/172295714-de0a680e-9a20-4982-be59-626d17382a13.png" width=300/>|<img src="https://user-images.githubusercontent.com/55428816/172295823-35ff63a7-a964-41cf-9fb5-75e356228116.png" width=300/>|<img src="https://user-images.githubusercontent.com/55428816/172295888-c6acb7f6-bca0-4c6e-b043-62f7cb261745.png" width=300/>|
+|<img src="https://user-images.githubusercontent.com/55428816/172295714-de0a680e-9a20-4982-be59-626d17382a13.png" width=300/>|<img src="https://user-images.githubusercontent.com/55428816/172295888-c6acb7f6-bca0-4c6e-b043-62f7cb261745.png" width=300/>|<img src="https://user-images.githubusercontent.com/55428816/172295823-35ff63a7-a964-41cf-9fb5-75e356228116.png" width=300/>|
 |:-:|:-:|:-:|
-|안민경|박희진|황주이|
+|안민경|황주이|박희진|
 | [@kyoungminn](https://github.com/Kyoungminn) | [@Juyie](https://github.com/Juyie) | [@rajoo1120](https://github.com/rajoo1120) 
 
 # 📌Explanation
