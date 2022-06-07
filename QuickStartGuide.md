@@ -1,4 +1,5 @@
 ### 사용 기기: Oculus Quest2
+### apk 파일 링크: https://drive.google.com/drive/folders/1BuzeLgCoZNBuJKiLTYWUXnisweU8vTNd?usp=sharing
 
 ### Step1. 기기에 apk 파일 설치
 참고 블로그: https://rollingworld.tistory.com/42
